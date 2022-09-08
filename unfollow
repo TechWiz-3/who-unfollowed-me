@@ -1,0 +1,101 @@
+#!/usr/bin/env python3
+
+import os.path
+import requests
+import time
+import json
+
+HOME = os.path.expanduser("~")
+
+# note to self: remember to make the ~/.unfollow dir in the program
+
+def get_user():
+    if os.path.exists(f"{HOME}/.unfollow/user.txt"):
+        with open(f"{HOME}/.unfollow/user.txt") as user_file:
+            user = user_file.readlines()
+        return user[0]
+    else:
+        user = input("What is your github usernane")
+        # request to verify
+
+
+def write_followers(payload):
+    if os.path.exists(f"{HOME}/.unfollow/followers.json"):
+        pass
+    else:
+        #with open(f"{HOME}/.unfollow/followers.json", "w") as follower_file:
+        #    folower_file.write(payload, "\n")
+        pass
+    with open(f"{HOME}/.unfollow/followers.json", "a") as follower_file:
+        follower_file.write(f"{payload}\n")
+
+
+def get_followers(write_file=False):
+    c = 0
+    total_followers = []
+    username = "ahmadawais"
+    username = "constantinrazvan"
+    page = 1
+    TOKEN = "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"
+    headers = {'Authorization': 'token ' + TOKEN}
+    while True:
+        print("page: ", page)
+        raw_data = requests.get(f"https://api.github.com/users/{username}/followers?page={page}&per_page=100", headers=headers)
+        print(raw_data.json())
+        if raw_data.json() == []:
+           print("empty data, breaking now")
+           break
+        if write_file == True:
+            print("writing to file")
+            for user_object in raw_data.json():
+                write_followers(user_object["login"])
+        total_followers.append(raw_data.json())
+        page += 1
+        c += 1
+        if c == 5:
+            return total_followers
+
+
+def get_unfollows():
+    """compare json"""
+    current_followers = []
+    previous_followers = []  # read from the file before being changed
+    with open(f"{HOME}/.unfollow/followers.json") as follower_file:
+       for follower in follower_file:
+           previous_followers.append(follower)
+
+    open(f'{HOME}/.unfollow/followers.json', 'w').close()
+
+    get_followers(write_file=True)
+
+    with open(f"{HOME}/.unfollow/followers.json") as follower_file:
+       for follower in follower_file:
+           current_followers.append(follower)
+
+    # compare
+    for old_follower in previous_followers:
+        result = scan_follows(old_follower, current_followers)
+        if result != True:
+           print(result)
+
+
+def scan_follows(old_follower, current_followers):
+    for current_follower in current_followers:
+        if old_follower == current_follower:
+            return True
+    return old_follower
+
+get_unfollows()
+
+
+import sys
+sys.exit()
+a = get_followers(write_file=True)
+
+for appended_objects in a:
+    print("one page\n\n\n\n\n\n\n\n\n\n\n")
+    for user_object in appended_objects:
+        print(user_object["id"])
+
+#get_unfollows()
+
