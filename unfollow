@@ -15,8 +15,12 @@ def get_user():
             user = user_file.readlines()
         return user[0]
     else:
-        user = input("What is your github usernane")
-        # request to verify
+        user = input("What is your github username: ")
+        # todo: verify the user exists
+        with open(f"{HOME}/.unfollow/user.txt", "w") as user_file:
+            user_file.write(user)
+        get_followers(user, write_file=True, overwrite=True)
+        return None
 
 
 def write_followers(payload):
@@ -30,18 +34,19 @@ def write_followers(payload):
         follower_file.write(f"{payload}\n")
 
 
-def get_followers(write_file=False):
-    c = 0
+def get_followers(username, write_file=False, overwrite=False):
+    if overwrite:
+        # empty the followers file before filling it
+        open(f'{HOME}/.unfollow/followers.json', 'w').close()
+
     total_followers = []
-    username = "ahmadawais"
-    username = "constantinrazvan"
+    #username = "ahmadawais"
+    #username = "constantinrazvan"
     page = 1
     TOKEN = "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"
     headers = {'Authorization': 'token ' + TOKEN}
     while True:
-        print("page: ", page)
         raw_data = requests.get(f"https://api.github.com/users/{username}/followers?page={page}&per_page=100", headers=headers)
-        print(raw_data.json())
         if raw_data.json() == []:
            print("empty data, breaking now")
            break
@@ -51,12 +56,10 @@ def get_followers(write_file=False):
                 write_followers(user_object["login"])
         total_followers.append(raw_data.json())
         page += 1
-        c += 1
-        if c == 5:
-            return total_followers
+    return total_followers
 
 
-def get_unfollows():
+def get_unfollows(username):
     """compare json"""
     current_followers = []
     previous_followers = []  # read from the file before being changed
@@ -66,7 +69,7 @@ def get_unfollows():
 
     open(f'{HOME}/.unfollow/followers.json', 'w').close()
 
-    get_followers(write_file=True)
+    get_followers(username, write_file=True)
 
     with open(f"{HOME}/.unfollow/followers.json") as follower_file:
        for follower in follower_file:
@@ -82,20 +85,13 @@ def get_unfollows():
 def scan_follows(old_follower, current_followers):
     for current_follower in current_followers:
         if old_follower == current_follower:
+            old_follower = old_follower.replace("\n", "")
+            print(old_follower, "found")
             return True
     return old_follower
 
-get_unfollows()
-
-
-import sys
-sys.exit()
-a = get_followers(write_file=True)
-
-for appended_objects in a:
-    print("one page\n\n\n\n\n\n\n\n\n\n\n")
-    for user_object in appended_objects:
-        print(user_object["id"])
-
-#get_unfollows()
-
+username = get_user()
+if username == None:
+    print("we done here")
+else:
+    get_unfollows(username)
