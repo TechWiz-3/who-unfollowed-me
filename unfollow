@@ -10,34 +10,34 @@ HOME = os.path.expanduser("~")
 # note to self: remember to make the ~/.unfollow dir in the program
 
 def get_user():
-    if os.path.exists(f"{HOME}/.unfollow/user.txt"):
-        with open(f"{HOME}/.unfollow/user.txt") as user_file:
+    if os.path.exists(f"{HOME}/.test.unfollow/user.txt"):
+        with open(f"{HOME}/.test.unfollow/user.txt") as user_file:
             user = user_file.readlines()
         return user[0]
     else:
         user = input("What is your github username: ")
         # todo: verify the user exists
-        with open(f"{HOME}/.unfollow/user.txt", "w") as user_file:
+        with open(f"{HOME}/.test.unfollow/user.txt", "w") as user_file:
             user_file.write(user)
         get_followers(user, write_file=True, overwrite=True)
         return None
 
 
 def write_followers(payload):
-    if os.path.exists(f"{HOME}/.unfollow/followers.json"):
+    if os.path.exists(f"{HOME}/.test.unfollow/followers.json"):
         pass
     else:
         #with open(f"{HOME}/.unfollow/followers.json", "w") as follower_file:
         #    folower_file.write(payload, "\n")
         pass
-    with open(f"{HOME}/.unfollow/followers.json", "a") as follower_file:
+    with open(f"{HOME}/.test.unfollow/followers.json", "a") as follower_file:
         follower_file.write(f"{payload}\n")
 
 
 def get_followers(username, write_file=False, overwrite=False):
     if overwrite:
         # empty the followers file before filling it
-        open(f'{HOME}/.unfollow/followers.json', 'w').close()
+        open(f'{HOME}/.test.unfollow/followers.json', 'w').close()
 
     total_followers = []
     #username = "ahmadawais"
@@ -63,15 +63,15 @@ def get_unfollows(username):
     """compare json"""
     current_followers = []
     previous_followers = []  # read from the file before being changed
-    with open(f"{HOME}/.unfollow/followers.json") as follower_file:
+    with open(f"{HOME}/.test.unfollow/followers.json") as follower_file:
        for follower in follower_file:
            previous_followers.append(follower)
 
-    open(f'{HOME}/.unfollow/followers.json', 'w').close()
+    open(f'{HOME}/.test.unfollow/followers.json', 'w').close()
 
     get_followers(username, write_file=True)
 
-    with open(f"{HOME}/.unfollow/followers.json") as follower_file:
+    with open(f"{HOME}/.test.unfollow/followers.json") as follower_file:
        for follower in follower_file:
            current_followers.append(follower)
 
