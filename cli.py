@@ -1,19 +1,19 @@
 #!/usr/bin/evn python3
 
-import threading
-import time
 import sys
+import time
 import argparse
 import requests
+import concurrent.futures
 
-from rich.console import Console
-from rich.panel import Panel
 from rich.rule import Rule
+from rich.panel import Panel
 from rich.status import Status
+from rich.console import Console
 
 # local file imports
-from unfollow import main as unfollow_main
 from beautify import beautify_unfollows
+from unfollow import main as unfollow_main
 
 console = Console()
 
@@ -48,32 +48,26 @@ def get_inverse(bg_col, txt, txt_before=None):
 
 def get_links():
     """get unfollows"""
-    global stop_threads
     global info
     info = unfollow_main()
-    stop_threads = True
+    print_get()
 
 
 def print_get():
     global panels
     global bubbles
     global simple
-    if not panels:
-        print("")
-    spinner = Status("Getting github followers")
-    spinner.start()
-    while True:
-        if stop_threads:
-            spinner.stop()
-            if panels:
-                txt = Panel.fit("[green]✔ [underline]Fetched github followers")
-            elif bubbles:
-                txt = get_inverse("cyan", "[white on cyan]Fetched github\
- followers[/white on cyan]", txt_before=":mag:")
-            elif not panels:
-                txt = "[green]✔ [underline]Fetched github followers"
-            console.print(txt)
-            return
+    if panels:
+        txt = Panel.fit("[green]✔ [underline]Fetched github followers")
+        sys.stdout.write("\033[F")  # lift the line up
+    elif bubbles:
+        txt = get_inverse("cyan", "[white on cyan]Fetched github \
+followers[/white on cyan]", txt_before=":mag:")
+        #end = "\r\n"
+    elif not panels:
+        txt = "[green]✔ [underline]Fetched github followers"
+    console.print(txt)
+    return
 
 
 def no_unfollows():
@@ -158,23 +152,20 @@ def check_connectivity():
 if __name__ == "__main__":
     start()
     check_connectivity()
-    stop_threads = False
-    t1 = threading.Thread(target=get_links)
-    t2 = threading.Thread(target=print_get)
-    t1.start()
-    t2.start()
-    while True:
-        if stop_threads:
-            time.sleep(1)  # give time for the functions to exit
-            if info:  # unfollowers have been detected
-                if bubbles:
-                    beautify_unfollows(info, special="bubbles")
-                elif panels:
-                    beautify_unfollows(info, special="panels")
-                else:
-                    beautify_unfollows(info)
-                end()
-            else:
-                no_unfollows()
-                end()
-            break
+    get_links()
+
+    if info == "first":
+        # follows saved for later
+        end()
+    elif info:  # unfollowers have been detected
+        if bubbles:
+            beautify_unfollows(info, special="bubbles")
+        elif panels:
+            beautify_unfollows(info, special="panels")
+        else:
+            beautify_unfollows(info)
+        end()
+    else:
+        no_unfollows()
+        end()
+
