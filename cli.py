@@ -26,7 +26,7 @@ panels = False
 bubbles = False  # nerd fonts only
 simple = False  # no colour
 
-info = ""  # stores the unfollowers
+info = None  # stores the unfollowers
 
 if args.style == "panels":
     panels = True
@@ -91,16 +91,16 @@ unfollows![/white on green4]"
         console.print(txt_a)
 
 
-def end():
+def end(follower_num=0): ## remember TO CHANge THIS
     # for super pretty version
     # console.print("[#026440 on black][/#026440 on black]Yay we all g bruh[#026440 on black]", style="white on #026440")
     if panels:
-        txt_b = Panel.fit(":fire: You have 80 followers. Keep up the good work\
+        txt_b = Panel.fit(f":fire: You have {follower_num} followers. Keep up the good work\
 \n", subtitle=":pray: Thanks for using this project", subtitle_align="left")
         console.print(txt_b)
         print("\n")
     elif bubbles:
-        txt_b = get_inverse("purple", "[white on purple]You have 80 followers.[/white on purple]")
+        txt_b = get_inverse("purple", f"[white on purple]You have {follower_num} followers.[/white on purple]")
         text_c = get_inverse("magenta", "[white on magenta]Keep up the good\
  work![/white on magenta]")
         console.print(":fire:", txt_b, text_c)
@@ -110,7 +110,7 @@ def end():
         print("")
     elif not panels:
         print("")
-        txt_b = Panel.fit(":fire: You have 80 followers. Keep up the good work\
+        txt_b = Panel.fit(f":fire: You have {follower_num} followers. Keep up the good work\
 \n", subtitle=":pray: Thanks for using this project", subtitle_align="left")
         console.print(txt_b)
         print("\n")
@@ -154,18 +154,18 @@ if __name__ == "__main__":
     check_connectivity()
     get_links()
 
-    if info == "first":
+    if info[0]  == "first":
         # follows saved for later
-        end()
-    elif info:  # unfollowers have been detected
-        if bubbles:
-            beautify_unfollows(info, special="bubbles")
-        elif panels:
-            beautify_unfollows(info, special="panels")
+        end(follower_num=info[1])
+    elif info[0] == "regular":
+        if len(info) == 3:  # unfollowers have been detected
+            if bubbles:
+                beautify_unfollows(info[2], special="bubbles")
+            elif panels:
+                beautify_unfollows(info[2], special="panels")
+            else:
+                beautify_unfollows(info[2])
         else:
-            beautify_unfollows(info)
-        end()
-    else:
-        no_unfollows()
-        end()
+            no_unfollows()
+        end(follower_num=info[1])
 

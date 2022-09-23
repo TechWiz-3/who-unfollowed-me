@@ -4,32 +4,39 @@ import os
 import requests
 import time
 import json
-import threading
+import concurrent.futures
+
+from rich.status import Status
+
+from input import get_input_username
 
 HOME = os.path.expanduser("~")
-stop_threads = False
-stop_spinner = True
+threads_stopped = False
+stop_spinner = None # none, true, false
 
-# note to self: remember to make the ~/.unfollow dir in the program
+executor = concurrent.futures.ThreadPoolExecutor()
 
-def get_user():
+
+def get_user() -> tuple:
     global stop_spinner
     # if the username has been configured
     if os.path.exists(f"{HOME}/.test.unfollow/user.txt"):
         with open(f"{HOME}/.test.unfollow/user.txt") as user_file:
             user = user_file.readlines()
-        return user[0]
+        return ("regular", user[0])
     # first run
     else:
         if not os.path.exists(f"{HOME}/.test.unfollow"):
             os.mkdir(f"{HOME}/.test.unfollow")  # create directory
         stop_spinner = True
-        user = input("What is your github username: ")
+        time.sleep(1.5)  # give a second for the for loop to catch up and stop the spinner
+        user = get_input_username()
+        stop_spinner = False
         # todo: verify the user exists
         with open(f"{HOME}/.test.unfollow/user.txt", "w") as user_file:
             user_file.write(user)
         get_followers(user, write_file=True, overwrite=True)
-        return None
+        return ("first", user)
 
 
 def write_followers(payload):
@@ -44,13 +51,12 @@ def write_followers(payload):
 
 
 def get_followers(username, write_file=False, overwrite=False):
+    """writes to file"""
     if overwrite:
         # empty the followers file before filling it
         open(f'{HOME}/.test.unfollow/followers.json', 'w').close()
 
     total_followers = []
-    #username = "ahmadawais"
-    #username = "constantinrazvan"
     page = 1
     TOKEN = "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"
     headers = {'Authorization': 'token ' + TOKEN}
@@ -65,7 +71,19 @@ def get_followers(username, write_file=False, overwrite=False):
                 write_followers(user_object["login"])
         total_followers.append(raw_data.json())
         page += 1
-    return total_followers
+
+
+def get_unfollow_num(username):
+    TOKEN = "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"
+    headers = {'Authorization': 'token ' + TOKEN}
+    # get number of followers and return
+    raw_data = requests.get(f"https://api.github.com/users/{username}", headers=headers)
+    j_data = raw_data.json()
+    try:
+        follower_number = j_data["followers"]
+    except KeyError:
+        return "Failed to get number of followers"
+    return follower_number
 
 
 def get_unfollows(username):
@@ -104,19 +122,46 @@ def scan_follows(old_follower, current_followers):
 
 
 def run_unfollow():
-    username = get_user()
-    if username == None:
-        stop_threads = True
-        return "first"
+    global threads_stopped
+    action, username = get_user()  # since item list
+    unfollow_num = get_unfollow_num(username)
+    if action == "first":  # user running for first time so no need to compare followers
+        threads_stopped = True
+        return ("first", unfollow_num)  # returns the number of followers
     else:
-        stop_threads = True
-        return get_unfollows(username)
+        threads_stopped = True
+        unfollows = get_unfollows(username)
+        if unfollows:  # if the list came back with content
+            return ("regular", unfollow_num, unfollows)
+        else:  # no unfollows
+            return ("regular", unfollow_num)
 
+
+def run_spinner():
+    global stop_spinner
+    print("")  # print a new line for spacing
+    spinner = Status("Getting followers")
+    spinner.start()
+    while True:
+        if stop_spinner:
+            spinner.stop()
+        elif stop_spinner == False:  # false, not none
+            spinner.start()
+        if threads_stopped:
+            time.sleep(1)  # add a bit of time for aesthetics
+            spinner.stop()
+            return
 
 def main():
-    global stop_threads
-    while True:
-        if stop_threads:
-            time.sleep(1)  # give time for functions to exit
-            break
+    global threads_stopped
+    unfollowed_future = executor.submit(run_unfollow)
+    spin_future = executor.submit(run_spinner)
+    #return spin_future.result()
+    # shutdown the thread pool
+    executor.shutdown() # blocks
+    return unfollowed_future.result()
+    #while True:
+     #   if threads_stopped:
+      #      time.sleep(1)  # give time for functions to exit
+       #     return spin_future.result()
 
