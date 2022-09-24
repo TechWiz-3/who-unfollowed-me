@@ -12,7 +12,7 @@ Heavily inspired by [msaaddev/who-unfollowed-me](https://github.com/msaaddev/who
 ### Installation
 
 ```py
-comming soon
+pip install unfollow
 ```
 
 ### Usage
