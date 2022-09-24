@@ -12,5 +12,6 @@ setup(
     description="😡 Python CLI tool that shows you who has unfollowed you on GitHub",
 #    long_description_content_type='text/markdown',
 #    long_description=long_description,
-    scripts=["unfollow"]
+    scripts=["unfollow"],
+    install_requires=['rich'],
 )
