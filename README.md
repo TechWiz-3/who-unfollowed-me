@@ -2,6 +2,8 @@
 
 ## Python Implementation
 
+![Regular style](./media/regular.png)
+
 ### About
 
 Python CLI tool that shows you who has unfollowed you on GitHub.  
@@ -14,6 +16,8 @@ comming soon
 ```
 
 ### Usage
+
+The first time you run the tool, you will be asked to enter your GitHub username. Subsequent runs will show any unfollowers, with names and links.  
 
 I used this project to learn a lot about [rich](https://github.com/Textualize/rich), thus I created numerous themes which you can use.
 
@@ -28,3 +32,11 @@ As mentioned, [msaaddev/who-unfollowed-me](https://github.com/msaaddev/who-unfol
 1. The data files for the tool are not hidden and are stored in your current directory rather than the home directory
 2. Output looks good but a huge amount is self promotion rather than actual relevant info. (Please don't get me wrong, everyone can self promote as much as they like, I'm just talking about what I wanted to improve)
 3. If the tool is run without internet connection, the file that stores the username is erased
+
+### Gallery
+
+#### Bubbles (w/nerd font)
+![Bubbles](media/bubbles.png)  
+
+#### Panels
+![Panels](media/panels.png)
