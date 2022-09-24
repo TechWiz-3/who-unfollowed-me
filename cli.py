@@ -17,8 +17,19 @@ from unfollow import main as unfollow_main
 
 console = Console()
 
-parser = argparse.ArgumentParser()
-parser.add_argument('style', nargs='?')
+parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
+help_txt = "[optional]\n'panels':   displays\
+ everything in panels\n'bubbles':  displays everything in\
+ bubbles (requires a nerd font to be used)\n'regular':  \
+default, some panels used\n'simple':   no color, coming\
+ soon"
+parser.add_argument('style', nargs='?', help=help_txt)
+
+parser.add_argument('--token', action="store_true",
+                    help="Uses an env variable stored as\
+UNFOLLOW_TOKEN which is a github token for requests to the API."
+               )
+parser.add_argument('--test', action="store_true", help="for testing purposes")
 
 args = parser.parse_args(sys.argv[1:])
 
@@ -119,7 +130,7 @@ def end(follower_num=0): ## remember TO CHANge THIS
 def start():
     if panels:
         txt = Panel.fit(
-            ":dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red][blue] python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
+            ":dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
         )
     elif bubbles:
         print("")
@@ -129,11 +140,9 @@ def start():
         part_d = get_inverse("dark_goldenrod", "[white on dark_goldenrod]by Zac\
  the Wise[/white on dark_goldenrod]")
         txt = f":dancer: {part_a} {part_b} {part_c} {part_d}"
-        #txt = get_inverse("purple", "[on purple]:dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red][blue] python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
-#)
     elif not panels:
         print("")
-        txt = ":dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red][blue] python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
+        txt = ":dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
     console.print(txt)
 
 
