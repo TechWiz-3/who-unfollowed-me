@@ -10,6 +10,7 @@ setup(
     author="Zac the Wise aka TechWiz-3",
     version='1.0.0',
     description="😡 Python CLI tool that shows you who has unfollowed you on GitHub",
+    packages=find_namespace_packages(include=['src.*']),
 #    long_description_content_type='text/markdown',
 #    long_description=long_description,
     scripts=["unfollow"],
