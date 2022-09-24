@@ -40,3 +40,7 @@ As mentioned, [msaaddev/who-unfollowed-me](https://github.com/msaaddev/who-unfol
 
 #### Panels
 ![Panels](media/panels.png)
+
+---
+### 🎉 Commit labels
+If you're interested in the commit labels used in this repo, check out my [git-commit-emoji](https://github.com/TechWiz-3/git-commit-emojis) project
