@@ -27,7 +27,7 @@ parser.add_argument('style', nargs='?', help=help_txt)
 
 parser.add_argument('--token', action="store_true",
                     help="Uses an env variable stored as\
-UNFOLLOW_TOKEN which is a github token for requests to the API."
+ UNFOLLOW_TOKEN which is a github token for requests to the API."
                )
 parser.add_argument('--test', action="store_true", help="for testing purposes")
 
