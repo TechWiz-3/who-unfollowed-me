@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
 import os
-import requests
-import time
+import sys
 import json
+import time
+import requests
 import concurrent.futures
 
 from rich.status import Status
@@ -13,6 +14,16 @@ from input import get_input_username
 HOME = os.path.expanduser("~")
 threads_stopped = False
 stop_spinner = None # none, true, false
+if "--token" in sys.argv:
+    TOKEN = os.getenv("UNFOLLOW_TOKEN")
+    try:
+        HEADERS = {'Authorization': 'token ' + TOKEN}
+    except TypeError:
+        print("Error: UNFOLLOW_TOKEN not found. Maybe refresh your terminal?")
+        sys.exit(1)
+else:
+    TOKEN = ""
+    HEADERS = {}
 
 executor = concurrent.futures.ThreadPoolExecutor()
 
@@ -58,10 +69,8 @@ def get_followers(username, write_file=False, overwrite=False):
 
     total_followers = []
     page = 1
-    TOKEN = "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"
-    headers = {'Authorization': 'token ' + TOKEN}
     while True:
-        raw_data = requests.get(f"https://api.github.com/users/{username}/followers?page={page}&per_page=100", headers=headers)
+        raw_data = requests.get(f"https://api.github.com/users/{username}/followers?page={page}&per_page=100", headers=HEADERS)
         if raw_data.json() == []:
            # empty data, breaking now
            break
@@ -74,10 +83,8 @@ def get_followers(username, write_file=False, overwrite=False):
 
 
 def get_unfollow_num(username):
-    TOKEN = "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"
-    headers = {'Authorization': 'token ' + TOKEN}
     # get number of followers and return
-    raw_data = requests.get(f"https://api.github.com/users/{username}", headers=headers)
+    raw_data = requests.get(f"https://api.github.com/users/{username}", headers=HEADERS)
     j_data = raw_data.json()
     try:
         follower_number = j_data["followers"]
