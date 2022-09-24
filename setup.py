@@ -14,7 +14,6 @@ setup(
         where='src',
     ),
     package_dir={"":"src"},
-    #packages = ['unfollow'],
 #    long_description_content_type='text/markdown',
 #    long_description=long_description,
     scripts=["unfollow"],
