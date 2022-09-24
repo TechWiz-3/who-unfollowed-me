@@ -12,9 +12,13 @@ from rich.status import Status
 from input import get_input_username
 
 HOME = os.path.expanduser("~")
-threads_stopped = False
-stop_spinner = None # none, true, false
+UNFOLLOW_PATH = f"{HOME}/.unfollow"
+
+if "--test" in sys.argv:
+    UNFOLLOW_PATH = f"{HOME}/.test.unfollow"
+
 if "--token" in sys.argv:
+    print("yes")
     TOKEN = os.getenv("UNFOLLOW_TOKEN")
     try:
         HEADERS = {'Authorization': 'token ' + TOKEN}
@@ -25,39 +29,40 @@ else:
     TOKEN = ""
     HEADERS = {}
 
+threads_stopped = False
+stop_spinner = None # none, true, false
+
 executor = concurrent.futures.ThreadPoolExecutor()
 
 
 def get_user() -> tuple:
     global stop_spinner
     # if the username has been configured
-    if os.path.exists(f"{HOME}/.test.unfollow/user.txt"):
-        with open(f"{HOME}/.test.unfollow/user.txt") as user_file:
+    if os.path.exists(f"{UNFOLLOW_PATH}/user.txt"):
+        with open(f"{UNFOLLOW_PATH}/user.txt") as user_file:
             user = user_file.readlines()
         return ("regular", user[0])
     # first run
     else:
-        if not os.path.exists(f"{HOME}/.test.unfollow"):
-            os.mkdir(f"{HOME}/.test.unfollow")  # create directory
+        if not os.path.exists(f"{UNFOLLOW_PATH}"):
+            os.mkdir(f"{UNFOLLOW_PATH}")  # create directory
         stop_spinner = True
         time.sleep(1.5)  # give a second for the for loop to catch up and stop the spinner
         user = get_input_username()
         stop_spinner = False
         # todo: verify the user exists
-        with open(f"{HOME}/.test.unfollow/user.txt", "w") as user_file:
+        with open(f"{UNFOLLOW_PATH}/user.txt", "w") as user_file:
             user_file.write(user)
         get_followers(user, write_file=True, overwrite=True)
         return ("first", user)
 
 
 def write_followers(payload):
-    if os.path.exists(f"{HOME}/.test.unfollow/followers.json"):
+    if os.path.exists(f"{UNFOLLOW_PATH}/followers.json"):
         pass
     else:
-        #with open(f"{HOME}/.unfollow/followers.json", "w") as follower_file:
-        #    folower_file.write(payload, "\n")
         pass
-    with open(f"{HOME}/.test.unfollow/followers.json", "a") as follower_file:
+    with open(f"{UNFOLLOW_PATH}/followers.json", "a") as follower_file:
         follower_file.write(f"{payload}\n")
 
 
@@ -65,7 +70,7 @@ def get_followers(username, write_file=False, overwrite=False):
     """writes to file"""
     if overwrite:
         # empty the followers file before filling it
-        open(f'{HOME}/.test.unfollow/followers.json', 'w').close()
+        open(f'{UNFOLLOW_PATH}/followers.json', 'w').close()
 
     total_followers = []
     page = 1
@@ -98,15 +103,15 @@ def get_unfollows(username):
     unfollowers = []
     current_followers = []
     previous_followers = []  # read from the file before being changed
-    with open(f"{HOME}/.test.unfollow/followers.json") as follower_file:
+    with open(f"{UNFOLLOW_PATH}/followers.json") as follower_file:
        for follower in follower_file:
            previous_followers.append(follower)
 
-    open(f'{HOME}/.test.unfollow/followers.json', 'w').close()
+    open(f'{UNFOLLOW_PATH}/followers.json', 'w').close()
 
     get_followers(username, write_file=True)
 
-    with open(f"{HOME}/.test.unfollow/followers.json") as follower_file:
+    with open(f"{UNFOLLOW_PATH}/followers.json") as follower_file:
        for follower in follower_file:
            current_followers.append(follower)
 
@@ -163,12 +168,7 @@ def main():
     global threads_stopped
     unfollowed_future = executor.submit(run_unfollow)
     spin_future = executor.submit(run_spinner)
-    #return spin_future.result()
     # shutdown the thread pool
     executor.shutdown() # blocks
     return unfollowed_future.result()
-    #while True:
-     #   if threads_stopped:
-      #      time.sleep(1)  # give time for functions to exit
-       #     return spin_future.result()
 
