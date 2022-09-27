@@ -2,7 +2,11 @@
 
 ## Python Implementation
 
+![PyPI - Downloads](https://img.shields.io/pypi/dm/unfollow?style=flat-square)
+
 ![Regular style](./media/regular.png)
+
+**HacktoberFest info coming soon**
 
 ### About
 
