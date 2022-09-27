@@ -2,8 +2,6 @@
 
 ## Python Implementation
 
-![PyPI - Downloads](https://img.shields.io/pypi/dm/unfollow?style=flat-square)
-
 ![Regular style](./media/regular.png)
 
 **HacktoberFest info coming soon**
@@ -14,6 +12,8 @@ Python CLI tool that shows you who has unfollowed you on GitHub.
 Heavily inspired by [msaaddev/who-unfollowed-me](https://github.com/msaaddev/who-unfollowed-me)  
 
 ### Installation
+
+![PyPI - Downloads](https://img.shields.io/pypi/dm/unfollow?style=flat-square&color=blue)
 
 ```py
 pip install unfollow
