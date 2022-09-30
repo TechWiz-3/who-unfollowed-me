@@ -29,7 +29,7 @@ else:
     TOKEN = ""
     HEADERS = {}
 
-threads_stopped = False
+threads_stopped = False  # used to stop spinner thread
 stop_spinner = None # none, true, false
 
 executor = concurrent.futures.ThreadPoolExecutor()
@@ -87,7 +87,7 @@ def get_followers(username, write_file=False, overwrite=False):
         page += 1
 
 
-def get_unfollow_num(username):
+def get_follow_num(username):
     # get number of followers and return
     raw_data = requests.get(f"https://api.github.com/users/{username}", headers=HEADERS)
     j_data = raw_data.json()
@@ -103,14 +103,18 @@ def get_unfollows(username):
     unfollowers = []
     current_followers = []
     previous_followers = []  # read from the file before being changed
+    # load the current content of the file
     with open(f"{UNFOLLOW_PATH}/followers.json") as follower_file:
        for follower in follower_file:
            previous_followers.append(follower)
 
+    # clear the file
     open(f'{UNFOLLOW_PATH}/followers.json', 'w').close()
 
+    # get the new followers and put in file
     get_followers(username, write_file=True)
 
+    # get newly added 'current' followers and load to file
     with open(f"{UNFOLLOW_PATH}/followers.json") as follower_file:
        for follower in follower_file:
            current_followers.append(follower)
@@ -124,6 +128,12 @@ def get_unfollows(username):
 
 
 def scan_follows(old_follower, current_followers):
+    """
+    takes a single old follower and
+    compares to current followers
+    if found: return True
+    if not found: return name of follower
+    """
     for current_follower in current_followers:
         if old_follower == current_follower:
             old_follower = old_follower.replace("\n", "")
@@ -136,17 +146,17 @@ def scan_follows(old_follower, current_followers):
 def run_unfollow():
     global threads_stopped
     action, username = get_user()  # since item list
-    unfollow_num = get_unfollow_num(username)
+    follow_num = get_follow_num(username)
     if action == "first":  # user running for first time so no need to compare followers
         threads_stopped = True
-        return ("first", unfollow_num)  # returns the number of followers
+        return ("first", follow_num)  # returns the number of followers
     else:
         threads_stopped = True
         unfollows = get_unfollows(username)
         if unfollows:  # if the list came back with content
-            return ("regular", unfollow_num, unfollows)
+            return ("regular", follow_num, unfollows)
         else:  # no unfollows
-            return ("regular", unfollow_num)
+            return ("regular", follow_num)
 
 
 def run_spinner():
@@ -165,7 +175,16 @@ def run_spinner():
             return
 
 def main():
-    global threads_stopped
+    """
+    returns either a two item tuple or
+    three item tuple
+    item 1: "regular" or "first"
+    item 2: number of followers on account
+    [item 3: unfollows]
+        format: [("username", "link"),]
+    """
+
+    global threads_stopped  # used to stop run_spinner()
     unfollowed_future = executor.submit(run_unfollow)
     spin_future = executor.submit(run_spinner)
     # shutdown the thread pool
