@@ -4,7 +4,7 @@
 
 ![Regular style](./media/regular.png)
 
-**HacktoberFest info coming soon**
+**Check Issues for HacktoberFest**
 
 ### About
 
