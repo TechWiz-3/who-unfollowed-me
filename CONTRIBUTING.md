@@ -4,7 +4,7 @@ First of all, thank you so much for taking a deeper look at the project. It does
 
 PRs and issues of all sorts are welcome, here are some guides to help you out.  
 
-When contributing to this repository, preferably first discuess the changes you wish to implement via [GitHub Issues](https://github.com/TechWiz-3/happy-jar-cli/issues) page.
+When contributing to this repository, preferably first discuss the changes you wish to implement and how via [GitHub Issues](https://github.com/TechWiz-3/happy-jar-cli/issues) page.
 
 If you're unure you to help, check out the `Todo` section of the project's README.md.  
 
