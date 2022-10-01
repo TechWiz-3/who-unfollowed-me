@@ -30,6 +30,15 @@ I used this project to learn a lot about [rich](https://github.com/Textualize/ri
 `unfollow bubbles` - all text inside beautiful bubbles - requires a nerd font  
 `unfollow simple` - no colors or emojis, just plain text and a table - coming soon  
 
+### Contribute with Development
+
+1. Please check the [HACKING.md](https://github.com/TechWiz-3/who-unfollowed-me/blob/main/HACKING.md) for info on the logical workings of the program
+2. All source code within the `src` directory
+3. To test the binary is working by running `python setup.py develop`
+4. find the binary by running `which unfollow`, if you have the return text with location of the binary so you success to install locally
+5. try running with command `unfollow`
+6. happy hacking!
+
 ### Inspiration
 
 As mentioned, [msaaddev/who-unfollowed-me](https://github.com/msaaddev/who-unfollowed-me) was the reason I created this project and has been a great reference. While I love the project, three things stood out to me that I wanted to improve in my own implementation:

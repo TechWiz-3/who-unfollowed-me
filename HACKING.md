@@ -1,6 +1,6 @@
 Files run in order:
 
-1. `unfollow` imports `unfollow.cli` and runs the `main` function
+1. `unfollow` imports `src.unfollow.cli` and runs the `main` function
 2. `cli.py` - `main()`
     1.  `main()` runs and dispays start screen through function `start()`
     2. `check_connectivity()` - makes a request to google.com to ensure the user is connected to the internet

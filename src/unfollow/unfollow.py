@@ -9,7 +9,7 @@ import concurrent.futures
 
 from rich.status import Status
 
-from unfollow.input import get_input_username
+from src.unfollow.input import get_input_username
 
 HOME = os.path.expanduser("~")
 UNFOLLOW_PATH = f"{HOME}/.unfollow"

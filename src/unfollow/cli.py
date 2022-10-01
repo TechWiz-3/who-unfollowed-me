@@ -12,8 +12,9 @@ from rich.status import Status
 from rich.console import Console
 
 # local file imports
-from unfollow.beautify import beautify_unfollows
-from unfollow.unfollow import main as unfollow_main
+from src.unfollow.beautify import beautify_unfollows
+from src.unfollow.unfollow import main as unfollow_main
+from src.unfollow.version import VERSION
 
 console = Console()
 
@@ -130,19 +131,19 @@ def end(follower_num=0): ## remember TO CHANge THIS
 def start():
     if panels:
         txt = Panel.fit(
-            ":dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
+            f":dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red] [white]v{VERSION}[/white] [blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
         )
     elif bubbles:
         print("")
         part_a = get_inverse("purple", "[white on purple]Welcome to[/white on purple]")
-        part_b = get_inverse("red", "[white on red]who-unfollowed-me[/white on red]")
+        part_b = get_inverse("red", f"[white on red]who-unfollowed-me v{VERSION}[/white on red]")
         part_c = get_inverse("blue", "[white on blue]the Python implementation[/white on blue]")
         part_d = get_inverse("dark_goldenrod", "[white on dark_goldenrod]by Zac\
  the Wise[/white on dark_goldenrod]")
         txt = f":dancer: {part_a} {part_b} {part_c} {part_d}"
     elif not panels:
         print("")
-        txt = ":dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
+        txt = f":dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red] [white]v{VERSION}[/white][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
     console.print(txt)
 
 
