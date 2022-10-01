@@ -12,8 +12,8 @@ from rich.status import Status
 from rich.console import Console
 
 # local file imports
-from unfollow.beautify import beautify_unfollows
-from unfollow.unfollow import main as unfollow_main
+from beautify import beautify_unfollows
+from unfollow import main as unfollow_main
 
 console = Console()
 
@@ -178,3 +178,6 @@ def main():
             no_unfollows()
         end(follower_num=info[1])
 
+
+if __name__ == "__main__":
+    main()
