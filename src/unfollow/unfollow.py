@@ -101,7 +101,7 @@ def check_deleted(username):
     """ checks if page doesn't exit
         returns true if deleted
         true otherwise"""
-    response_code = requests.get(f"https://api.github.com/users/{username}").status_code
+    response_code = requests.get(f"https://api.github.com/users/{username}", headers = HEADERS).status_code
     if response_code == 404:
         return True
     else:
@@ -131,10 +131,11 @@ def get_unfollows(username):
     # compare
     for old_follower in previous_followers:
         result = scan_follows(old_follower, current_followers)
+        result_for_link = result
         if result != True:
             if check_deleted(result):
                 result=f"{result} [deleted]"
-            unfollowers.append((result,f"https://github.com/{result}/"))
+            unfollowers.append((result,f"https://github.com/{result_for_link}/"))
     return unfollowers
 
 
