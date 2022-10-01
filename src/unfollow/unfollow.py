@@ -97,6 +97,15 @@ def get_follow_num(username):
         return "Failed to get number of followers"
     return follower_number
 
+def check_deleted(username):
+    """ checks if page doesn't exit
+        returns true if deleted
+        true otherwise"""
+    response_code = requests.get(f"https://api.github.com/users/{username}").status_code
+    if response_code == 404:
+        return True
+    else:
+        return False
 
 def get_unfollows(username):
     """compare json"""
@@ -123,6 +132,8 @@ def get_unfollows(username):
     for old_follower in previous_followers:
         result = scan_follows(old_follower, current_followers)
         if result != True:
+            if check_deleted(result):
+                result+="[deleted]"
             unfollowers.append((result,f"https://github.com/{result}/"))
     return unfollowers
 
