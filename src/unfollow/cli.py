@@ -55,6 +55,12 @@ elif theme == "bubbles":
 elif theme == "simple":
     simple = True  # no colour
 
+if args.style == "panels":
+    panels = True
+elif args.style == "bubbles":
+    bubbles = True
+elif args.style == "simple":
+    simple = True
 
 def get_inverse(bg_col, txt, txt_before=None):
     circle_style=f"[{bg_col}]"
