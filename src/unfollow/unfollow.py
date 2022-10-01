@@ -133,7 +133,7 @@ def get_unfollows(username):
         result = scan_follows(old_follower, current_followers)
         if result != True:
             if check_deleted(result):
-                result+="[deleted]"
+                result=f"{result} [deleted]"
             unfollowers.append((result,f"https://github.com/{result}/"))
     return unfollowers
 
