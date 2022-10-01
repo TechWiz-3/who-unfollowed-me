@@ -8,8 +8,10 @@ import requests
 import concurrent.futures
 
 from rich.status import Status
+import toml
 
-from unfollow.input import get_input_username
+from src.unfollow.input import get_input_username
+from src.unfollow.config import default_config
 
 HOME = os.path.expanduser("~")
 UNFOLLOW_PATH = f"{HOME}/.unfollow"
@@ -64,6 +66,18 @@ def write_followers(payload):
         pass
     with open(f"{UNFOLLOW_PATH}/followers.json", "a") as follower_file:
         follower_file.write(f"{payload}\n")
+
+
+def get_config() -> dict:
+    global threads_stopped
+    if os.path.exists(f"{UNFOLLOW_PATH}/unfollow.toml"):
+        config = toml.load(f"{UNFOLLOW_PATH}/unfollow.toml")
+    else:
+        with open(f"{UNFOLLOW_PATH}/unfollow.toml", "w") as config_file:
+            config = toml.loads(default_config)
+            toml.dump(config, config_file)
+
+    return config
 
 
 def get_followers(username, write_file=False, overwrite=False):
