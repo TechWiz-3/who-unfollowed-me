@@ -12,10 +12,12 @@ from rich.status import Status
 from rich.console import Console
 
 # local file imports
-from unfollow.beautify import beautify_unfollows
-from unfollow.unfollow import main as unfollow_main
+from src.unfollow.beautify import beautify_unfollows
+from src.unfollow.unfollow import get_config, main as unfollow_main
 
 console = Console()
+
+config = get_config()
 
 parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
 help_txt = "[optional]\n'panels':   displays\
@@ -39,11 +41,11 @@ simple = False  # no colour
 
 info = None  # stores the unfollowers
 
-if args.style == "panels":
+if config['apperance']['styling']['theme'] == "panels":
     panels = True
-elif args.style == "bubbles":
+elif config['apperance']['styling']['theme'] == "bubbles":
     bubbles = True
-elif args.style == "simple":
+elif config['apperance']['styling']['theme'] == "simple":
     simple = True  # no colour
 
 
