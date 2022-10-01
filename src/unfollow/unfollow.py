@@ -134,7 +134,7 @@ def get_unfollows(username):
         result_for_link = result
         if result != True:
             if check_deleted(result):
-                result=f"{result} [deleted]"
+                result=f"{result} \[deleted]"
             unfollowers.append((result,f"https://github.com/{result_for_link}/"))
     return unfollowers
 
