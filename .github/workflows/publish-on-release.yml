@@ -30,7 +30,7 @@ jobs:
       with:
         password: ${{ secrets.PYPI_API_TOKEN }}
 
-  build_linux:
+  build_executable:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
