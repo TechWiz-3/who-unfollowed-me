@@ -12,8 +12,8 @@ from rich.status import Status
 from rich.console import Console
 
 # local file imports
-from src.unfollow.beautify import beautify_unfollows
-from src.unfollow.unfollow import get_config, main as unfollow_main
+from unfollow.beautify import beautify_unfollows
+from unfollow.unfollow import get_config, main as unfollow_main
 
 console = Console()
 
