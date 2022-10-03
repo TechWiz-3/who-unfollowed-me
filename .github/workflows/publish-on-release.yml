@@ -46,7 +46,7 @@ jobs:
     - name: Install dependencies for building
       run: pip install -r requirements.txt pyinstaller
     - name: Create executable
-      run: pyinstaller unfollow
+      run: pyinstaller unfollow --onefile
     - uses: actions/upload-artifact@v2
       with:
         name: ${{ matrix.os }} package
