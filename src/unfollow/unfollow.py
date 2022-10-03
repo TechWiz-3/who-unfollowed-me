@@ -10,8 +10,8 @@ import concurrent.futures
 from rich.status import Status
 import toml
 
-from src.unfollow.input import get_input_username
-from src.unfollow.config import default_config
+from unfollow.input import get_input_username
+from unfollow.config import default_config
 
 HOME = os.path.expanduser("~")
 UNFOLLOW_PATH = f"{HOME}/.unfollow"
