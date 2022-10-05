@@ -13,7 +13,8 @@ from rich.console import Console
 
 # local file imports
 from unfollow.beautify import beautify_unfollows
-from unfollow.unfollow import get_config, main as unfollow_main
+from unfollow.unfollow import main as unfollow_main
+from unfollow.config import get_config
 
 console = Console()
 

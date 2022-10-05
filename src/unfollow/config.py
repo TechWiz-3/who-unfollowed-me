@@ -1,5 +1,10 @@
 #!/usr/bin/evn python3
 
+import toml
+import os
+
+from unfollow import UNFOLLOW_PATH
+
 default_config = """
 [appearance]
 
@@ -43,3 +48,13 @@ end_message_b = "[white on magenta]Keep up the good work![/white on magenta]"
 thankyou_message = "[white on blue]Thanks for using this project[/white on blue]"
 """
 
+def get_config() -> dict:
+    global threads_stopped
+    if os.path.exists(f"{UNFOLLOW_PATH}/unfollow.toml"):
+        config = toml.load(f"{UNFOLLOW_PATH}/unfollow.toml")
+    else:
+        with open(f"{UNFOLLOW_PATH}/unfollow.toml", "w") as config_file:
+            config = toml.loads(default_config)
+            toml.dump(config, config_file)
+
+    return config
