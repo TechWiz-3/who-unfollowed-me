@@ -14,8 +14,18 @@ from rich.console import Console
 # local file imports
 from unfollow.beautify import beautify_unfollows
 from unfollow.unfollow import main as unfollow_main
+from unfollow.config import get_config
 
 console = Console()
+
+config = get_config()
+
+theme = config['apperance']['styling']['theme']
+emojis = config['apperance']['emojis']
+
+locale_lang = config['locale']['locale']
+locale = config['locale'][locale_lang][theme]
+
 
 parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
 help_txt = "[optional]\n'panels':   displays\
@@ -39,13 +49,19 @@ simple = False  # no colour
 
 info = None  # stores the unfollowers
 
+if theme == "panels":
+    panels = True
+elif theme == "bubbles":
+    bubbles = True
+elif theme == "simple":
+    simple = True  # no colour
+
 if args.style == "panels":
     panels = True
 elif args.style == "bubbles":
     bubbles = True
 elif args.style == "simple":
-    simple = True  # no colour
-
+    simple = True
 
 def get_inverse(bg_col, txt, txt_before=None):
     circle_style=f"[{bg_col}]"
@@ -69,14 +85,13 @@ def print_get():
     global bubbles
     global simple
     if panels:
-        txt = Panel.fit("[green]✔ [underline]Fetched github followers")
+        txt = Panel.fit(locale['fetched_followers_message'])
         sys.stdout.write("\033[F")  # lift the line up
     elif bubbles:
-        txt = get_inverse("cyan", "[white on cyan]Fetched github \
-followers[/white on cyan]", txt_before=":mag:")
+        txt = get_inverse("cyan", locale['fetched_followers_message'], txt_before=":mag:")
         #end = "\r\n"
     elif not panels:
-        txt = "[green]✔ [underline]Fetched github followers"
+        txt = locale['fetched_followers_message']
     console.print(txt)
     return
 
@@ -85,20 +100,16 @@ def no_unfollows():
     from rich.style import Style
     a = Style(color="green")
     if panels:
-        txt = Panel.fit("[white on #308012] No unfollows! [/white on #308012]                                ",
-                          border_style=a
-                        )
+        txt = Panel.fit(locale['no_unfollows_message'],border_style=a)
         console.print(txt)
     elif bubbles:
         print("")
-        txt = get_inverse("green4", "[white on green4]No \
-unfollows![/white on green4]"
-               )
-        console.print(":thumbs_up:", txt)
+        txt = get_inverse("green4", locale['no_unfollows_message'])
+        console.print(emojis['no_unfollows_emoji'], txt)
         print("")
     elif not panels:
         print("")
-        txt_a = "[green]:raised_hands: [underline]No unfollows!"
+        txt_a = locale['no_unfollows_message']
         console.print(txt_a)
 
 
@@ -106,43 +117,37 @@ def end(follower_num=0): ## remember TO CHANge THIS
     # for super pretty version
     # console.print("[#026440 on black][/#026440 on black]Yay we all g bruh[#026440 on black]", style="white on #026440")
     if panels:
-        txt_b = Panel.fit(f":fire: You have {follower_num} followers. Keep up the good work\
-\n", subtitle=":pray: Thanks for using this project", subtitle_align="left")
+        txt_b = Panel.fit(locale['end_message'].format(follower_num=follower_num), subtitle=locale['thankyou_message'], subtitle_align="left")
         console.print(txt_b)
         print("\n")
     elif bubbles:
-        txt_b = get_inverse("purple", f"[white on purple]You have {follower_num} followers.[/white on purple]")
-        text_c = get_inverse("magenta", "[white on magenta]Keep up the good\
- work![/white on magenta]")
-        console.print(":fire:", txt_b, text_c)
+        txt_b = get_inverse("purple", locale['end_message_a'].format(follower_num=follower_num))
+        text_c = get_inverse("magenta", locale['end_message_b'])
+        console.print(emojis['follow_count_emoji'], txt_b, text_c)
         print("")
-        txt = get_inverse("blue", "[white on blue]Thanks for using this project[/white on blue]")
-        console.print(":pray:", txt)
+        txt = get_inverse("blue", locale['thankyou_message'])
+        console.print(emojis['thankyou_emoji'], txt)
         print("")
     elif not panels:
         print("")
-        txt_b = Panel.fit(f":fire: You have {follower_num} followers. Keep up the good work\
-\n", subtitle=":pray: Thanks for using this project", subtitle_align="left")
+        txt_b = Panel.fit(locale['end_message'].format(follower_num=follower_num), subtitle=":pray: Thanks for using this project", subtitle_align="left")
         console.print(txt_b)
         print("\n")
 
 
 def start():
     if panels:
-        txt = Panel.fit(
-            ":dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
-        )
+        txt = Panel.fit(locale['welcome_message'])
     elif bubbles:
         print("")
-        part_a = get_inverse("purple", "[white on purple]Welcome to[/white on purple]")
-        part_b = get_inverse("red", "[white on red]who-unfollowed-me[/white on red]")
-        part_c = get_inverse("blue", "[white on blue]the Python implementation[/white on blue]")
-        part_d = get_inverse("dark_goldenrod", "[white on dark_goldenrod]by Zac\
- the Wise[/white on dark_goldenrod]")
-        txt = f":dancer: {part_a} {part_b} {part_c} {part_d}"
+        part_a = get_inverse("purple", locale['welcome_message_a'])
+        part_b = get_inverse("red", locale['welcome_message_b'])
+        part_c = get_inverse("blue", locale['welcome_message_c'])
+        part_d = get_inverse("dark_goldenrod", locale['welcome_message_d'])
+        txt = f"{emojis['init_emoji']} {part_a} {part_b} {part_c} {part_d}"
     elif not panels:
         print("")
-        txt = ":dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
+        txt = locale['welcome_message']
     console.print(txt)
 
 
