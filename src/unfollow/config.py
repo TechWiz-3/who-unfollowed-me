@@ -3,15 +3,15 @@
 import toml
 import os
 
-from unfollow import UNFOLLOW_PATH
+from src.unfollow.unfollow import UNFOLLOW_PATH
 
 default_config = """
 [appearance]
 
-[apperance.styling]
+[appearance.styling]
 theme = "bubbles"
 
-[apperance.emojis]
+[appearance.emojis]
 init_emoji = ":dancer:"
 fetch_success_emoji = ":heavy_check_mark:"
 no_unfollows_emoji = ":raised_hands:"

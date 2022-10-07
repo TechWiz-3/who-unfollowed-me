@@ -8,8 +8,8 @@ import concurrent.futures
 
 from rich.status import Status
 
-from unfollow.input import get_input_username
-
+from src.unfollow.input import get_input_username
+from src.unfollow.cli import simple
 HOME = os.path.expanduser("~")
 UNFOLLOW_PATH = f"{HOME}/.unfollow"
 
@@ -47,7 +47,10 @@ def get_user() -> tuple:
             os.mkdir(f"{UNFOLLOW_PATH}")  # create directory
         stop_spinner = True
         time.sleep(1.5)  # give a second for the for loop to catch up and stop the spinner
-        user = get_input_username()
+        if simple==True:
+            user = get_input_username(panels=False, bubbles=False, simple=True)
+        else:
+            user = get_input_username()
         stop_spinner = False
         # todo: verify the user exists
         with open(f"{UNFOLLOW_PATH}/user.txt", "w") as user_file:

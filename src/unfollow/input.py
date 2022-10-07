@@ -6,7 +6,24 @@ from sys import exit
 console = Console()
 
 def get_input_username(panels=False, bubbles=False, simple=False):
-    if not panels and not bubbles and not simple:
+    print(simple)
+    if simple:
+        # Without :label:  [magenta] - simple version
+        user = console.input("Please enter your GitHub username: ")
+        print("")
+        if user_exists(user):
+            return user
+        else:
+            while not user_exists(user):
+                console.print("User invalid!")
+                try:
+                    user = console.input("Please enter your GitHub username: ")
+                    print("")
+                except KeyboardInterrupt:
+                    print("\nYou have cancelled the username operation! If you are experiencing a bug, please report it.\n")
+                    exit(1)
+            return user
+    elif not panels and not bubbles and not simple:
         user = console.input(":label:  [magenta]Please enter your GitHub username: [/magenta]")
         print("")
         if user_exists(user):

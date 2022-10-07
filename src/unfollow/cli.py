@@ -12,16 +12,16 @@ from rich.status import Status
 from rich.console import Console
 
 # local file imports
-from unfollow.beautify import beautify_unfollows
-from unfollow.unfollow import main as unfollow_main
-from unfollow.config import get_config
+from src.unfollow.beautify import beautify_unfollows
+from src.unfollow.unfollow import main as unfollow_main
+from src.unfollow.config import get_config
 
 console = Console()
 
 config = get_config()
 
-theme = config['apperance']['styling']['theme']
-emojis = config['apperance']['emojis']
+theme = config['appearance']['styling']['theme']
+emojis = config['appearance']['emojis']
 
 locale_lang = config['locale']['locale']
 locale = config['locale'][locale_lang][theme]
@@ -90,6 +90,8 @@ def print_get():
     elif bubbles:
         txt = get_inverse("cyan", locale['fetched_followers_message'], txt_before=":mag:")
         #end = "\r\n"
+    elif simple:
+        txt = "Fetched github followers"
     elif not panels:
         txt = locale['fetched_followers_message']
     console.print(txt)
@@ -107,6 +109,10 @@ def no_unfollows():
         txt = get_inverse("green4", locale['no_unfollows_message'])
         console.print(emojis['no_unfollows_emoji'], txt)
         print("")
+    elif simple:
+        print("")
+        txt_a = "No unfollows!"
+        console.print(txt_a)
     elif not panels:
         print("")
         txt_a = locale['no_unfollows_message']
@@ -128,6 +134,12 @@ def end(follower_num=0): ## remember TO CHANge THIS
         txt = get_inverse("blue", locale['thankyou_message'])
         console.print(emojis['thankyou_emoji'], txt)
         print("")
+    elif simple:
+        print("")
+        txt_b = Panel.fit(f"You have {follower_num} followers. Keep up the good work\
+\n", subtitle="Thanks for using this project", subtitle_align="left")
+        console.print(txt_b)
+        print("\n")
     elif not panels:
         print("")
         txt_b = Panel.fit(locale['end_message'].format(follower_num=follower_num), subtitle=":pray: Thanks for using this project", subtitle_align="left")
@@ -145,6 +157,9 @@ def start():
         part_c = get_inverse("blue", locale['welcome_message_c'])
         part_d = get_inverse("dark_goldenrod", locale['welcome_message_d'])
         txt = f"{emojis['init_emoji']} {part_a} {part_b} {part_c} {part_d}"
+    elif simple:
+        print("")
+        txt = "Welcome to who-unfollowed-me Python implementation by Zac the Wise"
     elif not panels:
         print("")
         txt = locale['welcome_message']
@@ -177,6 +192,8 @@ def main():
                 beautify_unfollows(info[2], special="bubbles")
             elif panels:
                 beautify_unfollows(info[2], special="panels")
+            elif simple:
+                beautify_unfollows(info[2], special="simple")
             else:
                 beautify_unfollows(info[2])
         else:
