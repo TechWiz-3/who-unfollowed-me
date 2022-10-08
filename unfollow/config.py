@@ -3,7 +3,7 @@
 import toml
 import os
 
-from unfollow import UNFOLLOW_PATH
+from unfollow.unfollow import UNFOLLOW_PATH
 
 default_config = """
 [appearance]

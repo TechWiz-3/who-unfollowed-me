@@ -26,7 +26,6 @@ emojis = config['apperance']['emojis']
 locale_lang = config['locale']['locale']
 locale = config['locale'][locale_lang][theme]
 
-
 parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
 help_txt = "[optional]\n'panels':   displays\
  everything in panels\n'bubbles':  displays everything in\
@@ -182,6 +181,7 @@ def main():
         else:
             no_unfollows()
         end(follower_num=info[1])
+    print("ayooooo")
 
 
 if __name__ == "__main__":
