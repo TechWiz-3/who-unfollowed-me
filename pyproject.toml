@@ -5,11 +5,13 @@ description = "😡 Python CLI tool that shows you who has unfollowed you on Git
 authors = ["TechWiz-3 <programmingplus1@gmail.com>"]
 license = "GPL-3.0"
 readme = "README.md"
-packages = [{include = "who_unfollowed_me"}]
+packages = [{include = "unfollow"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
 rich = "^12.6.0"
+requests = "^2.28.1"
+toml = "^0.10.2"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -20,4 +22,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-my-script = "unfollow.cli:main"
+unfollow = "unfollow.cli:main"
