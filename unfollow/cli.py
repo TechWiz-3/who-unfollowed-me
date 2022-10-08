@@ -183,3 +183,6 @@ def main():
             no_unfollows()
         end(follower_num=info[1])
 
+
+if __name__ == "__main__":
+    main()
