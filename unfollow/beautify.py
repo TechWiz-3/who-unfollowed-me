@@ -8,8 +8,9 @@ blue = Style(color="blue")
 red = Style(color="red", bold=True)
 bright_red = Style(color="bright_red")
 
+
 def get_inverse(bg_col, txt):
-    circle_style=f"[{bg_col}]"
+    circle_style = f"[{bg_col}]"
     circle_close = f"{circle_style[:1]}/{circle_style[1:]}"
     return f"{circle_style}{circle_close}{txt}{circle_style}{circle_close}"
 

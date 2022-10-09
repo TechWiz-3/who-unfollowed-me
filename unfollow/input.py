@@ -1,7 +1,7 @@
-from rich.console import Console
-from rich.panel import Panel
 import requests
 from sys import exit
+from rich.console import Console
+
 
 console = Console()
 
@@ -20,7 +20,6 @@ def get_input_username(panels=False, bubbles=False, simple=False):
                 print("\nYou have cancelled the username operation! If you are experiencing a bug, please report it.\n")
                 exit(1)
     return user
-
 
 
 def user_exists(user):
