@@ -20,7 +20,7 @@ if "--token" in sys.argv:
     print("yes")
     TOKEN = os.getenv("UNFOLLOW_TOKEN")
     try:
-        HEADERS = {'Authorization': 'token ' + TOKEN}
+        HEADERS = {'Authorization': f'token {TOKEN}'}
     except TypeError:
         print("Error: UNFOLLOW_TOKEN not found. Maybe refresh your terminal?")
         sys.exit(1)
@@ -113,8 +113,7 @@ def get_unfollows(username):
     previous_followers = []  # read from the file before being changed
     # load the current content of the file
     with open(f"{UNFOLLOW_PATH}/followers.json") as follower_file:
-       for follower in follower_file:
-           previous_followers.append(follower)
+        previous_followers.extend(iter(follower_file))
 
     # clear the file
     open(f'{UNFOLLOW_PATH}/followers.json', 'w').close()
@@ -124,8 +123,7 @@ def get_unfollows(username):
 
     # get newly added 'current' followers and load to file
     with open(f"{UNFOLLOW_PATH}/followers.json") as follower_file:
-       for follower in follower_file:
-           current_followers.append(follower)
+        current_followers.extend(iter(follower_file))
 
     # compare
     for old_follower in previous_followers:
