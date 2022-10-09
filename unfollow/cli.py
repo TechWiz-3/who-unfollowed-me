@@ -26,8 +26,8 @@ emojis = config['apperance']['emojis']
 locale_lang = config['locale']['locale']
 
 parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
-help_txt = "[optional]\n'regular:    regular theme (triggers if no other theme\
-arg is provided)\npanels':   displays\
+help_txt = "[optional]\n'regular':  regular theme (triggers if no other theme\
+ arguement is provided)\n'panels':   displays\
  everything in panels\n'bubbles':  displays everything in\
  bubbles (requires a nerd font to be used)\n'regular':  \
 default, some panels used\n'simple':   no color"
