@@ -159,6 +159,34 @@ end_message_a = "[white on purple]{follower_num} takipçiniz var.[/white on purp
 end_message_b = "[white on magenta]Böyle devam edin![/white on magenta]"
 thankyou_message = "[white on blue]Bu projeyi kullandığınız için teşekkürler[/white on blue]"
 
+
+
+[locale.polish]
+[locale.polish.regular]
+welcome_message = ":dancer: [purple]Witaj w[/purple] [red]who-unfollowed-me[/red][blue] Pythonowej implementacji[/blue] stworzonej przez [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Pobrano followersów na Githubie"
+no_unfollows_message = "[green]:raised_hands: [underline]Nikt nie przestał Cię obserwować!"
+end_message = ":fire: Masz {follower_num} followersów. Działaj dalej!\\n"
+thankyou_message = ":pray: Dzięki, że korzystasz z tego projektu"
+
+[locale.polish.panels]
+welcome_message = ":dancer: [purple]Witaj w[/purple] [red]who-unfollowed-me[/red][blue] Pythonowej implementacji[/blue] stworzonej przez [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Pobrano followersów na Githubie"
+no_unfollows_message = "[white on #308012] Nikt nie przestał Cię obserwować! [/white on #308012]                                "
+end_message = ":fire: Masz {follower_num} followersów. Działaj dalej!    \\n"
+thankyou_message = ":pray: Dzięki, że korzystasz z tego projektu"
+
+[locale.polish.bubbles]
+welcome_message_a = "[white on purple]Witaj w[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]Pythonowej implementacji[/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]stworzonej przez Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]Pobrano followersów na Githubie[/white on cyan]"
+no_unfollows_message = "[white on green4]Nikt nie przestał Cię obserwować![/white on green4]"
+end_message_a = "[white on purple]Masz {follower_num} followersów.[/white on purple]"
+end_message_b = "[white on magenta]Działaj dalej![/white on magenta]"
+thankyou_message = "[white on blue]Dzięki, że korzystasz z tego projektu[/white on blue]"
+
 """
 
 
