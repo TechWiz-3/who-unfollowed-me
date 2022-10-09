@@ -75,6 +75,34 @@ end_message_a = "[white on purple]Aapke paas {follower_num} followers hai.[/whit
 end_message_b = "[white on magenta]Acha kaam jari rakhiye![/white on magenta]"
 thankyou_message = "[white on blue]Iss project ko use karne ke liye dhanyawaad[/white on blue]"
 
+
+
+[locale.german]
+[locale.german.regular]
+welcome_message = ":dancer: [purple]Wilkommen zum[/purple] [red]who-unfollowed-me[/red][blue] Python Implementierung[/blue] von [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Ihre Github-Follower wurden abgeholt"
+no_unfollows_message = "[green]:raised_hands: [underline]Keine Unfollows!"
+end_message = ":fire: Sie haben {follower_num} Follower. Weiter so\\n"
+thankyou_message = ":pray: Wir danken Ihnen fuer die Nutzung des Projekts"
+
+[locale.german.panels]
+welcome_message = ":dancer: [purple]Wilkommen zum[/purple] [red]who-unfollowed-me[/red][blue] Python Implementierung[/blue] von [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Ihre Github-Follower wurden abgeholt"
+no_unfollows_message = "[white on #308012] Keine Unfollows! [/white on #308012]                                "
+end_message = ":fire: Sie haben {follower_num} Follower. Weiter so\\n"
+thankyou_message = ":pray: Wir danken Ihnen fuer die Nutzung des Projekts"
+
+[locale.german.bubbles]
+welcome_message_a = "[white on purple]Wilkommen zum[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]die Python Implementierung[/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]von Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]Ihre Github-Follower wurden abgeholt[/white on cyan]"
+no_unfollows_message = "[white on green4]Keine Unfollows![/white on green4]"
+end_message_a = "[white on purple]Sie haben {follower_num} Follower.[/white on purple]"
+end_message_b = "[white on magenta]Weiter so![/white on magenta]"
+thankyou_message = "[white on blue]Wir danken Ihnen fuer die Nutzung des Projekts[/white on blue]"
+
 """
 
 
