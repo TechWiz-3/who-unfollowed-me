@@ -45,6 +45,13 @@ As mentioned, [msaaddev/who-unfollowed-me](https://github.com/msaaddev/who-unfol
 #### Panels
 ![Panels](media/panels.png)
 
+### Development
+1. Clone the repo and cd into it
+2. Ensure `poetry` is installed - `pip install poetry`
+3. Run `poetry install`
+4. Make whatever changes you need
+5. To text changes run (in project root directory) `poetry run unfollow`
+
 ---
 ### 🎉 Commit labels
 If you're interested in the commit labels used in this repo, check out my [git-commit-emoji](https://github.com/TechWiz-3/git-commit-emojis) project
