@@ -47,6 +47,36 @@ no_unfollows_message = "[white on green4]No unfollows![/white on green4]"
 end_message_a = "[white on purple]You have {follower_num} followers.[/white on purple]"
 end_message_b = "[white on magenta]Keep up the good work![/white on magenta]"
 thankyou_message = "[white on blue]Thanks for using this project[/white on blue]"
+
+
+locale = "hindi"
+
+[locale.hindi]
+[locale.hindi.regular]
+welcome_message = ":dancer: [purple]Aapka Swagat Hai[/purple] [red]who-unfollowed-me[/red][purple]mai[/purple][blue] Python mai kaaryaanvayan [/blue] by [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Github followers praapt kie gae"
+no_unfollows_message = "[green]:raised_hands: [underline]Koi unfollow nahi!"
+end_message = ":fire: Aapke paas {follower_num} followers hai. Acha kaam jari rakhiye\\n"
+thankyou_message = ":pray: Iss project ko use karne ke liye dhanyawaad"
+
+[locale.hindi.panels]
+welcome_message = ":dancer: [purple]Aapka Swagat hai[/purple] [red]who-unfollowed-me[/red][purple]mai[/purple][blue] Python mai kaaryaanvayan [/blue] by [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Github followers praapt kie gae"
+no_unfollows_message = "[white on #308012]Koi unfollow nahi! [/white on #308012]                                "
+end_message = ":fire: Aapke paas {follower_num} followers hai. Acha kaam jari rakhiye\\n"
+thankyou_message = ":pray: Iss project ko use karne ke liye dhanyawaad"
+
+[locale.hindi.bubbles]
+welcome_message_a = "[white on purple]Aapka Swagat hai[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]Python mai kaaryaanvayan [/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]by Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]Github followers praapt kie gae[/white on cyan]"
+no_unfollows_message = "[white on green4]Koi unfollow nahi![/white on green4]"
+end_message_a = "[white on purple]Aapke paas {follower_num} followers hai.[/white on purple]"
+end_message_b = "[white on magenta]Acha kaam jari rakhiye![/white on magenta]"
+thankyou_message = "[white on blue]Iss project ko use karne ke liye dhanyawaad[/white on blue]"
+
 """
 
 def get_config() -> dict:
