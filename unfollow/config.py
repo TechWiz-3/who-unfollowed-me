@@ -131,6 +131,34 @@ end_message_a = "[white on purple]Vous avez {follower_num} suiveurs.[/white on p
 end_message_b = "[white on magenta]Continuez votre bon travail![/white on magenta]"
 thankyou_message = "[white on blue]Merci d'avoir utilisé ce projet[/white on blue]"
 
+
+
+[locale.turkish]
+[locale.turkish.regular]
+welcome_message = ":dancer: [red]who-unfollowed-me[/red][purple]'ye Hoşgeldiniz'[/purple][blue] Python uygulaması[/blue] [#FFD700]Zac the Wise[#FFD700] [blue]tarafından[/blue]"
+fetched_followers_message = "[green]✔ [underline]Github takipçileri alındı"
+no_unfollows_message = "[green]:raised_hands: [underline]Takipten çıkan kimse yok!"
+end_message = ":fire: {follower_num} takipçiniz var. Böyle devam edin\\n"
+thankyou_message = ":pray: Bu projeyi kullandığınız için teşekkürler"
+
+[locale.turkish.panels]
+welcome_message = ":dancer: [red]who-unfollowed-me[/red][purple]'ye Hoşgeldiniz'[/purple][blue] Python uygulaması[/blue] [#FFD700]Zac the Wise[#FFD700] [blue]tarafından[/blue]"
+fetched_followers_message = "[green]✔ [underline]Github takipçileri alındı"
+no_unfollows_message = "[green]:raised_hands: [underline]Takipten çıkan kimse yok!"
+end_message = ":fire: {follower_num} takipçiniz var. Böyle devam et\\n"
+thankyou_message = ":pray: Bu projeyi kullandığınız için teşekkürler"
+
+[locale.turkish.bubbles]
+welcome_message_a = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_b = "[white on purple]Hoşgeldiniz[/white on purple]"
+welcome_message_c = "[white on blue]Python uygulaması[/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]Zac the Wise tarafından[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]Github takipçileri alındı[/white on cyan]"
+no_unfollows_message = "[white on green4]Takipten çıkan kimse yok![/white on green4]"
+end_message_a = "[white on purple]{follower_num} takipçiniz var.[/white on purple]"
+end_message_b = "[white on magenta]Böyle devam edin![/white on magenta]"
+thankyou_message = "[white on blue]Bu projeyi kullandığınız için teşekkürler[/white on blue]"
+
 """
 
 
