@@ -24,14 +24,13 @@ theme = config['apperance']['styling']['theme']
 emojis = config['apperance']['emojis']
 
 locale_lang = config['locale']['locale']
-locale = config['locale'][locale_lang][theme]
 
 parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
-help_txt = "[optional]\n'panels':   displays\
+help_txt = "[optional]\n'regular:    regular theme (triggers if no other theme\
+arg is provided)\npanels':   displays\
  everything in panels\n'bubbles':  displays everything in\
  bubbles (requires a nerd font to be used)\n'regular':  \
-default, some panels used\n'simple':   no color, coming\
- soon"
+default, some panels used\n'simple':   no color"
 parser.add_argument('style', nargs='?', help=help_txt)
 
 parser.add_argument('--token', action="store_true",
@@ -42,9 +41,10 @@ parser.add_argument('--test', action="store_true", help="for testing purposes")
 
 args = parser.parse_args(sys.argv[1:])
 
-panels = False
+panels = False  # all text in panels
 bubbles = False  # nerd fonts only
 simple = False  # no colour
+regular = True
 
 info = None  # stores the unfollowers
 
@@ -54,13 +54,22 @@ elif theme == "bubbles":
     bubbles = True
 elif theme == "simple":
     simple = True  # no colour
+elif theme == "regular":
+    regular = True  # regular theme
 
 if args.style == "panels":
+    theme = "panels"
     panels = True
 elif args.style == "bubbles":
+    theme = "bubbles"
     bubbles = True
 elif args.style == "simple":
     simple = True
+elif args.style == "regular":
+    theme = "regular"
+    regular = True
+
+locale = config['locale'][locale_lang][theme]
 
 def get_inverse(bg_col, txt, txt_before=None):
     circle_style=f"[{bg_col}]"
@@ -89,7 +98,7 @@ def print_get():
     elif bubbles:
         txt = get_inverse("cyan", locale['fetched_followers_message'], txt_before=":mag:")
         #end = "\r\n"
-    elif not panels:
+    elif regular:
         txt = locale['fetched_followers_message']
     console.print(txt)
     return
@@ -106,7 +115,7 @@ def no_unfollows():
         txt = get_inverse("green4", locale['no_unfollows_message'])
         console.print(emojis['no_unfollows_emoji'], txt)
         print("")
-    elif not panels:
+    elif regular:
         print("")
         txt_a = locale['no_unfollows_message']
         console.print(txt_a)
@@ -127,7 +136,7 @@ def end(follower_num=0): ## remember TO CHANge THIS
         txt = get_inverse("blue", locale['thankyou_message'])
         console.print(emojis['thankyou_emoji'], txt)
         print("")
-    elif not panels:
+    elif regular:
         print("")
         txt_b = Panel.fit(locale['end_message'].format(follower_num=follower_num), subtitle=":pray: Thanks for using this project", subtitle_align="left")
         console.print(txt_b)
@@ -139,12 +148,12 @@ def start():
         txt = Panel.fit(locale['welcome_message'])
     elif bubbles:
         print("")
-        part_a = get_inverse("purple", locale['welcome_message_a'])
+        part_a = get_inverse("purple", str(locale['welcome_message_a']))
         part_b = get_inverse("red", locale['welcome_message_b'])
         part_c = get_inverse("blue", locale['welcome_message_c'])
         part_d = get_inverse("dark_goldenrod", locale['welcome_message_d'])
         txt = f"{emojis['init_emoji']} {part_a} {part_b} {part_c} {part_d}"
-    elif not panels:
+    elif regular:
         print("")
         txt = locale['welcome_message']
     console.print(txt)
@@ -181,7 +190,6 @@ def main():
         else:
             no_unfollows()
         end(follower_num=info[1])
-    print("ayooooo")
 
 
 if __name__ == "__main__":
