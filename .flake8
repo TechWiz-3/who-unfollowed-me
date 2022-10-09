@@ -1,0 +1,4 @@
+[flake8]
+max-line-length = 200
+per-file-ignores =
+    unfollow/unfollow.py:W605,F841

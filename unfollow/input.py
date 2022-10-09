@@ -5,6 +5,7 @@ from rich.console import Console
 
 console = Console()
 
+
 def get_input_username(panels=False, bubbles=False, simple=False):
     if panels or bubbles or simple:
         return
