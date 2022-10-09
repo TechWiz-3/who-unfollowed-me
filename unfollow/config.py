@@ -107,28 +107,28 @@ thankyou_message = "[white on blue]Wir danken Ihnen fuer die Nutzung des Projekt
 
 [locale.french]
 [locale.french.regular]
-welcome_message = ":dancer: [purple]Bienvenue à[/purple] [red]who-unfollowed-me[/red][blue] Python Lamise en oeuvre[/blue] par [#FFD700]Zac the Wise[#FFD700]"
-fetched_followers_message = "[green]✔ [underline]Récupéré github suiveurs"
+welcome_message = ":dancer: [purple]Bienvenue à[/purple] [red]who-unfollowed-me[/red][blue] version Python[/blue] par [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Abonnés GitHub récupérés"
 no_unfollows_message = "[green]:raised_hands: [underline]Aucun désabonnement!"
-end_message = ":fire: Vous avez {follower_num} suiveurs. Continuez votre bon travail\\n"
+end_message = ":fire: Vous avez {follower_num} abonnés. Continuez comme ça\\n"
 thankyou_message = ":pray: Merci d'avoir utilisé ce projet"
 
 [locale.french.panels]
-welcome_message = ":dancer: [purple]Bienvenue à[/purple] [red]who-unfollowed-me[/red][blue] Python Lamise en oeuvre[/blue] par [#FFD700]Zac the Wise[#FFD700]"
-fetched_followers_message = "[green]✔ [underline]Récupéré github suiveurs"
+welcome_message = ":dancer: [purple]Bienvenue à[/purple] [red]who-unfollowed-me[/red][blue] version Python[/blue] par [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Abonnés GitHub récupérés"
 no_unfollows_message = "[white on #308012] Aucun désabonnement! [/white on #308012]                                "
-end_message = ":fire: Vous avez {follower_num} suiveurs. Continuez votre bon travail\\n"
+end_message = ":fire: Vous avez {follower_num} abonnés. Continuez comme ça\\n"
 thankyou_message = ":pray: Merci d'avoir utilisé ce projet"
 
 [locale.french.bubbles]
 welcome_message_a = "[white on purple]Bienvenue à[/white on purple]"
 welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
-welcome_message_c = "[white on blue]la Python lamise en oeuvre[/white on blue]"
+welcome_message_c = "[white on blue]version Python[/white on blue]"
 welcome_message_d = "[white on dark_goldenrod]par Zac the Wise[/white on dark_goldenrod]"
-fetched_followers_message = "[white on cyan]Récupéré github suiveurs[/white on cyan]"
+fetched_followers_message = "[white on cyan]Abonnés GitHub récupérés[/white on cyan]"
 no_unfollows_message = "[white on green4]Aucun désabonnement![/white on green4]"
-end_message_a = "[white on purple]Vous avez {follower_num} suiveurs.[/white on purple]"
-end_message_b = "[white on magenta]Continuez votre bon travail![/white on magenta]"
+end_message_a = "[white on purple]Vous avez {follower_num} abonnés.[/white on purple]"
+end_message_b = "[white on magenta]Continuez comme ça![/white on magenta]"
 thankyou_message = "[white on blue]Merci d'avoir utilisé ce projet[/white on blue]"
 
 
