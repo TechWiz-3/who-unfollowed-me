@@ -49,8 +49,6 @@ end_message_b = "[white on magenta]Keep up the good work![/white on magenta]"
 thankyou_message = "[white on blue]Thanks for using this project[/white on blue]"
 
 
-locale = "hindi"
-
 [locale.hindi]
 [locale.hindi.regular]
 welcome_message = ":dancer: [purple]Aapka Swagat Hai[/purple] [red]who-unfollowed-me[/red][purple]mai[/purple][blue] Python mai kaaryaanvayan [/blue] by [#FFD700]Zac the Wise[#FFD700]"
