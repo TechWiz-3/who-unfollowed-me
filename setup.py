@@ -1,8 +1,7 @@
 from setuptools import setup, find_packages
-from pathlib import Path
 
-#project_dir = Path(__file__).parent
-#long_description = (project_dir / "README.md").read_text()
+# project_dir = Path(__file__).parent
+# long_description = (project_dir / "README.md").read_text()
 
 setup(
     name="unfollow",

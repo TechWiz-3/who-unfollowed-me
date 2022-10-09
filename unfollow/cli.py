@@ -1,14 +1,10 @@
 #!/usr/bin/env python3
 
 import sys
-import time
 import argparse
 import requests
-import concurrent.futures
 
-from rich.rule import Rule
 from rich.panel import Panel
-from rich.status import Status
 from rich.console import Console
 
 # local file imports
@@ -35,8 +31,7 @@ parser.add_argument('style', nargs='?', help=help_txt)
 
 parser.add_argument('--token', action="store_true",
                     help="Uses an env variable stored as\
- UNFOLLOW_TOKEN which is a github token for requests to the API."
-               )
+ UNFOLLOW_TOKEN which is a github token for requests to the API.")
 parser.add_argument('--test', action="store_true", help="for testing purposes")
 
 args = parser.parse_args(sys.argv[1:])
@@ -71,8 +66,9 @@ elif args.style == "regular":
 
 locale = config['locale'][locale_lang][theme]
 
+
 def get_inverse(bg_col, txt, txt_before=None):
-    circle_style=f"[{bg_col}]"
+    circle_style = f"[{bg_col}]"
     circle_close = circle_style[:1] + "/" + circle_style[1:]
     if txt_before:
         bubble = f"{txt_before} {circle_style}{circle_close}{txt}{circle_style}{circle_close}"
@@ -97,7 +93,7 @@ def print_get():
         sys.stdout.write("\033[F")  # lift the line up
     elif bubbles:
         txt = get_inverse("cyan", locale['fetched_followers_message'], txt_before=":mag:")
-        #end = "\r\n"
+        # end = "\r\n"
     elif regular:
         txt = locale['fetched_followers_message']
     console.print(txt)
@@ -108,7 +104,7 @@ def no_unfollows():
     from rich.style import Style
     a = Style(color="green")
     if panels:
-        txt = Panel.fit(locale['no_unfollows_message'],border_style=a)
+        txt = Panel.fit(locale['no_unfollows_message'], border_style=a)
         console.print(txt)
     elif bubbles:
         print("")
@@ -121,7 +117,7 @@ def no_unfollows():
         console.print(txt_a)
 
 
-def end(follower_num=0): ## remember TO CHANge THIS
+def end(follower_num=0): # remember TO CHANge THIS
     # for super pretty version
     # console.print("[#026440 on black][/#026440 on black]Yay we all g bruh[#026440 on black]", style="white on #026440")
     if panels:
@@ -166,8 +162,7 @@ def check_connectivity():
         request = requests.get(url, timeout=timeout)
     except (requests.ConnectionError, requests.Timeout) as exception:
         print("Internet connection invalid, please try again later!")
-        Console().print("If you think this is a bug, please make an issue.",
-                      style="dim")
+        Console().print("If you think this is a bug, please make an issue.", style="dim")
         exit(1222)  # microsoft ERROR_NO_NETWORK code coz why not
 
 
@@ -176,7 +171,7 @@ def main():
     check_connectivity()
     get_links()
 
-    if info[0]  == "first":
+    if info[0] == "first":
         # follows saved for later
         end(follower_num=info[1])
     elif info[0] == "regular":

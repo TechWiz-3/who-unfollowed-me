@@ -49,6 +49,7 @@ end_message_b = "[white on magenta]Keep up the good work![/white on magenta]"
 thankyou_message = "[white on blue]Thanks for using this project[/white on blue]"
 """
 
+
 def get_config() -> dict:
     global threads_stopped
     if os.path.exists(f"{UNFOLLOW_PATH}/unfollow.toml"):

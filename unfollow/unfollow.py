@@ -20,7 +20,7 @@ if "--token" in sys.argv:
     print("yes")
     TOKEN = os.getenv("UNFOLLOW_TOKEN")
     try:
-        HEADERS = {'Authorization': 'token ' + TOKEN}
+        HEADERS = {'Authorization': f'token {TOKEN}'}
     except TypeError:
         print("Error: UNFOLLOW_TOKEN not found. Maybe refresh your terminal?")
         sys.exit(1)
@@ -29,7 +29,7 @@ else:
     HEADERS = {}
 
 threads_stopped = False  # used to stop spinner thread
-stop_spinner = None # none, true, false
+stop_spinner = None  # none, true, false
 
 executor = concurrent.futures.ThreadPoolExecutor()
 
@@ -76,9 +76,9 @@ def get_followers(username, write_file=False, overwrite=False):
     while True:
         raw_data = requests.get(f"https://api.github.com/users/{username}/followers?page={page}&per_page=100", headers=HEADERS)
         if raw_data.json() == []:
-           # empty data, breaking now
+            # empty data, breaking now
            break
-        if write_file == True:
+        if write_file is True:
             # write to file
             for user_object in raw_data.json():
                 write_followers(user_object["login"])
@@ -96,15 +96,17 @@ def get_follow_num(username):
         return "Failed to get number of followers"
     return follower_number
 
+
 def check_deleted(username):
     """ checks if page doesn't exit
         returns true if deleted
         true otherwise"""
-    response_code = requests.get(f"https://api.github.com/users/{username}", headers = HEADERS).status_code
+    response_code = requests.get(f"https://api.github.com/users/{username}", headers=HEADERS).status_code
     if response_code == 404:
         return True
     else:
         return False
+
 
 def get_unfollows(username):
     """compare json"""
@@ -113,8 +115,7 @@ def get_unfollows(username):
     previous_followers = []  # read from the file before being changed
     # load the current content of the file
     with open(f"{UNFOLLOW_PATH}/followers.json") as follower_file:
-       for follower in follower_file:
-           previous_followers.append(follower)
+        previous_followers.extend(iter(follower_file))
 
     # clear the file
     open(f'{UNFOLLOW_PATH}/followers.json', 'w').close()
@@ -124,17 +125,16 @@ def get_unfollows(username):
 
     # get newly added 'current' followers and load to file
     with open(f"{UNFOLLOW_PATH}/followers.json") as follower_file:
-       for follower in follower_file:
-           current_followers.append(follower)
+        current_followers.extend(iter(follower_file))
 
     # compare
     for old_follower in previous_followers:
         result = scan_follows(old_follower, current_followers)
         result_for_link = result
-        if result != True:
+        if result is not True:
             if check_deleted(result):
-                result=f"{result} \[deleted]"
-            unfollowers.append((result,f"https://github.com/{result_for_link}/"))
+                result = f"{result} \[deleted]"
+            unfollowers.append((result, f"https://github.com/{result_for_link}/"))
     return unfollowers
 
 
@@ -178,12 +178,13 @@ def run_spinner():
     while True:
         if stop_spinner:
             spinner.stop()
-        elif stop_spinner == False:  # false, not none
+        elif stop_spinner is False:  # false, not none
             spinner.start()
         if threads_stopped:
             time.sleep(1)  # add a bit of time for aesthetics
             spinner.stop()
             return
+
 
 def main():
     """
@@ -199,6 +200,5 @@ def main():
     unfollowed_future = executor.submit(run_unfollow)
     spin_future = executor.submit(run_spinner)
     # shutdown the thread pool
-    executor.shutdown() # blocks
+    executor.shutdown()     # blocks
     return unfollowed_future.result()
-
