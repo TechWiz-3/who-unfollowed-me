@@ -24,16 +24,14 @@ locale = "english"
 # text for each language for each theme
 [locale.english]
 [locale.english.regular]
-welcome_message = ":dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red][blue] Python implementation[/blue]
-by [#FFD700]Zac the Wise[#FFD700]"
+welcome_message = ":dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
 fetched_followers_message = "[green]✔ [underline]Fetched github followers"
 no_unfollows_message = "[green]:raised_hands: [underline]No unfollows!"
 end_message = ":fire: You have {follower_num} followers. Keep up the good work\\n"
 thankyou_message = ":pray: Thanks for using this project"
 
 [locale.english.panels]
-welcome_message = ":dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red][blue] Python implementation[/blue]
-by [#FFD700]Zac the Wise[#FFD700]"
+welcome_message = ":dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
 fetched_followers_message = "[green]✔ [underline]Fetched github followers"
 no_unfollows_message = "[white on #308012] No unfollows! [/white on #308012]                                "
 end_message = ":fire: You have {follower_num} followers. Keep up the good work\\n"
