@@ -4,7 +4,9 @@
 
 ![Regular style](./media/regular.png)
 
-**Check Issues for HacktoberFest**
+**Check Issues for HacktoberFest**  
+
+**Breaking Change in [#34](https://github.com/TechWiz-3/who-unfollowed-me/pull/34)** - please delete the `~/.unfollow/unfollow.toml` file before running `unfollow` again!
 
 ### About
 

@@ -16,8 +16,12 @@ console = Console()
 
 config = get_config()
 
-theme = config['appearance']['styling']['theme']
-emojis = config['appearance']['emojis']
+try:
+    theme = config['appearance']['styling']['theme']
+    emojis = config['appearance']['emojis']
+except KeyError:
+    print("Please delete the `~/.unfollow/unfollow.toml` file before running `unfollow` again, check the GitHub repo for more info")
+    sys.exit(1)
 
 locale_lang = config['locale']['locale']
 
