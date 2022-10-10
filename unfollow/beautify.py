@@ -26,6 +26,18 @@ def beautify_unfollows(info, special=False):
         txt_a = get_inverse("red", "[white on red]Name[/white on red]")
         txt_b = get_inverse("red", "[white on red]Link[/white on red]")
         print("")  # get some spacing before the table
+        table.add_column(
+            txt_a, header_style=red, justify="left", style=bright_red, no_wrap=True
+        )
+        table.add_column(txt_b, header_style=red, style=bright_red)
+    elif special == "simple":
+        print("")  # add an extra line
+        table = Table(box=box.SQUARE, show_lines=True)
+        txt_a = "Name"
+        txt_b = "Link"
+        # styling removed for simple version
+        table.add_column(txt_a, justify="left", no_wrap=True)
+        table.add_column(txt_b)
     else:
         if special != "panels":  # for the vanilla type
             print("")  # add an extra line

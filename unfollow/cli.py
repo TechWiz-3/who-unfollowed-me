@@ -16,8 +16,14 @@ console = Console()
 
 config = get_config()
 
-theme = config["apperance"]["styling"]["theme"]
-emojis = config["apperance"]["emojis"]
+try:
+    theme = config["appearance"]["styling"]["theme"]
+    emojis = config["appearance"]["emojis"]
+except KeyError:
+    print(
+        "Please delete the `~/.unfollow/unfollow.toml` file before running `unfollow` again, check the GitHub repo for more info"
+    )
+    sys.exit(1)
 
 locale_lang = config["locale"]["locale"]
 
@@ -65,6 +71,7 @@ elif args.style == "bubbles":
     theme = "bubbles"
     bubbles = True
 elif args.style == "simple":
+    theme = "simple"
     simple = True
 elif args.style == "regular":
     theme = "regular"
@@ -103,6 +110,8 @@ def print_get():
             "cyan", locale["fetched_followers_message"], txt_before=":mag:"
         )
         # end = "\r\n"
+    elif simple:
+        txt = locale["fetched_followers_message"]
     elif regular:
         txt = locale["fetched_followers_message"]
     console.print(txt)
@@ -121,6 +130,10 @@ def no_unfollows():
         txt = get_inverse("green4", locale["no_unfollows_message"])
         console.print(emojis["no_unfollows_emoji"], txt)
         print("")
+    elif simple:
+        print("")
+        txt = locale["no_unfollows_message"]
+        console.print(txt)
     elif regular:
         print("")
         txt_a = locale["no_unfollows_message"]
@@ -148,6 +161,15 @@ def end(follower_num=0):  # remember TO CHANge THIS
         txt = get_inverse("blue", locale["thankyou_message"])
         console.print(emojis["thankyou_emoji"], txt)
         print("")
+    elif simple:
+        print("")
+        txt_b = Panel.fit(
+            locale["end_message"].format(follower_num=follower_num),
+            subtitle="Thanks for using this project",
+            subtitle_align="left",
+        )
+        console.print(txt_b)
+        print("\n")
     elif regular:
         print("")
         txt_b = Panel.fit(
@@ -169,6 +191,9 @@ def start():
         part_c = get_inverse("blue", locale["welcome_message_c"])
         part_d = get_inverse("dark_goldenrod", locale["welcome_message_d"])
         txt = f"{emojis['init_emoji']} {part_a} {part_b} {part_c} {part_d}"
+    elif simple:
+        print("")
+        txt = locale["welcome_message"]
     elif regular:
         print("")
         txt = locale["welcome_message"]
@@ -202,6 +227,8 @@ def main():
                 beautify_unfollows(info[2], special="bubbles")
             elif panels:
                 beautify_unfollows(info[2], special="panels")
+            elif simple:
+                beautify_unfollows(info[2], special="simple")
             else:
                 beautify_unfollows(info[2])
         else:
