@@ -8,10 +8,10 @@ from unfollow.unfollow import UNFOLLOW_PATH
 default_config = """
 [appearance]
 
-[apperance.styling] # set the theme
+[appearance.styling] # set the theme
 theme = "regular"
 
-[apperance.emojis]
+[appearance.emojis]
 init_emoji = ":dancer:"
 fetch_success_emoji = ":heavy_check_mark:"
 no_unfollows_emoji = ":raised_hands:"
@@ -23,6 +23,14 @@ locale = "english"
 
 # text for each language for each theme
 [locale.english]
+
+[locale.english.simple]
+welcome_message = "Welcome to who-unfollowed-me Python implementation by Zac the Wise"
+fetched_followers_message = "Fetched github followers"
+no_unfollows_message = "No unfollows!"
+end_message = "You have {follower_num} followers. Keep up the good work\\n"
+thankyou_message = "Thanks for using this project"
+
 [locale.english.regular]
 welcome_message = ":dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
 fetched_followers_message = "[green]✔ [underline]Fetched github followers"
