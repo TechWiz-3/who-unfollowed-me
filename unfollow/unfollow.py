@@ -77,7 +77,8 @@ def get_followers(username, write_file=False, overwrite=False):
         raw_data = requests.get(f"https://api.github.com/users/{username}/followers?page={page}&per_page=100", headers=HEADERS)
         if raw_data.json() == []:
             # empty data, breaking now
-           break
+            break
+
         if write_file is True:
             # write to file
             for user_object in raw_data.json():
