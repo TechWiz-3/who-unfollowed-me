@@ -187,6 +187,33 @@ end_message_a = "[white on purple]Masz {follower_num} followersów.[/white on pu
 end_message_b = "[white on magenta]Działaj dalej![/white on magenta]"
 thankyou_message = "[white on blue]Dzięki, że korzystasz z tego projektu[/white on blue]"
 
+[locale.indonesian]
+[locale.indonesian.regular]
+welcome_message = ":dancer: [purple]Selamat datang ke[/purple] [red]who-unfollowed-me[/red][blue]implementasi Python[/blue] oleh [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Pengikut GitHub diambil"
+no_unfollows_message = "[green]:raised_hands: [underline]Tidak ada yang berhenti mengikuti!"
+end_message = ":fire: Kamu mempunyai {follower_num} pengikut. Kerja bagus\\n"
+thankyou_message = ":pray: Terima kasih telah menggunakan proyek ini"
+
+[locale.indonesian.panels]
+welcome_message = ":dancer: [purple]Selamat datang ke[/purple] [red]who-unfollowed-me[/red][blue] implementasi Python[/blue] oleh [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Pengikut GitHub berhasil diambil"
+no_unfollows_message = "[white on #308012] Tidak ada yang berhenti mengikuti! [/white on #308012]                                "
+end_message = ":fire: Kamu mempunyai {follower_num} pengikut. Kerja bagus\\n"
+thankyou_message = ":pray: Terimakasih telah menggunakan proyek ini"
+
+[locale.indonesian.bubbles]
+welcome_message_a = "[white on purple]Selamat datang ke[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]implementasi Python [/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]oleh Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]Pengikut GitHub diambil [/white on cyan]"
+no_unfollows_message = "[white on green4] Tidak ada yang berhenti mengikuti![/white on green4]"
+end_message_a = "[white on purple]Kamu punya {follower_num} pengikut.[/white on purple]"
+end_message_b = "[white on magenta]Kerja bagus![/white on magenta]"
+thankyou_message = "[white on blue]Terima kasih telah menggunakan proyek ini[/white on blue]"
+
+
 """
 
 
