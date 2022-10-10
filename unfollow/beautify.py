@@ -1,7 +1,7 @@
-from rich.console import Console
-from rich.table import Table
 from rich import box
+from rich.console import Console
 from rich.style import Style
+from rich.table import Table
 
 console = Console()
 blue = Style(color="blue")

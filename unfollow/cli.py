@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 
-import sys
 import argparse
-import requests
+import sys
 
-from rich.panel import Panel
+import requests
 from rich.console import Console
+from rich.panel import Panel
 
 # local file imports
 from unfollow.beautify import beautify_unfollows
-from unfollow.unfollow import main as unfollow_main
 from unfollow.config import get_config
+from unfollow.unfollow import main as unfollow_main
 
 console = Console()
 
@@ -33,6 +33,7 @@ parser.add_argument('--token', action="store_true",
                     help="Uses an env variable stored as\
  UNFOLLOW_TOKEN which is a github token for requests to the API.")
 parser.add_argument('--test', action="store_true", help="for testing purposes")
+parser.add_argument('--cached', action="store_true", help="cache followers since last week")
 
 args = parser.parse_args(sys.argv[1:])
 
@@ -81,6 +82,7 @@ def get_links():
     """get unfollows"""
     global info
     info = unfollow_main()
+    print(info)
     print_get()
 
 
@@ -183,13 +185,24 @@ def main():
         # follows saved for later
         end(follower_num=info[1])
     elif info[0] == "regular":
-        if len(info) == 3:  # unfollowers have been detected
+        if len(info[2])> 0:# unfollowers have been detected
             if bubbles:
-                beautify_unfollows(info[2], special="bubbles")
+                beautify_unfollows(info[2],special="bubbles")
             elif panels:
                 beautify_unfollows(info[2], special="panels")
             else:
                 beautify_unfollows(info[2])
+        else:
+            no_unfollows()
+        txt = Panel.fit(locale['last_week_unfollowers'])
+        console.print(txt)
+        if len(info[3])> 0:# unfollowers have been detected
+            if bubbles:
+                beautify_unfollows(info[3],special="bubbles")
+            elif panels:
+                beautify_unfollows(info[3], special="panels")
+            else:
+                beautify_unfollows(info[3])
         else:
             no_unfollows()
         end(follower_num=info[1])
