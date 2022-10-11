@@ -8,10 +8,10 @@ from unfollow.unfollow import UNFOLLOW_PATH
 default_config = """
 [appearance]
 
-[apperance.styling] # set the theme
+[appearance.styling] # set the theme
 theme = "regular"
 
-[apperance.emojis]
+[appearance.emojis]
 init_emoji = ":dancer:"
 fetch_success_emoji = ":heavy_check_mark:"
 no_unfollows_emoji = ":raised_hands:"
@@ -23,6 +23,14 @@ locale = "english"
 
 # text for each language for each theme
 [locale.english]
+
+[locale.english.simple]
+welcome_message = "Welcome to who-unfollowed-me Python implementation by Zac the Wise"
+fetched_followers_message = "Fetched github followers"
+no_unfollows_message = "No unfollows!"
+end_message = "You have {follower_num} followers. Keep up the good work\\n"
+thankyou_message = "Thanks for using this project"
+
 [locale.english.regular]
 welcome_message = ":dancer: [purple]Welcome to[/purple] [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
 fetched_followers_message = "[green]✔ [underline]Fetched github followers"
@@ -107,28 +115,28 @@ thankyou_message = "[white on blue]Wir danken Ihnen fuer die Nutzung des Projekt
 
 [locale.french]
 [locale.french.regular]
-welcome_message = ":dancer: [purple]Bienvenue à[/purple] [red]who-unfollowed-me[/red][blue] Python Lamise en oeuvre[/blue] par [#FFD700]Zac the Wise[#FFD700]"
-fetched_followers_message = "[green]✔ [underline]Récupéré github suiveurs"
+welcome_message = ":dancer: [purple]Bienvenue à[/purple] [red]who-unfollowed-me[/red][blue] version Python[/blue] par [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Abonnés GitHub récupérés"
 no_unfollows_message = "[green]:raised_hands: [underline]Aucun désabonnement!"
-end_message = ":fire: Vous avez {follower_num} suiveurs. Continuez votre bon travail\\n"
+end_message = ":fire: Vous avez {follower_num} abonnés. Continuez comme ça\\n"
 thankyou_message = ":pray: Merci d'avoir utilisé ce projet"
 
 [locale.french.panels]
-welcome_message = ":dancer: [purple]Bienvenue à[/purple] [red]who-unfollowed-me[/red][blue] Python Lamise en oeuvre[/blue] par [#FFD700]Zac the Wise[#FFD700]"
-fetched_followers_message = "[green]✔ [underline]Récupéré github suiveurs"
+welcome_message = ":dancer: [purple]Bienvenue à[/purple] [red]who-unfollowed-me[/red][blue] version Python[/blue] par [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Abonnés GitHub récupérés"
 no_unfollows_message = "[white on #308012] Aucun désabonnement! [/white on #308012]                                "
-end_message = ":fire: Vous avez {follower_num} suiveurs. Continuez votre bon travail\\n"
+end_message = ":fire: Vous avez {follower_num} abonnés. Continuez comme ça\\n"
 thankyou_message = ":pray: Merci d'avoir utilisé ce projet"
 
 [locale.french.bubbles]
 welcome_message_a = "[white on purple]Bienvenue à[/white on purple]"
 welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
-welcome_message_c = "[white on blue]la Python lamise en oeuvre[/white on blue]"
+welcome_message_c = "[white on blue]version Python[/white on blue]"
 welcome_message_d = "[white on dark_goldenrod]par Zac the Wise[/white on dark_goldenrod]"
-fetched_followers_message = "[white on cyan]Récupéré github suiveurs[/white on cyan]"
+fetched_followers_message = "[white on cyan]Abonnés GitHub récupérés[/white on cyan]"
 no_unfollows_message = "[white on green4]Aucun désabonnement![/white on green4]"
-end_message_a = "[white on purple]Vous avez {follower_num} suiveurs.[/white on purple]"
-end_message_b = "[white on magenta]Continuez votre bon travail![/white on magenta]"
+end_message_a = "[white on purple]Vous avez {follower_num} abonnés.[/white on purple]"
+end_message_b = "[white on magenta]Continuez comme ça![/white on magenta]"
 thankyou_message = "[white on blue]Merci d'avoir utilisé ce projet[/white on blue]"
 
 
@@ -161,6 +169,7 @@ thankyou_message = "[white on blue]Bu projeyi kullandığınız için teşekkür
 
 
 
+
 [locale.spanish]
 [locale.spanish.regular]
 welcome_message = ":dancer: [purple]Bienvenido a[/purple] [red]who-unfollowed-me[/red][blue] versión Python[/blue] por [#FFD700]Zac the Wise[#FFD700]"
@@ -188,6 +197,32 @@ end_message_b = "[white on magenta]¡Sigue así![/white on magenta]"
 thankyou_message = "[white on blue]Gracias por utilizar este proyecto[/white on blue]"
 
 
+[locale.polish]
+[locale.polish.regular]
+welcome_message = ":dancer: [purple]Witaj w[/purple] [red]who-unfollowed-me[/red][blue] Pythonowej implementacji[/blue] stworzonej przez [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Pobrano followersów na Githubie"
+no_unfollows_message = "[green]:raised_hands: [underline]Nikt nie przestał Cię obserwować!"
+end_message = ":fire: Masz {follower_num} followersów. Działaj dalej!\\n"
+thankyou_message = ":pray: Dzięki, że korzystasz z tego projektu"
+
+[locale.polish.panels]
+welcome_message = ":dancer: [purple]Witaj w[/purple] [red]who-unfollowed-me[/red][blue] Pythonowej implementacji[/blue] stworzonej przez [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Pobrano followersów na Githubie"
+no_unfollows_message = "[white on #308012] Nikt nie przestał Cię obserwować! [/white on #308012]                                "
+end_message = ":fire: Masz {follower_num} followersów. Działaj dalej!    \\n"
+thankyou_message = ":pray: Dzięki, że korzystasz z tego projektu"
+
+[locale.polish.bubbles]
+welcome_message_a = "[white on purple]Witaj w[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]Pythonowej implementacji[/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]stworzonej przez Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]Pobrano followersów na Githubie[/white on cyan]"
+no_unfollows_message = "[white on green4]Nikt nie przestał Cię obserwować![/white on green4]"
+end_message_a = "[white on purple]Masz {follower_num} followersów.[/white on purple]"
+end_message_b = "[white on magenta]Działaj dalej![/white on magenta]"
+thankyou_message = "[white on blue]Dzięki, że korzystasz z tego projektu[/white on blue]"
+
 """
 
 
@@ -196,7 +231,7 @@ def get_config() -> dict:
     if os.path.exists(f"{UNFOLLOW_PATH}/unfollow.toml"):
         config = toml.load(f"{UNFOLLOW_PATH}/unfollow.toml")
     else:
-        with open(f"{UNFOLLOW_PATH}/unfollow.toml", "w") as config_file:
+        with open(f"{UNFOLLOW_PATH}/unfollow.toml", "w", encoding='utf-8') as config_file:
             config = toml.loads(default_config)
             toml.dump(config, config_file)
 
