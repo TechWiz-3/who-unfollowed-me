@@ -1,18 +1,21 @@
 from setuptools import setup, find_packages
-from os import path
 
 classifiers = [
   'Development Status :: 5 - Production/Stable',
+  'Environment :: Console',
+  'Environment :: Console :: Curses',
   'Intended Audience :: Developers',
+  'Operating System :: Microsoft :: Windows',
   'Operating System :: Linux :: OSX',
   'License :: GNU General Public License v3.0',
-  'Programming Language :: Python :: 3'
+  'Programming Language :: Python :: 3',
+  'Topic :: Utilities'
 ]
 
 # Get the long description from the README file
 with open("README.md", encoding="utf-8") as f:
     read_file = f.read()
- 
+
 
 setup(
     name="unfollow",
