@@ -169,6 +169,34 @@ thankyou_message = "[white on blue]Bu projeyi kullandığınız için teşekkür
 
 
 
+
+[locale.spanish]
+[locale.spanish.regular]
+welcome_message = ":dancer: [purple]Bienvenido a[/purple] [red]who-unfollowed-me[/red][blue] versión Python[/blue] por [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Recuperación de los seguidores GitHub"
+no_unfollows_message = "[green]:raised_hands: [underline]¡Ningún seguidor dado de baja!"
+end_message = ":fire: Tienes {follower_num} seguidores. Sigue así\\n"
+thankyou_message = ":pray: Gracias por utilizar este proyecto"
+
+[locale.spanish.panels]
+welcome_message = ":dancer: [purple]Bienvenido a[/purple] [red]who-unfollowed-me[/red][blue] versión Python[/blue] por [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Recuperación de los seguidores GitHub"
+no_unfollows_message = "[white on #308012] ¡Ningún seguidor dado de baja! [/white on #308012]                                "
+end_message = ":fire: Tienes {follower_num} seguidores. Sigue así\\n"
+thankyou_message = ":pray: Gracias por utilizar este proyecto"
+
+[locale.spanish.bubbles]
+welcome_message_a = "[white on purple]Bienvenido a[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]versión Python[/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]por Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]Recuperación de los seguidores GitHub[/white on cyan]"
+no_unfollows_message = "[white on green4]¡Ningún seguidor dado de baja![/white on green4]"
+end_message_a = "[white on purple]Tienes {follower_num} seguidores.[/white on purple]"
+end_message_b = "[white on magenta]¡Sigue así![/white on magenta]"
+thankyou_message = "[white on blue]Gracias por utilizar este proyecto[/white on blue]"
+
+
 [locale.polish]
 [locale.polish.regular]
 welcome_message = ":dancer: [purple]Witaj w[/purple] [red]who-unfollowed-me[/red][blue] Pythonowej implementacji[/blue] stworzonej przez [#FFD700]Zac the Wise[#FFD700]"
