@@ -29,7 +29,7 @@ def beautify_unfollows(info, special=False):
         table = Table(box=box.SQUARE, show_lines=True)
         txt_a = "Name"
         txt_b = "Link"
-        #styling removed for simple version
+        # styling removed for simple version
         table.add_column(txt_a, justify="left", no_wrap=True)
         table.add_column(txt_b)
     else:
