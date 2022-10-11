@@ -3,9 +3,9 @@ from os import path
 
 classifiers = [
   'Development Status :: 5 - Production/Stable',
-  'Intended Audience :: Education',
-  'Operating System :: Microsoft :: Windows :: Windows 10',
-  'License :: OSI Approved :: MIT License',
+  'Intended Audience :: Developers',
+  'Operating System :: Linux :: OSX',
+  'License :: GNU General Public License v3.0',
   'Programming Language :: Python :: 3'
 ]
 
