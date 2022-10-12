@@ -198,10 +198,14 @@ thankyou_message = "[white on blue]Dzięki, że korzystasz z tego projektu[/whit
 """
 
 
-def get_config() -> dict:
+def get_config(overwrite=False) -> dict:
     global threads_stopped
-    if os.path.exists(f"{UNFOLLOW_PATH}/unfollow.toml"):
+    if os.path.exists(f"{UNFOLLOW_PATH}/unfollow.toml") and not overwrite:
         config = toml.load(f"{UNFOLLOW_PATH}/unfollow.toml")
+    elif overwrite:
+        with open(f"{UNFOLLOW_PATH}/unfollow.toml", "w", encoding='utf-8') as config_file:
+            config = toml.loads(default_config)
+            toml.dump(config, config_file)
     else:
         with open(f"{UNFOLLOW_PATH}/unfollow.toml", "w", encoding='utf-8') as config_file:
             config = toml.loads(default_config)
