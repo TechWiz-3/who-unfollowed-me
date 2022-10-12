@@ -14,7 +14,7 @@ from unfollow.input import get_input_username
 
 HOME = os.path.expanduser("~")
 UNFOLLOW_PATH = f"{HOME}/.unfollow"
-CACHED_UNFOLLOW_PATH = f"{UNFOLLOW_PATH}/cached.json"
+cached = False
 
 if "--test" in sys.argv:
     UNFOLLOW_PATH = f"{HOME}/.test.unfollow"
@@ -31,7 +31,6 @@ else:
     HEADERS = {}
 
 if "--cached" in sys.argv:
-    cached = True
     UNFOLLOW_PATH_CACHED = f"{HOME}/.unfollow/cached.json"
 
 
