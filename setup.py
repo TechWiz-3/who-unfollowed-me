@@ -21,7 +21,7 @@ setup(
     name="unfollow",
     url="https://github.com/TechWiz-3/who-unfollowed-me",
     author="Zac the Wise aka TechWiz-3",
-    version='2.0.0',
+    version='4.0.1',
     description="😡 Python CLI tool that shows you who has unfollowed you on GitHub",
     packages=['unfollow'],
     long_description=read_file,
