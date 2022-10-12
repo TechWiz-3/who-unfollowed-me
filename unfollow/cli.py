@@ -151,8 +151,9 @@ def end(follower_num=0):  # remember TO CHANge THIS
         print("")
     elif simple:
         print("")
-        txt_b = Panel.fit(locale['end_message'].format(follower_num=follower_num), subtitle="Thanks for using this project", subtitle_align="left")
-        console.print(txt_b)
+        txt_b = locale['end_message'].format(follower_num=follower_num)
+        subtitle = "\nThanks for using this project"
+        print(txt_b, subtitle)
         print("\n")
     elif regular:
         print("")
