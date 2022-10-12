@@ -115,28 +115,28 @@ thankyou_message = "[white on blue]Wir danken Ihnen fuer die Nutzung des Projekt
 
 [locale.french]
 [locale.french.regular]
-welcome_message = ":dancer: [purple]Bienvenue à[/purple] [red]who-unfollowed-me[/red][blue] Python Lamise en oeuvre[/blue] par [#FFD700]Zac the Wise[#FFD700]"
-fetched_followers_message = "[green]✔ [underline]Récupéré github suiveurs"
+welcome_message = ":dancer: [purple]Bienvenue à[/purple] [red]who-unfollowed-me[/red][blue] version Python[/blue] par [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Abonnés GitHub récupérés"
 no_unfollows_message = "[green]:raised_hands: [underline]Aucun désabonnement!"
-end_message = ":fire: Vous avez {follower_num} suiveurs. Continuez votre bon travail\\n"
+end_message = ":fire: Vous avez {follower_num} abonnés. Continuez comme ça\\n"
 thankyou_message = ":pray: Merci d'avoir utilisé ce projet"
 
 [locale.french.panels]
-welcome_message = ":dancer: [purple]Bienvenue à[/purple] [red]who-unfollowed-me[/red][blue] Python Lamise en oeuvre[/blue] par [#FFD700]Zac the Wise[#FFD700]"
-fetched_followers_message = "[green]✔ [underline]Récupéré github suiveurs"
+welcome_message = ":dancer: [purple]Bienvenue à[/purple] [red]who-unfollowed-me[/red][blue] version Python[/blue] par [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Abonnés GitHub récupérés"
 no_unfollows_message = "[white on #308012] Aucun désabonnement! [/white on #308012]                                "
-end_message = ":fire: Vous avez {follower_num} suiveurs. Continuez votre bon travail\\n"
+end_message = ":fire: Vous avez {follower_num} abonnés. Continuez comme ça\\n"
 thankyou_message = ":pray: Merci d'avoir utilisé ce projet"
 
 [locale.french.bubbles]
 welcome_message_a = "[white on purple]Bienvenue à[/white on purple]"
 welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
-welcome_message_c = "[white on blue]la Python lamise en oeuvre[/white on blue]"
+welcome_message_c = "[white on blue]version Python[/white on blue]"
 welcome_message_d = "[white on dark_goldenrod]par Zac the Wise[/white on dark_goldenrod]"
-fetched_followers_message = "[white on cyan]Récupéré github suiveurs[/white on cyan]"
+fetched_followers_message = "[white on cyan]Abonnés GitHub récupérés[/white on cyan]"
 no_unfollows_message = "[white on green4]Aucun désabonnement![/white on green4]"
-end_message_a = "[white on purple]Vous avez {follower_num} suiveurs.[/white on purple]"
-end_message_b = "[white on magenta]Continuez votre bon travail![/white on magenta]"
+end_message_a = "[white on purple]Vous avez {follower_num} abonnés.[/white on purple]"
+end_message_b = "[white on magenta]Continuez comme ça![/white on magenta]"
 thankyou_message = "[white on blue]Merci d'avoir utilisé ce projet[/white on blue]"
 
 
@@ -169,6 +169,34 @@ thankyou_message = "[white on blue]Bu projeyi kullandığınız için teşekkür
 
 
 
+
+[locale.spanish]
+[locale.spanish.regular]
+welcome_message = ":dancer: [purple]Bienvenido a[/purple] [red]who-unfollowed-me[/red][blue] versión Python[/blue] por [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Recuperación de los seguidores GitHub"
+no_unfollows_message = "[green]:raised_hands: [underline]¡Ningún seguidor dado de baja!"
+end_message = ":fire: Tienes {follower_num} seguidores. Sigue así\\n"
+thankyou_message = ":pray: Gracias por utilizar este proyecto"
+
+[locale.spanish.panels]
+welcome_message = ":dancer: [purple]Bienvenido a[/purple] [red]who-unfollowed-me[/red][blue] versión Python[/blue] por [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Recuperación de los seguidores GitHub"
+no_unfollows_message = "[white on #308012] ¡Ningún seguidor dado de baja! [/white on #308012]                                "
+end_message = ":fire: Tienes {follower_num} seguidores. Sigue así\\n"
+thankyou_message = ":pray: Gracias por utilizar este proyecto"
+
+[locale.spanish.bubbles]
+welcome_message_a = "[white on purple]Bienvenido a[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]versión Python[/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]por Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]Recuperación de los seguidores GitHub[/white on cyan]"
+no_unfollows_message = "[white on green4]¡Ningún seguidor dado de baja![/white on green4]"
+end_message_a = "[white on purple]Tienes {follower_num} seguidores.[/white on purple]"
+end_message_b = "[white on magenta]¡Sigue así![/white on magenta]"
+thankyou_message = "[white on blue]Gracias por utilizar este proyecto[/white on blue]"
+
+
 [locale.polish]
 [locale.polish.regular]
 welcome_message = ":dancer: [purple]Witaj w[/purple] [red]who-unfollowed-me[/red][blue] Pythonowej implementacji[/blue] stworzonej przez [#FFD700]Zac the Wise[#FFD700]"
@@ -194,6 +222,58 @@ no_unfollows_message = "[white on green4]Nikt nie przestał Cię obserwować![/w
 end_message_a = "[white on purple]Masz {follower_num} followersów.[/white on purple]"
 end_message_b = "[white on magenta]Działaj dalej![/white on magenta]"
 thankyou_message = "[white on blue]Dzięki, że korzystasz z tego projektu[/white on blue]"
+
+[locale.indonesian]
+[locale.indonesian.regular]
+welcome_message = ":dancer: [purple]Selamat datang ke[/purple] [red]who-unfollowed-me[/red][blue]implementasi Python[/blue] oleh [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Pengikut GitHub diambil"
+no_unfollows_message = "[green]:raised_hands: [underline]Tidak ada yang berhenti mengikuti!"
+end_message = ":fire: Kamu mempunyai {follower_num} pengikut. Kerja bagus\\n"
+thankyou_message = ":pray: Terima kasih telah menggunakan proyek ini"
+
+[locale.indonesian.panels]
+welcome_message = ":dancer: [purple]Selamat datang ke[/purple] [red]who-unfollowed-me[/red][blue] implementasi Python[/blue] oleh [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Pengikut GitHub berhasil diambil"
+no_unfollows_message = "[white on #308012] Tidak ada yang berhenti mengikuti! [/white on #308012]                                "
+end_message = ":fire: Kamu mempunyai {follower_num} pengikut. Kerja bagus\\n"
+thankyou_message = ":pray: Terimakasih telah menggunakan proyek ini"
+
+[locale.indonesian.bubbles]
+welcome_message_a = "[white on purple]Selamat datang ke[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]implementasi Python [/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]oleh Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]Pengikut GitHub diambil [/white on cyan]"
+no_unfollows_message = "[white on green4] Tidak ada yang berhenti mengikuti![/white on green4]"
+end_message_a = "[white on purple]Kamu punya {follower_num} pengikut.[/white on purple]"
+end_message_b = "[white on magenta]Kerja bagus![/white on magenta]"
+thankyou_message = "[white on blue]Terima kasih telah menggunakan proyek ini[/white on blue]"
+
+
+[locale.english.regular]
+welcome_message = ":dancer: [purple]நல்வரவு[/purple] [red]யார் என்னை பின் தொடரவில்லை[/red][blue] பைதான் செயல்படுத்தல் [/blue] by [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]கிதுப் பின்தொடர்பவர்களைப் பெற்றனர்"
+no_unfollows_message = "[green]:raised_hands: [underline]பின்தொடரவில்லை!"
+end_message = ":fire: உங்களிடம் உள்ள {follower_num} பின்பற்றுபவர்கள். நற்பணியை தக்கவைத்துக்கொள்ளவும்\\n"
+thankyou_message = ":pray: இந்தத் திட்டத்தைப் பயன்படுத்தியதற்கு நன்றி"
+
+[locale.english.panels]
+welcome_message = ":dancer: [purple]நல்வரவு[/purple] [red]யார் என்னை பின் தொடரவில்லை[/red][blue] பைதான் செயல்படுத்தல்[/blue] by [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]கிதுப் பின்தொடர்பவர்களைப் பெற்றனர்"
+no_unfollows_message = "[white on #308012] பின்தொடரவில்லை! [/white on #308012]                                "
+end_message = ":fire: உங்களிடம் உள்ள {follower_num} பின்பற்றுபவர்கள். நற்பணியை தக்கவைத்துக்கொள்ளவும்\\n"
+thankyou_message = ":pray: இந்தத் திட்டத்தைப் பயன்படுத்தியதற்கு நன்றி"
+
+[locale.english.bubbles]
+welcome_message_a = "[white on purple]நல்வரவு[/white on purple]"
+welcome_message_b = "[white on red]யார் என்னை பின் தொடரவில்லை[/white on red]"
+welcome_message_c = "[white on blue]பைதான் செயல்படுத்தல்[/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]by Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]கிதுப் பின்தொடர்பவர்களைப் பெற்றனர்[/white on cyan]"
+no_unfollows_message = "[white on green4]பின்தொடரவில்லை![/white on green4]"
+end_message_a = "[white on purple]உங்களிடம் உள்ள {follower_num} followers.[/white on purple]"
+end_message_b = "[white on magenta]நற்பணியை தக்கவைத்துக்கொள்ளவும்![/white on magenta]"
+thankyou_message = "[white on blue]இந்தத் திட்டத்தைப் பயன்படுத்தியதற்கு நன்றி[/white on blue]"
 
 """
 
