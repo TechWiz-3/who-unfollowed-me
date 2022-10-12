@@ -94,7 +94,6 @@ def get_links():
     """get unfollows"""
     global info
     info = unfollow_main()
-    print(info)
     print_get()
 
 
