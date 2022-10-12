@@ -20,10 +20,10 @@ try:
     theme = config["appearance"]["styling"]["theme"]
     emojis = config["appearance"]["emojis"]
 except KeyError:
-    print(
-        "Please delete the `~/.unfollow/unfollow.toml` file before running `unfollow` again, check the GitHub repo for more info"
-    )
-    sys.exit(1)
+    get_config(overwrite=True)
+    print("A breaking change required your ~/.unfollow/unfollow.toml config file to be re-written, the file has been written successfully")
+    print("Please re-run now")
+    exit(1)
 
 locale_lang = config["locale"]["locale"]
 
@@ -163,12 +163,9 @@ def end(follower_num=0):  # remember TO CHANge THIS
         print("")
     elif simple:
         print("")
-        txt_b = Panel.fit(
-            locale["end_message"].format(follower_num=follower_num),
-            subtitle="Thanks for using this project",
-            subtitle_align="left",
-        )
-        console.print(txt_b)
+        txt_b = locale['end_message'].format(follower_num=follower_num)
+        subtitle = "\nThanks for using this project"
+        print(txt_b, subtitle)
         print("\n")
     elif regular:
         print("")

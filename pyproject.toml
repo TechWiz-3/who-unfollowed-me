@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "who-unfollowed-me"
-version = "2.0.0"
+version = "4.0.1"
 description = "😡 Python CLI tool that shows you who has unfollowed you on GitHub"
 authors = ["TechWiz-3 <programmingplus1@gmail.com>"]
 license = "GPL-3.0"
