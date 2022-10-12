@@ -17,12 +17,18 @@ def get_inverse(bg_col, txt):
 
 def beautify_unfollows(info, special=False):
     if special == "bubbles":
-        table = Table(box=box.SQUARE, show_lines=False, show_edge=False,)
-#                      padding=(0,2,0,2))
+        table = Table(
+            box=box.SQUARE,
+            show_lines=False,
+            show_edge=False,
+        )
+        #                      padding=(0,2,0,2))
         txt_a = get_inverse("red", "[white on red]Name[/white on red]")
         txt_b = get_inverse("red", "[white on red]Link[/white on red]")
         print("")  # get some spacing before the table
-        table.add_column(txt_a, header_style=red, justify="left", style=bright_red, no_wrap=True)
+        table.add_column(
+            txt_a, header_style=red, justify="left", style=bright_red, no_wrap=True
+        )
         table.add_column(txt_b, header_style=red, style=bright_red)
     elif special == "simple":
         print("")  # add an extra line
@@ -38,13 +44,19 @@ def beautify_unfollows(info, special=False):
         table = Table(box=box.SQUARE, show_lines=True)
         txt_a = "Name"
         txt_b = "Link"
-        table.add_column(txt_a, header_style=red, justify="left", style=bright_red, no_wrap=True)
+        table.add_column(
+            txt_a, header_style=red, justify="left", style=bright_red, no_wrap=True
+        )
         table.add_column(txt_b, header_style=red, style=bright_red)
 
     for name, link in info:
         if special == "bubbles":
-            name = get_inverse("bright_red", f"[white on bright_red]{name}[/white on bright_red]")
-            link = get_inverse("bright_red", f"[white on bright_red]{link}[/white on bright_red]")
+            name = get_inverse(
+                "bright_red", f"[white on bright_red]{name}[/white on bright_red]"
+            )
+            link = get_inverse(
+                "bright_red", f"[white on bright_red]{link}[/white on bright_red]"
+            )
         table.add_row(name, link)
 
     console.print(table)
