@@ -20,7 +20,7 @@ if "--token" in sys.argv:
     print("yes")
     TOKEN = os.getenv("UNFOLLOW_TOKEN")
     try:
-        HEADERS = {'Authorization': f'token {TOKEN}'}
+        HEADERS = {"Authorization": f"token {TOKEN}"}
     except TypeError:
         print("Error: UNFOLLOW_TOKEN not found. Maybe refresh your terminal?")
         sys.exit(1)
@@ -46,7 +46,9 @@ def get_user() -> tuple:
         if not os.path.exists(f"{UNFOLLOW_PATH}"):
             os.mkdir(f"{UNFOLLOW_PATH}")  # create directory
         stop_spinner = True
-        time.sleep(1.5)  # give a second for the for loop to catch up and stop the spinner
+        time.sleep(
+            1.5
+        )  # give a second for the for loop to catch up and stop the spinner
         user = get_input_username()
         stop_spinner = False
         # todo: verify the user exists
@@ -69,12 +71,15 @@ def get_followers(username, write_file=False, overwrite=False):
     """writes to file"""
     if overwrite:
         # empty the followers file before filling it
-        open(f'{UNFOLLOW_PATH}/followers.json', 'w').close()
+        open(f"{UNFOLLOW_PATH}/followers.json", "w").close()
 
     total_followers = []
     page = 1
     while True:
-        raw_data = requests.get(f"https://api.github.com/users/{username}/followers?page={page}&per_page=100", headers=HEADERS)
+        raw_data = requests.get(
+            f"https://api.github.com/users/{username}/followers?page={page}&per_page=100",
+            headers=HEADERS,
+        )
         if raw_data.json() == []:
             # empty data, breaking now
             break
@@ -99,10 +104,12 @@ def get_follow_num(username):
 
 
 def check_deleted(username):
-    """ checks if page doesn't exit
-        returns true if deleted
-        true otherwise"""
-    response_code = requests.get(f"https://api.github.com/users/{username}", headers=HEADERS).status_code
+    """checks if page doesn't exit
+    returns true if deleted
+    true otherwise"""
+    response_code = requests.get(
+        f"https://api.github.com/users/{username}", headers=HEADERS
+    ).status_code
     if response_code == 404:
         return True
     else:
@@ -119,7 +126,7 @@ def get_unfollows(username):
         previous_followers.extend(iter(follower_file))
 
     # clear the file
-    open(f'{UNFOLLOW_PATH}/followers.json', 'w').close()
+    open(f"{UNFOLLOW_PATH}/followers.json", "w").close()
 
     # get the new followers and put in file
     get_followers(username, write_file=True)
@@ -201,5 +208,5 @@ def main():
     unfollowed_future = executor.submit(run_unfollow)
     spin_future = executor.submit(run_spinner)
     # shutdown the thread pool
-    executor.shutdown()     # blocks
+    executor.shutdown()  # blocks
     return unfollowed_future.result()
