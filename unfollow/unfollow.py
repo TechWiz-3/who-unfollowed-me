@@ -32,6 +32,7 @@ else:
 
 if "--cached" in sys.argv:
     UNFOLLOW_PATH_CACHED = f"{HOME}/.unfollow/cached.json"
+    cached = True
 
 
 threads_stopped = False  # used to stop spinner thread
@@ -219,6 +220,7 @@ def scan_follows(old_follower, current_followers):
 
 def run_unfollow():
     global threads_stopped
+    global cached  # variable that gets whether to cache unfollowers or not
     action, username = get_user()  # since item list
     follow_num = get_follow_num(username)
     if action == "first":  # user running for first time so no need to compare followers
