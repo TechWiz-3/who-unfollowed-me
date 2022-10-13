@@ -16,14 +16,10 @@ UNFOLLOW_PATH = f"{HOME}/.unfollow"
 if "--test" in sys.argv:
     UNFOLLOW_PATH = f"{HOME}/.test.unfollow"
 
-if "--token" in sys.argv:
-    print("yes")
-    TOKEN = os.getenv("UNFOLLOW_TOKEN")
-    try:
-        HEADERS = {'Authorization': f'token {TOKEN}'}
-    except TypeError:
-        print("Error: UNFOLLOW_TOKEN not found. Maybe refresh your terminal?")
-        sys.exit(1)
+TOKEN = os.getenv("UNFOLLOW_TOKEN")
+
+if TOKEN is not None:
+    HEADERS = {'Authorization': f'token {TOKEN}'}
 else:
     TOKEN = ""
     HEADERS = {}
