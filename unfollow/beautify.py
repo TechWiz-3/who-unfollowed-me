@@ -33,7 +33,7 @@ def beautify_unfollows(info, special=False, cached=False):
             title=get_inverse("purple", f"[bold white on purple]{title}[/bold white on purple]", txt_after="\n"),
             title_style=title_style,
             title_justify=title_justify,
-            padding=(0,2,0,2)
+            padding=(0, 2, 0, 2)
         )
         #                      padding=(0,2,0,2))
         txt_a = get_inverse("red", "[white on red]Name[/white on red]")

@@ -1,4 +1,4 @@
-from setuptools import find_packages, setup
+from setuptools import setup
 
 classifiers = [
   'Development Status :: 5 - Production/Stable',
