@@ -229,17 +229,15 @@ def main():
                 beautify_unfollows(info[2])
         else:
             no_unfollows()
-        txt = Panel.fit(locale["last_week_unfollowers"])
-        console.print(txt)
-        if len(info[3]) > 0:  # unfollowers have been detected
-            if bubbles:
-                beautify_unfollows(info[3], special="bubbles")
-            elif panels:
-                beautify_unfollows(info[3], special="panels")
-            else:
-                beautify_unfollows(info[3])
-        else:
-            no_unfollows()
+        if args.cached:
+            print()
+            if len(info[3]) > 0:  # cached unfollowers have been detected
+                if bubbles:
+                    beautify_unfollows(info[3], special="bubbles", cached=True)
+                elif panels:
+                    beautify_unfollows(info[3], special="panels", cached=True)
+                else:
+                    beautify_unfollows(info[3], cached=True)
         end(follower_num=info[1])
 
 
