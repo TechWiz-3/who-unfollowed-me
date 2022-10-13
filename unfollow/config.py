@@ -311,14 +311,15 @@ def get_config(overwrite=False) -> dict:
 
     return config
 
-def config_version_handle(version) -> bool: 
+
+def config_version_handle(version) -> bool:
     if version == curr_config_version:
         return False
 
     # If we reach here we must either have no version (version param = 0) or the version it outdated
     # thus, the config must be copied and replaced with the default
     copy2(f"{UNFOLLOW_PATH}/unfollow.toml", f"{UNFOLLOW_PATH}/invalid_unfollow.toml")
-    
+
     _ = get_config(overwrite=True)
 
     if (version not in version_messages.keys()):

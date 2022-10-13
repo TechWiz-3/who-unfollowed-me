@@ -25,8 +25,8 @@ if "version" in config_keys:
 else:
     handled_version = config_version_handle(0)
 
-# If it has had to make a change kill program 
-if handled_version: 
+# If it has had to make a change kill program
+if handled_version:
     exit(1)
 
 theme = config['appearance']['styling']['theme']
