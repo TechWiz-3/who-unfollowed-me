@@ -3,9 +3,19 @@
 import toml
 import os
 
+from shutil import copy2
+
 from unfollow.unfollow import UNFOLLOW_PATH
 
+# !----------- IMPORTANT
+# Due to f-strings overwriting the variable input in the config file,
+# please ensure both curr_config_version in python, and "version" in the
+# default_config are updated
+# !----------- IMPORTANT
+curr_config_version = 1
 default_config = """
+version=1
+
 [appearance]
 
 [appearance.styling] # set the theme
@@ -250,21 +260,21 @@ end_message_b = "[white on magenta]Kerja bagus![/white on magenta]"
 thankyou_message = "[white on blue]Terima kasih telah menggunakan proyek ini[/white on blue]"
 
 
-[locale.english.regular]
+[locale.tamil.regular]
 welcome_message = ":dancer: [purple]நல்வரவு[/purple] [red]யார் என்னை பின் தொடரவில்லை[/red][blue] பைதான் செயல்படுத்தல் [/blue] by [#FFD700]Zac the Wise[#FFD700]"
 fetched_followers_message = "[green]✔ [underline]கிதுப் பின்தொடர்பவர்களைப் பெற்றனர்"
 no_unfollows_message = "[green]:raised_hands: [underline]பின்தொடரவில்லை!"
 end_message = ":fire: உங்களிடம் உள்ள {follower_num} பின்பற்றுபவர்கள். நற்பணியை தக்கவைத்துக்கொள்ளவும்\\n"
 thankyou_message = ":pray: இந்தத் திட்டத்தைப் பயன்படுத்தியதற்கு நன்றி"
 
-[locale.english.panels]
+[locale.tamil.panels]
 welcome_message = ":dancer: [purple]நல்வரவு[/purple] [red]யார் என்னை பின் தொடரவில்லை[/red][blue] பைதான் செயல்படுத்தல்[/blue] by [#FFD700]Zac the Wise[#FFD700]"
 fetched_followers_message = "[green]✔ [underline]கிதுப் பின்தொடர்பவர்களைப் பெற்றனர்"
 no_unfollows_message = "[white on #308012] பின்தொடரவில்லை! [/white on #308012]                                "
 end_message = ":fire: உங்களிடம் உள்ள {follower_num} பின்பற்றுபவர்கள். நற்பணியை தக்கவைத்துக்கொள்ளவும்\\n"
 thankyou_message = ":pray: இந்தத் திட்டத்தைப் பயன்படுத்தியதற்கு நன்றி"
 
-[locale.english.bubbles]
+[locale.tamil.bubbles]
 welcome_message_a = "[white on purple]நல்வரவு[/white on purple]"
 welcome_message_b = "[white on red]யார் என்னை பின் தொடரவில்லை[/white on red]"
 welcome_message_c = "[white on blue]பைதான் செயல்படுத்தல்[/white on blue]"
@@ -276,6 +286,14 @@ end_message_b = "[white on magenta]நற்பணியை தக்கவை�
 thankyou_message = "[white on blue]இந்தத் திட்டத்தைப் பயன்படுத்தியதற்கு நன்றி[/white on blue]"
 
 """
+
+# Future proof by allowing different messages for different versions
+version_messages = {
+    0: f"A breaking change required your configuration file (found at {UNFOLLOW_PATH}/unfollow.toml) to be recreated,\
+    \nA copy of your previous config has been saved at {UNFOLLOW_PATH}/invalid_unfollow.toml, and your current configuration has been overwritten with a valid one.",
+    "_": f"It looks like something has gone wrong with your configuration file.\
+    \nA copy has been saved at {UNFOLLOW_PATH}/invalid_unfollow.toml, , and your current configuration has been overwritten with a valid one."
+}
 
 
 def get_config(overwrite=False) -> dict:
@@ -292,3 +310,19 @@ def get_config(overwrite=False) -> dict:
             toml.dump(config, config_file)
 
     return config
+
+def config_version_handle(version) -> bool: 
+    if version == curr_config_version:
+        return False
+
+    # If we reach here we must either have no version (version param = 0) or the version it outdated
+    # thus, the config must be copied and replaced with the default
+    copy2(f"{UNFOLLOW_PATH}/unfollow.toml", f"{UNFOLLOW_PATH}/invalid_unfollow.toml")
+    
+    _ = get_config(overwrite=True)
+
+    if (version not in version_messages.keys()):
+        version = "_"
+
+    print(version_messages[version])
+    return True
