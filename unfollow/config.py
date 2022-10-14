@@ -281,7 +281,6 @@ thankyou_message = "[white on blue]இந்தத் திட்டத்த�
 def get_config(overwrite=False) -> dict:
     global threads_stopped
 
-
     # Ensure directory exists before creating file
     if not os.path.exists(f"{UNFOLLOW_PATH}"):
         os.mkdir(UNFOLLOW_PATH)
