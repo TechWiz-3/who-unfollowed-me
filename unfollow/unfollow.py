@@ -1,23 +1,25 @@
 #!/usr/bin/env python3
 
+import concurrent.futures
+import json
 import os
 import sys
 import time
-import requests
-import concurrent.futures
+from datetime import datetime, timedelta
 
+import requests
 from rich.status import Status
 
 from unfollow.input import get_input_username
 
 HOME = os.path.expanduser("~")
 UNFOLLOW_PATH = f"{HOME}/.unfollow"
+cached = False
 
 if "--test" in sys.argv:
     UNFOLLOW_PATH = f"{HOME}/.test.unfollow"
 
 if "--token" in sys.argv:
-    print("yes")
     TOKEN = os.getenv("UNFOLLOW_TOKEN")
     try:
         HEADERS = {"Authorization": f"token {TOKEN}"}
@@ -27,6 +29,11 @@ if "--token" in sys.argv:
 else:
     TOKEN = ""
     HEADERS = {}
+
+if "--cached" in sys.argv:
+    UNFOLLOW_PATH_CACHED = f"{HOME}/.unfollow/cached.json"
+    cached = True
+
 
 threads_stopped = False  # used to stop spinner thread
 stop_spinner = None  # none, true, false
@@ -104,7 +111,7 @@ def get_follow_num(username):
 
 
 def check_deleted(username):
-    """checks if page doesn't exit
+    """checks if page doesn't exist
     returns true if deleted
     true otherwise"""
     response_code = requests.get(
@@ -146,6 +153,55 @@ def get_unfollows(username):
     return unfollowers
 
 
+def get_unfollows_since(unfollowers, days_ago=7):
+    """
+    If file does not exist, save new cache with new unfollows
+    if last_cached < days_ago, add new unfollows to cache (if they exist)
+    If last_cached > days_ago, clear cache and add new unfollows to new cache
+    """
+    now = datetime.utcnow()
+
+    delta = timedelta(days=days_ago)
+
+    if os.path.exists(UNFOLLOW_PATH_CACHED):
+        with open(UNFOLLOW_PATH_CACHED, "r") as unfollow_file:
+            o = json.load(unfollow_file)
+            last_cached_time = o["last_cached"]
+            last = datetime.fromtimestamp(last_cached_time)
+            cached_unfollowers = o.get("unfollowers", [])
+            cached_ids = set(map(lambda o: o[0], cached_unfollowers))
+        if now > last + delta:
+            with open(UNFOLLOW_PATH_CACHED, "w") as unfollow_file:
+                json.dump(
+                    {"last_cached": now.timestamp(), "unfollowers": unfollowers},
+                    unfollow_file,
+                )
+                return unfollowers
+        else:
+            if len(unfollowers) > 0:
+                for unfollower in unfollowers:
+                    if unfollower[0] not in cached_ids:
+                        cached_unfollowers.append(unfollower)
+                with open(UNFOLLOW_PATH_CACHED, "w") as unfollow_file:
+                    json.dump(
+                        {
+                            "last_cached": last_cached_time,
+                            "unfollowers": cached_unfollowers,
+                        },
+                        unfollow_file,
+                    )
+                return cached_unfollowers
+            else:
+                return cached_unfollowers
+    else:
+        with open(UNFOLLOW_PATH_CACHED, "w") as unfollow_file:
+            json.dump(
+                {"last_cached": now.timestamp(), "unfollowers": unfollowers},
+                unfollow_file,
+            )
+        return unfollowers
+
+
 def scan_follows(old_follower, current_followers):
     """
     takes a single old follower and
@@ -164,6 +220,7 @@ def scan_follows(old_follower, current_followers):
 
 def run_unfollow():
     global threads_stopped
+    global cached  # variable that gets whether to cache unfollowers or not
     action, username = get_user()  # since item list
     follow_num = get_follow_num(username)
     if action == "first":  # user running for first time so no need to compare followers
@@ -172,10 +229,8 @@ def run_unfollow():
     else:
         threads_stopped = True
         unfollows = get_unfollows(username)
-        if unfollows:  # if the list came back with content
-            return ("regular", follow_num, unfollows)
-        else:  # no unfollows
-            return ("regular", follow_num)
+        unfollows_last_week = get_unfollows_since(unfollows, 7) if cached else []
+        return ("regular", follow_num, unfollows, unfollows_last_week)
 
 
 def run_spinner():

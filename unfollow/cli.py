@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 
-import sys
 import argparse
-import requests
+import sys
 
-from rich.panel import Panel
+import requests
 from rich.console import Console
+from rich.panel import Panel
 
 # local file imports
 from unfollow.beautify import beautify_unfollows
-from unfollow.unfollow import main as unfollow_main
 from unfollow.config import get_config
+from unfollow.unfollow import main as unfollow_main
 
 console = Console()
 
@@ -44,6 +44,9 @@ parser.add_argument(
  UNFOLLOW_TOKEN which is a github token for requests to the API.",
 )
 parser.add_argument("--test", action="store_true", help="for testing purposes")
+parser.add_argument(
+    "--cached", action="store_true", help="cache followers since last week"
+)
 
 args = parser.parse_args(sys.argv[1:])
 
@@ -217,7 +220,7 @@ def main():
         # follows saved for later
         end(follower_num=info[1])
     elif info[0] == "regular":
-        if len(info) == 3:  # unfollowers have been detected
+        if len(info[2]) > 0:  # unfollowers have been detected
             if bubbles:
                 beautify_unfollows(info[2], special="bubbles")
             elif panels:
@@ -228,6 +231,15 @@ def main():
                 beautify_unfollows(info[2])
         else:
             no_unfollows()
+        if args.cached:
+            print()
+            if len(info[3]) > 0:  # cached unfollowers have been detected
+                if bubbles:
+                    beautify_unfollows(info[3], special="bubbles", cached=True)
+                elif panels:
+                    beautify_unfollows(info[3], special="panels", cached=True)
+                else:
+                    beautify_unfollows(info[3], cached=True)
         end(follower_num=info[1])
 
 
