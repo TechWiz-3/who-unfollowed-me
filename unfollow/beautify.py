@@ -16,7 +16,6 @@ def get_inverse(bg_col, txt, txt_after=""):
 
 
 def beautify_unfollows(info, special=False, cached=False):
-    print(info)
     if cached:
         title_style = "purple"
         title_justify = "left"
@@ -26,11 +25,13 @@ def beautify_unfollows(info, special=False, cached=False):
         title_justify = ""
         title = ""
     if special == "bubbles":
+        heading = get_inverse("purple", f"[bold white on purple]{title}[/bold white on purple]", txt_after="\n")
+        title = f":brain: {heading}"
         table = Table(
             box=box.SQUARE,
             show_lines=False,
             show_edge=False,
-            title=get_inverse("purple", f"[bold white on purple]{title}[/bold white on purple]", txt_after="\n"),
+            title=title,
             title_style=title_style,
             title_justify=title_justify,
             padding=(0, 2, 0, 2)
