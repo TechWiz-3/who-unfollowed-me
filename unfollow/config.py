@@ -304,7 +304,9 @@ def get_config(overwrite=False) -> dict:
     if os.path.exists(f"{UNFOLLOW_PATH}/unfollow.toml") and not overwrite:
         config = toml.load(f"{UNFOLLOW_PATH}/unfollow.toml")
     elif overwrite:
-        with open(f"{UNFOLLOW_PATH}/unfollow.toml", "w", encoding='utf-8') as config_file:
+        with open(
+            f"{UNFOLLOW_PATH}/unfollow.toml", "w", encoding="utf-8"
+        ) as config_file:
             config = toml.loads(default_config)
             toml.dump(config, config_file)
     else:

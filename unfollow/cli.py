@@ -21,7 +21,9 @@ try:
     emojis = config["appearance"]["emojis"]
 except KeyError:
     get_config(overwrite=True)
-    print("A breaking change required your ~/.unfollow/unfollow.toml config file to be re-written, the file has been written successfully")
+    print(
+        "A breaking change required your ~/.unfollow/unfollow.toml config file to be re-written, the file has been written successfully"
+    )
     print("Please re-run now")
     exit(1)
 
@@ -162,7 +164,7 @@ def end(follower_num=0):  # remember TO CHANge THIS
         print("")
     elif simple:
         print("")
-        txt_b = locale['end_message'].format(follower_num=follower_num)
+        txt_b = locale["end_message"].format(follower_num=follower_num)
         subtitle = "\nThanks for using this project"
         print(txt_b, subtitle)
         print("\n")
