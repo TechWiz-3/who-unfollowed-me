@@ -1,32 +1,39 @@
 #!/usr/bin/env python3
 
+import concurrent.futures
+import json
 import os
 import sys
 import time
-import requests
-import concurrent.futures
+from datetime import datetime, timedelta
 
+import requests
 from rich.status import Status
 
 from unfollow.input import get_input_username
 
 HOME = os.path.expanduser("~")
 UNFOLLOW_PATH = f"{HOME}/.unfollow"
+cached = False
 
 if "--test" in sys.argv:
     UNFOLLOW_PATH = f"{HOME}/.test.unfollow"
 
 if "--token" in sys.argv:
-    print("yes")
     TOKEN = os.getenv("UNFOLLOW_TOKEN")
     try:
-        HEADERS = {'Authorization': f'token {TOKEN}'}
+        HEADERS = {"Authorization": f"token {TOKEN}"}
     except TypeError:
         print("Error: UNFOLLOW_TOKEN not found. Maybe refresh your terminal?")
         sys.exit(1)
 else:
     TOKEN = ""
     HEADERS = {}
+
+if "--cached" in sys.argv:
+    UNFOLLOW_PATH_CACHED = f"{HOME}/.unfollow/cached.json"
+    cached = True
+
 
 threads_stopped = False  # used to stop spinner thread
 stop_spinner = None  # none, true, false
@@ -46,7 +53,9 @@ def get_user() -> tuple:
         if not os.path.exists(f"{UNFOLLOW_PATH}"):
             os.mkdir(f"{UNFOLLOW_PATH}")  # create directory
         stop_spinner = True
-        time.sleep(1.5)  # give a second for the for loop to catch up and stop the spinner
+        time.sleep(
+            1.5
+        )  # give a second for the for loop to catch up and stop the spinner
         user = get_input_username()
         stop_spinner = False
         # todo: verify the user exists
@@ -69,12 +78,15 @@ def get_followers(username, write_file=False, overwrite=False):
     """writes to file"""
     if overwrite:
         # empty the followers file before filling it
-        open(f'{UNFOLLOW_PATH}/followers.json', 'w').close()
+        open(f"{UNFOLLOW_PATH}/followers.json", "w").close()
 
     total_followers = []
     page = 1
     while True:
-        raw_data = requests.get(f"https://api.github.com/users/{username}/followers?page={page}&per_page=100", headers=HEADERS)
+        raw_data = requests.get(
+            f"https://api.github.com/users/{username}/followers?page={page}&per_page=100",
+            headers=HEADERS,
+        )
         if raw_data.json() == []:
             # empty data, breaking now
             break
@@ -99,10 +111,12 @@ def get_follow_num(username):
 
 
 def check_deleted(username):
-    """ checks if page doesn't exit
-        returns true if deleted
-        true otherwise"""
-    response_code = requests.get(f"https://api.github.com/users/{username}", headers=HEADERS).status_code
+    """checks if page doesn't exist
+    returns true if deleted
+    true otherwise"""
+    response_code = requests.get(
+        f"https://api.github.com/users/{username}", headers=HEADERS
+    ).status_code
     if response_code == 404:
         return True
     else:
@@ -119,7 +133,7 @@ def get_unfollows(username):
         previous_followers.extend(iter(follower_file))
 
     # clear the file
-    open(f'{UNFOLLOW_PATH}/followers.json', 'w').close()
+    open(f"{UNFOLLOW_PATH}/followers.json", "w").close()
 
     # get the new followers and put in file
     get_followers(username, write_file=True)
@@ -137,6 +151,55 @@ def get_unfollows(username):
                 result = f"{result} \[deleted]"
             unfollowers.append((result, f"https://github.com/{result_for_link}/"))
     return unfollowers
+
+
+def get_unfollows_since(unfollowers, days_ago=7):
+    """
+    If file does not exist, save new cache with new unfollows
+    if last_cached < days_ago, add new unfollows to cache (if they exist)
+    If last_cached > days_ago, clear cache and add new unfollows to new cache
+    """
+    now = datetime.utcnow()
+
+    delta = timedelta(days=days_ago)
+
+    if os.path.exists(UNFOLLOW_PATH_CACHED):
+        with open(UNFOLLOW_PATH_CACHED, "r") as unfollow_file:
+            o = json.load(unfollow_file)
+            last_cached_time = o["last_cached"]
+            last = datetime.fromtimestamp(last_cached_time)
+            cached_unfollowers = o.get("unfollowers", [])
+            cached_ids = set(map(lambda o: o[0], cached_unfollowers))
+        if now > last + delta:
+            with open(UNFOLLOW_PATH_CACHED, "w") as unfollow_file:
+                json.dump(
+                    {"last_cached": now.timestamp(), "unfollowers": unfollowers},
+                    unfollow_file,
+                )
+                return unfollowers
+        else:
+            if len(unfollowers) > 0:
+                for unfollower in unfollowers:
+                    if unfollower[0] not in cached_ids:
+                        cached_unfollowers.append(unfollower)
+                with open(UNFOLLOW_PATH_CACHED, "w") as unfollow_file:
+                    json.dump(
+                        {
+                            "last_cached": last_cached_time,
+                            "unfollowers": cached_unfollowers,
+                        },
+                        unfollow_file,
+                    )
+                return cached_unfollowers
+            else:
+                return cached_unfollowers
+    else:
+        with open(UNFOLLOW_PATH_CACHED, "w") as unfollow_file:
+            json.dump(
+                {"last_cached": now.timestamp(), "unfollowers": unfollowers},
+                unfollow_file,
+            )
+        return unfollowers
 
 
 def scan_follows(old_follower, current_followers):
@@ -157,6 +220,7 @@ def scan_follows(old_follower, current_followers):
 
 def run_unfollow():
     global threads_stopped
+    global cached  # variable that gets whether to cache unfollowers or not
     action, username = get_user()  # since item list
     follow_num = get_follow_num(username)
     if action == "first":  # user running for first time so no need to compare followers
@@ -165,10 +229,8 @@ def run_unfollow():
     else:
         threads_stopped = True
         unfollows = get_unfollows(username)
-        if unfollows:  # if the list came back with content
-            return ("regular", follow_num, unfollows)
-        else:  # no unfollows
-            return ("regular", follow_num)
+        unfollows_last_week = get_unfollows_since(unfollows, 7) if cached else []
+        return ("regular", follow_num, unfollows, unfollows_last_week)
 
 
 def run_spinner():
@@ -201,5 +263,5 @@ def main():
     unfollowed_future = executor.submit(run_unfollow)
     spin_future = executor.submit(run_spinner)
     # shutdown the thread pool
-    executor.shutdown()     # blocks
+    executor.shutdown()  # blocks
     return unfollowed_future.result()
