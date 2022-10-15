@@ -25,7 +25,11 @@ def beautify_unfollows(info, special=False, cached=False):
         title_justify = ""
         title = ""
     if special == "bubbles":
-        heading = get_inverse("purple", f"[bold white on purple]{title}[/bold white on purple]", txt_after="\n")
+        heading = get_inverse(
+            "purple",
+            f"[bold white on purple]{title}[/bold white on purple]",
+            txt_after="\n",
+        )
         title = f":brain: {heading}"
         table = Table(
             box=box.SQUARE,
@@ -34,7 +38,7 @@ def beautify_unfollows(info, special=False, cached=False):
             title=title,
             title_style=title_style,
             title_justify=title_justify,
-            padding=(0, 2, 0, 2)
+            padding=(0, 2, 0, 2),
         )
         #                      padding=(0,2,0,2))
         txt_a = get_inverse("red", "[white on red]Name[/white on red]")
@@ -47,10 +51,7 @@ def beautify_unfollows(info, special=False, cached=False):
     elif special == "simple":
         print("")  # add an extra line
         table = Table(
-            box=box.SQUARE,
-            show_lines=True,
-            title=title,
-            title_justify=title_justify
+            box=box.SQUARE, show_lines=True, title=title, title_justify=title_justify
         )
         txt_a = "Name"
         txt_b = "Link"
@@ -65,7 +66,7 @@ def beautify_unfollows(info, special=False, cached=False):
             show_lines=True,
             title=title,
             title_style=title_style,
-            title_justify=title_justify
+            title_justify=title_justify,
         )
         txt_a = "Name"
         txt_b = "Link"
@@ -78,10 +79,14 @@ def beautify_unfollows(info, special=False, cached=False):
     for name, link in info:
         if special == "bubbles":
             name = get_inverse(
-                "bright_red", f"[white on bright_red]{name}[/white on bright_red]", txt_after="\n"
+                "bright_red",
+                f"[white on bright_red]{name}[/white on bright_red]",
+                txt_after="\n",
             )
             link = get_inverse(
-                "bright_red", f"[white on bright_red]{link}[/white on bright_red]", txt_after="\n"
+                "bright_red",
+                f"[white on bright_red]{link}[/white on bright_red]",
+                txt_after="\n",
             )
         table.add_row(name, link)
 
