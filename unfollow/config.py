@@ -334,7 +334,7 @@ version_messages = {
     0: f"A breaking change required your configuration file (found at {UNFOLLOW_PATH}/unfollow.toml) to be recreated,\
     \nA copy of your previous config has been saved at {UNFOLLOW_PATH}/invalid_unfollow.toml, and your current configuration has been overwritten with a valid one.",
     "_": f"It looks like something has gone wrong with your configuration file.\
-    \nA copy has been saved at {UNFOLLOW_PATH}/invalid_unfollow.toml, , and your current configuration has been overwritten with a valid one."
+    \nA copy has been saved at {UNFOLLOW_PATH}/invalid_unfollow.toml, , and your current configuration has been overwritten with a valid one.",
 }
 
 
@@ -373,7 +373,7 @@ def config_version_handle(version) -> bool:
 
     _ = get_config(overwrite=True)
 
-    if (version not in version_messages.keys()):
+    if version not in version_messages.keys():
         version = "_"
 
     print(version_messages[version])
