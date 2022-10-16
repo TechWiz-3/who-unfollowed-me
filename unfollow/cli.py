@@ -169,7 +169,7 @@ def end(follower_num=0):  # remember TO CHANge THIS
         print("")
     elif simple:
         print("")
-        txt_b = locale['end_message'].format(follower_num=follower_num)
+        txt_b = locale["end_message"].format(follower_num=follower_num)
         subtitle = "\nThanks for using this project"
         print(txt_b, subtitle)
         print("\n")

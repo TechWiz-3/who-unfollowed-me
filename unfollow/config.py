@@ -70,6 +70,33 @@ end_message_b = "[white on magenta]Keep up the good work![/white on magenta]"
 thankyou_message = "[white on blue]Thanks for using this project[/white on blue]"
 
 
+[locale.portuguese]
+[locale.portuguese.regular]
+welcome_message = ":dancer: [purple]Bem vindo ao[/purple] [red]who-unfollowed-me[/red][blue] uma implementação em Python[/blue] criada por [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Seguidores do github encontrados"
+no_unfollows_message = "[green]:raised_hands: [underline]Nenhum não seguidor!"
+end_message = ":fire: Você tem {follower_num} seguidores. Mantenha o bom trabalho\\n"
+thankyou_message = ":pray: Obrigado por usar o projeto"
+
+[locale.portuguese.panels]
+welcome_message = ":dancer: [purple]Bem vindo ao[/purple] [red]who-unfollowed-me[/red][blue] uma implementação em Python[/blue] criada por [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Seguidores do github encontrados"
+no_unfollows_message = "[white on #308012] Nenhum não seguidor! [/white on #308012]                                "
+end_message = ":fire: Você tem {follower_num} seguidores. Mantenha o bom trabalho\\n"
+thankyou_message = ":pray: Obrigado por usar o projeto"
+
+[locale.portuguese.bubbles]
+welcome_message_a = "[white on purple]Bem vindo ao[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]uma implementação em Python[/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]criada por Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]Seguidores do github encontrados[/white on cyan]"
+no_unfollows_message = "[white on green4]Nenhum não seguidor![/white on green4]"
+end_message_a = "[white on purple]Você tem {follower_num} seguidores.[/white on purple]"
+end_message_b = "[white on magenta]Mantenha o bom trabalho![/white on magenta]"
+thankyou_message = "[white on blue]Obrigado por usar o projeto[/white on blue]"
+
+
 [locale.hindi]
 [locale.hindi.regular]
 welcome_message = ":dancer: [purple]Aapka Swagat Hai[/purple] [red]who-unfollowed-me[/red][purple]mai[/purple][blue] Python mai kaaryaanvayan [/blue] by [#FFD700]Zac the Wise[#FFD700]"
@@ -321,7 +348,9 @@ def get_config(overwrite=False) -> dict:
     if os.path.exists(f"{UNFOLLOW_PATH}/unfollow.toml") and not overwrite:
         config = toml.load(f"{UNFOLLOW_PATH}/unfollow.toml")
     elif overwrite:
-        with open(f"{UNFOLLOW_PATH}/unfollow.toml", "w", encoding='utf-8') as config_file:
+        with open(
+            f"{UNFOLLOW_PATH}/unfollow.toml", "w", encoding="utf-8"
+        ) as config_file:
             config = toml.loads(default_config)
             toml.dump(config, config_file)
     else:
