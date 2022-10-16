@@ -9,23 +9,30 @@ from rich.panel import Panel
 
 # local file imports
 from unfollow.beautify import beautify_unfollows
-from unfollow.config import get_config
 from unfollow.unfollow import main as unfollow_main
+from unfollow.config import get_config, config_version_handle
 
 console = Console()
 
 config = get_config()
 
-try:
-    theme = config["appearance"]["styling"]["theme"]
-    emojis = config["appearance"]["emojis"]
-except KeyError:
-    get_config(overwrite=True)
-    print("A breaking change required your ~/.unfollow/unfollow.toml config file to be re-written, the file has been written successfully")
-    print("Please re-run now")
+config_keys = config.keys()
+
+
+if "version" in config_keys:
+    handled_version = config_version_handle(config['version'])
+
+else:
+    handled_version = config_version_handle(0)
+
+# If it has had to make a change kill program
+if handled_version:
     exit(1)
 
-locale_lang = config["locale"]["locale"]
+theme = config['appearance']['styling']['theme']
+emojis = config['appearance']['emojis']
+
+locale_lang = config['locale']['locale']
 
 parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
 help_txt = "[optional]\n'regular':  regular theme (triggers if no other theme\
