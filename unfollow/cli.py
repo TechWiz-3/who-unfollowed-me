@@ -20,7 +20,7 @@ config_keys = config.keys()
 
 
 if "version" in config_keys:
-    handled_version = config_version_handle(config['version'])
+    handled_version = config_version_handle(config["version"])
 
 else:
     handled_version = config_version_handle(0)
@@ -29,10 +29,10 @@ else:
 if handled_version:
     exit(1)
 
-theme = config['appearance']['styling']['theme']
-emojis = config['appearance']['emojis']
+theme = config["appearance"]["styling"]["theme"]
+emojis = config["appearance"]["emojis"]
 
-locale_lang = config['locale']['locale']
+locale_lang = config["locale"]["locale"]
 
 parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
 help_txt = "[optional]\n'regular':  regular theme (triggers if no other theme\
