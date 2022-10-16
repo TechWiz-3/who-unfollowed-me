@@ -3,10 +3,19 @@
 import os
 
 import toml
+from shutil import copy2
 
 from unfollow.unfollow import UNFOLLOW_PATH
 
+# !----------- IMPORTANT
+# Due to f-strings overwriting the variable input in the config file,
+# please ensure both curr_config_version in python, and "version" in the
+# default_config are updated
+# !----------- IMPORTANT
+curr_config_version = 1
 default_config = """
+version=1
+
 [appearance]
 
 [appearance.styling] # set the theme
@@ -293,6 +302,14 @@ thankyou_message = "[white on blue]இந்தத் திட்டத்த�
 
 """
 
+# Future proof by allowing different messages for different versions
+version_messages = {
+    0: f"A breaking change required your configuration file (found at {UNFOLLOW_PATH}/unfollow.toml) to be recreated,\
+    \nA copy of your previous config has been saved at {UNFOLLOW_PATH}/invalid_unfollow.toml, and your current configuration has been overwritten with a valid one.",
+    "_": f"It looks like something has gone wrong with your configuration file.\
+    \nA copy has been saved at {UNFOLLOW_PATH}/invalid_unfollow.toml, , and your current configuration has been overwritten with a valid one."
+}
+
 
 def get_config(overwrite=False) -> dict:
     global threads_stopped
@@ -315,3 +332,20 @@ def get_config(overwrite=False) -> dict:
             toml.dump(config, config_file)
 
     return config
+
+
+def config_version_handle(version) -> bool:
+    if version == curr_config_version:
+        return False
+
+    # If we reach here we must either have no version (version param = 0) or the version it outdated
+    # thus, the config must be copied and replaced with the default
+    copy2(f"{UNFOLLOW_PATH}/unfollow.toml", f"{UNFOLLOW_PATH}/invalid_unfollow.toml")
+
+    _ = get_config(overwrite=True)
+
+    if (version not in version_messages.keys()):
+        version = "_"
+
+    print(version_messages[version])
+    return True
