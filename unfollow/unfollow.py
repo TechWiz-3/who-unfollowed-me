@@ -22,7 +22,7 @@ if "--test" in sys.argv:
 TOKEN = os.getenv("UNFOLLOW_TOKEN")
 
 if TOKEN is not None:
-    HEADERS = {'Authorization': f'token {TOKEN}'}
+    HEADERS = {"Authorization": f"token {TOKEN}"}
 else:
     TOKEN = ""
     HEADERS = {}
