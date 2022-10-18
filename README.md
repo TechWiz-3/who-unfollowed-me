@@ -52,11 +52,15 @@ As mentioned, [msaaddev/who-unfollowed-me](https://github.com/msaaddev/who-unfol
 
 ### Development
 
-1. Clone the repo and cd into it
-2. Ensure `poetry` is installed - `pip install poetry`
-3. Run `poetry install`
-4. Make whatever changes you need
-5. To text changes run (in project root directory) `poetry run unfollow`
+1. Clone the repo and cd into it:
+```
+git clone https://github.com/TechWiz-3/who-unfollowed-me.git
+cd who-unfollowed-me
+```
+2. Ensure `poetry` is installed by running:`pip install poetry`
+3. Run: `poetry install`
+4. Make your changes
+5. To test your changes, run: `poetry run unfollow` in project root directory
 
 ---
 
