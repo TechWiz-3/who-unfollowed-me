@@ -364,6 +364,44 @@ end_message_a = "[white on purple]有{follower_num}个人关注了你。[/white 
 end_message_b = "[white on magenta]干得不错！[/white on magenta]"
 thankyou_message = "[white on blue]感谢使用本项目[/white on blue]"
 
+# GREEK
+[locale.greek]
+
+[locale.greek.simple]
+welcome_message = "Καλώς ήρθατε στο who-unfollowed-me μια εφαρμογή σε Python από τον Zac the Wise"
+fetched_followers_message = "Fetched github followers"
+no_unfollows_message = "Κανένα unfollow!"
+end_message = "¨Εχεις {follower_num} followers. Συνέχισε την καλη δουλειά\\n"
+thankyou_message = "Ευχαριστούμε που χρησιμοποιήτε αυτή την εφαρμογή"
+
+[locale.greek.regular]
+welcome_message = ":dancer: [purple]Καλως ήρθατε στο[/purple] [red]who-unfollowed-me[/red][blue] μια εφαρμογή σε Python[/blue] από τον [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Fetched github followers"
+last_week_unfollowers = "[purple]✔ [underline]Unfollowers από την προηγούμενη εβδομάδα"
+no_unfollows_message = "[green]:raised_hands: [underline]Κανένα unfollow!"
+end_message = ":fire: Έχεις {follower_num} followers. Συνέχισε την καλη δουλειά\\n"
+thankyou_message = ":pray: Ευχαριστούμε που χρησιμοποιήτε αυτή την εφαρμογή"
+
+[locale.greek.panels]
+welcome_message = ":dancer: [purple]Καλως ήρθατε στο[/purple] [red]who-unfollowed-me[/red][blue] μια εφαρμογή σε Python[/blue] από τον [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Fetched github followers"
+last_week_unfollowers = "[purple]✔ [underline]Unfollowers από την προηγούμενη εβδομάδα"
+no_unfollows_message = "[white on #308012] Κανένα unfollow! [/white on #308012]                                "
+end_message = ":fire: Έχεις {follower_num} followers. Συνέχισε την καλη δουλειά\\n"
+thankyou_message = ":pray: Ευχαριστούμε που χρησιμοποιήτε αυτή την εφαρμογή"
+
+[locale.greek.bubbles]
+welcome_message_a = "[white on purple]Καλως ήρθες στο[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]μια εφαρμογή σε Python[/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]από τον Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]Fetched github followers[/white on cyan]"
+last_week_unfollowers = "[purple]✔ [underline]Unfollowers από την προηγούμενη εβδομάδα"
+no_unfollows_message = "[white on green4]Κανένα unfollows![/white on green4]"
+end_message_a = "[white on purple]Έχεις {follower_num} followers.[/white on purple]"
+end_message_b = "[white on magenta]Συνέχισε την καλη δουλειά![/white on magenta]"
+thankyou_message = "[white on blue]Ευχαριστούμε που χρησιμοποιήτε αυτή την εφαρμογή[/white on blue]"
+
 """
 
 # Future proof by allowing different messages for different versions
