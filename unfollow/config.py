@@ -327,6 +327,43 @@ end_message_a = "[white on purple]உங்களிடம் உள்ள {foll
 end_message_b = "[white on magenta]நற்பணியை தக்கவைத்துக்கொள்ளவும்![/white on magenta]"
 thankyou_message = "[white on blue]இந்தத் திட்டத்தைப் பயன்படுத்தியதற்கு நன்றி[/white on blue]"
 
+
+[locale.chinese]
+[locale.chinese.simple]
+welcome_message = "欢迎使用who-unfollowed-me Python开发，作者Zac the Wise"
+fetched_followers_message = "获取github关注列表"
+no_unfollows_message = "无取消关注！"
+end_message = "有{follower_num}个人关注了你。干得不错\\n"
+thankyou_message = "感谢使用本项目"
+
+[locale.chinese.regular]
+welcome_message = ":dancer: [purple]欢迎使用[/purple][red]who-unfollowed-me[/red][blue] Python开发[/blue]，作者[#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]获取github关注列表"
+last_week_unfollowers = "[purple]✔ [underline]上周的取消关注"
+no_unfollows_message = "[green]:raised_hands: [underline]无取消关注！"
+end_message = ":fire: 有{follower_num}个人关注了你。干得不错\\n"
+thankyou_message = ":pray: 感谢使用本项目"
+
+[locale.chinese.panels]
+welcome_message = ":dancer: [purple]欢迎使用[/purple][red]who-unfollowed-me[/red][blue] Python开发[/blue]，作者[#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]获取github关注列表"
+last_week_unfollowers = "[purple]✔ [underline]上周的取消关注"
+no_unfollows_message = "[white on #308012]无取消关注！ [/white on #308012]                                "
+end_message = ":fire: 有{follower_num}个人关注了你。干得不错\\n"
+thankyou_message = ":pray: 感谢使用本项目"
+
+[locale.chinese.bubbles]
+welcome_message_a = "[white on purple]欢迎使用[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]使用Python开发[/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]作者Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]获取github关注列表[/white on cyan]"
+last_week_unfollowers = "[purple]✔ [underline]上周的取消关注"
+no_unfollows_message = "[white on green4]无取消关注！[/white on green4]"
+end_message_a = "[white on purple]有{follower_num}个人关注了你。[/white on purple]"
+end_message_b = "[white on magenta]干得不错！[/white on magenta]"
+thankyou_message = "[white on blue]感谢使用本项目[/white on blue]"
+
 """
 
 # Future proof by allowing different messages for different versions
