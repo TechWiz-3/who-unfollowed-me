@@ -364,6 +364,13 @@ end_message_a = "[white on purple]有{follower_num}个人关注了你。[/white 
 end_message_b = "[white on magenta]干得不错！[/white on magenta]"
 thankyou_message = "[white on blue]感谢使用本项目[/white on blue]"
 
+[locale.bangla.simple]
+welcome_message = "স্বাগতম who-unfollowed-me Python সম্পাদন by Zac the Wise"
+fetched_followers_message = "গিটহাব ফলোয়ার্সের দ্বারা আনিত হয়েছে"
+no_unfollows_message = "কেউ আনফলো করে নাই!"
+end_message = "তোমার ফলোয়ার্স {follower_num} আছে. ভাল কাজটা বজায় রাখুন\\n"
+thankyou_message = "প্রজেক্টা ব্যবহার করার জন্য ধন্যবাদ"
+
 [locale.bangla.regular]
 welcome_message = ":dancer: [purple]স্বাগতম[/purple] [red]who-unfollowed-me[/red][blue] Python সম্পাদন[/blue] by [#FFD700]Zac the Wise[#FFD700]"
 fetched_followers_message = "[green]✔ [underline]গিটহাব ফলোয়ার্সের দ্বারা আনিত হয়েছে"
