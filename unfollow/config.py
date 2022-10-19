@@ -364,6 +364,34 @@ end_message_a = "[white on purple]有{follower_num}个人关注了你。[/white 
 end_message_b = "[white on magenta]干得不错！[/white on magenta]"
 thankyou_message = "[white on blue]感谢使用本项目[/white on blue]"
 
+[locale.bangla.regular]
+welcome_message = ":dancer: [purple]স্বাগতম[/purple] [red]who-unfollowed-me[/red][blue] Python সম্পাদন[/blue] by [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]গিটহাব ফলোয়ার্সের দ্বারা আনিত হয়েছে"
+last_week_unfollowers = "[purple]✔ [underline]গত সপ্তাহের আনফলোয়ার্সরা"
+no_unfollows_message = "[green]:raised_hands: [underline]কেউ আনফলো করে নাই!"
+end_message = ":fire: তোমার ফলোয়ার্স {follower_num} আছে. ভাল কাজটা বজায় রাখুন\\n"
+thankyou_message = ":pray: প্রজেক্টা ব্যবহার করার জন্য ধন্যবাদ"
+
+[locale.bangla.panels]
+welcome_message = ":dancer: [purple]স্বাগতম[/purple] [red]who-unfollowed-me[/red][blue] Python সম্পাদন[/blue] by [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]গিটহাব ফলোয়ার্সের দ্বারা আনিত হয়েছে"
+last_week_unfollowers = "[purple]✔ [underline]গত সপ্তাহের আনফলোয়ার্সরা"
+no_unfollows_message = "[white on #308012] কেউ আনফলো করে নাই![/white on #308012]                                "
+end_message = ":fire: তোমার ফলোয়ার্স {follower_num} আছে. ভাল কাজটা বজায় রাখুন\\n"
+thankyou_message = ":pray: প্রজেক্টা ব্যবহার করার জন্য ধন্যবাদ"
+
+[locale.bangla.bubbles]
+welcome_message_a = "[white on purple]স্বাগতম[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]the Python সম্পাদন[/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]by Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]গিটহাব ফলোয়ার্সের দ্বারা আনিত হয়েছে[/white on cyan]"
+last_week_unfollowers = "[purple]✔ [underline]Uগত সপ্তাহের আনফলোয়ার্সরা"
+no_unfollows_message = "[white on green4]কেউ আনফলো করে নাই![/white on green4]"
+end_message_a = "[white on purple]তোমার ফলোয়ার্স {follower_num} আছে.[/white on purple]"
+end_message_b = "[white on magenta]ভাল কাজটা বজায় রাখুন![/white on magenta]"
+thankyou_message = "[white on blue]প্রজেক্টা ব্যবহার করার জন্য ধন্যবাদ[/white on blue]"
+
 """
 
 # Future proof by allowing different messages for different versions
