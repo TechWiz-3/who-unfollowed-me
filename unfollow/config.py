@@ -365,6 +365,40 @@ end_message_b = "[white on magenta]干得不错！[/white on magenta]"
 thankyou_message = "[white on blue]感谢使用本项目[/white on blue]"
 
 
+[locale.gujarati]
+[locale.gujarati.simple]
+welcome_message = "કોણ અનફોલો કરે છે-માં તમારું સ્વાગત છે. "
+fetched_followers_message = "fetched ગિટહબ ના ફોલોવર્સ"
+no_unfollows_message = "કોઈ અનફોલો નથી. "
+end_message = "તમારી પાસે {follower_num} ફોલોવોર્સ. સારું કામ ચાલુ રાખો \\n"
+thankyou_message = "આ પ્રોજેક્ટ નો ઉપયોગ કરવા બદલ આભાર. "
+[locale.gujarati.regular]
+welcome_message = ":dancer: [purple]સ્વાગત છે.[/purple] [red]who-unfollowed-me[/red][blue] Python અમલીકરણ[/blue] માં  [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]અનાયન કરેલ  github ફોલોવર્સ"
+last_week_unfollowers = "[purple]✔ [underline]છેલા અઠવાડિયા ના અનફોલોવર્સ"
+no_unfollows_message = "[green]:raised_hands: [underline]કોઈ અનફોલો નથી!"
+end_message = ":fire: તમારી પાસે {follower_num} ફોલોવર્સ. સારું કામ ચાલુ રાખો \\n"
+thankyou_message = ":pray: આ પ્રોજેક્ટ નો ઉપયોગ કરવા બદલ આભાર."
+[locale.gujarati.panels]
+welcome_message = ":dancer: [purple]સ્વાગત છે.[/purple] [red]who-unfollowed-me[/red][blue] Python અમલીકરણ[/blue] by [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]અનાયન કરેલ  github ફોલોવર્સ"
+last_week_unfollowers = "[purple]✔ [underline]છેલા અઠવાડિયા ના અનફોલોવર્સ"
+no_unfollows_message = "[white on #308012] કોઈ અનફોલો નથી! [/white on #308012]                                "
+end_message = ":fire: તમારી પાસે {follower_num} ફોલોવર્સ. સારું કામ ચાલુ રાખો \\n"
+thankyou_message = ":pray: આ પ્રોજેક્ટ નો ઉપયોગ કરવા બદલ આભાર."
+[locale.english.bubbles]
+welcome_message_a = "[white on purple]સ્વાગત છે.[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]the Python અમલીકરણ[/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]by Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]અનાયન કરેલ  github ફોલોવર્સ[/white on cyan]"
+last_week_unfollowers = "[purple]✔ [underline]છેલા અઠવાડિયા ના અનફોલોવર્સ"
+no_unfollows_message = "[white on green4]કોઈ અનફોલો નથી![/white on green4]"
+end_message_a = "[white on purple]તમારી પાસે {follower_num} followers.[/white on purple]"
+end_message_b = "[white on magenta]Keep up the good work![/white on magenta]"
+thankyou_message = "[white on blue]આ પ્રોજેક્ટ નો ઉપયોગ કરવા બદલ આભાર.[/white on blue]"
+
+
 # GREEK
 [locale.greek]
 
