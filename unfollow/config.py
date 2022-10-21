@@ -99,12 +99,12 @@ thankyou_message = "[white on blue]Obrigado por usar o projeto[/white on blue]"
 
 [locale.hindi]
 [locale.hindi.regular]
-welcome_message = ":dancer: [purple]Aapka Swagat Hai[/purple] [red]who-unfollowed-me[/red][purple]mai[/purple][blue] Python mai kaaryaanvayan [/blue] by [#FFD700]Zac the Wise[#FFD700]"
-fetched_followers_message = "[green]✔ [underline]Github followers praapt kie gae"
-last_week_unfollowers = "[purple]✔ [underline]Unfollowers from last week"
+welcome_message = ":dancer: [red]who-unfollowed-me[/red] [purple]Mai Aapka Swagat Hai![/purple] [#FFD700]Zac the Wise[#FFD700] [blue] Dvaara Python Mai Kaaryaanvit.[/blue]"
+fetched_followers_message = "[green]✔ [underline]Github followers praapt kiye gae"
+last_week_unfollowers = "[purple]✔ [underline]Pichhale saptaah ke Unfollowers"
 no_unfollows_message = "[green]:raised_hands: [underline]Koi unfollow nahi!"
 end_message = ":fire: Aapke paas {follower_num} followers hai. Acha kaam jari rakhiye\\n"
-thankyou_message = ":pray: Iss project ko use karne ke liye dhanyawaad"
+thankyou_message = ":pray: Iss project ka upayog karne ke liye aapka dhanyawaad"
 
 [locale.hindi.panels]
 welcome_message = ":dancer: [purple]Aapka Swagat hai[/purple] [red]who-unfollowed-me[/red][purple]mai[/purple][blue] Python mai kaaryaanvayan [/blue] by [#FFD700]Zac the Wise[#FFD700]"
