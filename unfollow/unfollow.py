@@ -114,10 +114,7 @@ def check_deleted(username):
     response_code = requests.get(
         f"https://api.github.com/users/{username}", headers=HEADERS
     ).status_code
-    if response_code == 404:
-        return True
-    else:
-        return False
+    return response_code == 404
 
 
 def get_unfollows(username):
