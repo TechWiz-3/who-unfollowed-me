@@ -364,6 +364,37 @@ end_message_a = "[white on purple]有{follower_num}个人关注了你。[/white 
 end_message_b = "[white on magenta]干得不错！[/white on magenta]"
 thankyou_message = "[white on blue]感谢使用本项目[/white on blue]"
 
+
+[locale.dutch]
+[locale.dutch.regular]
+welcome_message = ":dancer: [purple]Welkom bij[/purple] [red]who-unfollowed-me[/red][blue] Python implementatie[/blue] door [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Jouw Github volgers worden opgehaald"
+last_week_unfollowers = "[purple]✔ [underline]Ontvolgers van de laatste week"
+no_unfollows_message = "[green]:raised_hands: [underline]Geen ontvolgers!"
+end_message = ":fire: U heeft {follower_num} volgers. Ga zo door\\n"
+thankyou_message = ":pray: Bedankt om dit project te gebruiken"
+
+[locale.dutch.panels]
+welcome_message = ":dancer: [purple]Welkom bij[/purple] [red]who-unfollowed-me[/red][blue] Python implementatie[/blue] door [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Jouw Github volgers worden opgehaald"
+last_week_unfollowers = "[purple]✔ [underline]Ontvolgers van de laatste week"
+no_unfollows_message = "[white on #308012] Geen Ontvolgers! [/white on #308012]                                "
+end_message = ":fire: U heeft {follower_num} volgers. Ga zo door\\n"
+thankyou_message = ":pray: Bedankt om dit project te gebruiken"
+
+[locale.dutch.bubbles]
+welcome_message_a = "[white on purple]Welkom bij[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]de Python implementatie[/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]door Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]Jouw Github volgers worden opgehaald[/white on cyan]"
+last_week_unfollowers = "[purple]✔ [underline]Ontvolgers van de laatste week"
+no_unfollows_message = "[white on green4]Geen ontvolgers![/white on green4]"
+end_message_a = "[white on purple]U heeft {follower_num} volgers.[/white on purple]"
+end_message_b = "[white on magenta]Ga zo door![/white on magenta]"
+thankyou_message = "[white on blue]Bedankt om dit project te gebruiken[/white on blue]"
+
+
 [locale.bangla.simple]
 welcome_message = "স্বাগতম who-unfollowed-me Python সম্পাদন by Zac the Wise"
 fetched_followers_message = "গিটহাব ফলোয়ার্সের দ্বারা আনিত হয়েছে"
