@@ -540,6 +540,42 @@ end_message_a = "[white on purple]तपाईंसँग {follower_num} फल
 end_message_b = "[white on magenta]राम्रो काम गरिरहनुहोस्![/white on magenta]"
 thankyou_message = "[white on blue]यो प्रोजेक्ट प्रयोग गर्नुभएकोमा धन्यवाद|[/white on blue]"
 
+[locale.punjabi]
+
+[locale.punjabi.simple]
+welcome_message = "who-unfollowed-me Python implementation by Zac the Wise ਉਹਨਾਂ ਦਾ ਸੁਆਗਤ ਹੈ"
+fetched_followers_message = "Github ਅਨੁਯਾਈਆਂ ਨੂੰ ਪ੍ਰਾਪਤ ਕੀਤਾ"
+no_unfollows_message = "ਕੋਈ ਅਨਫਾਲੋ ਨਹੀਂ!"
+end_message = "ਤੁਹਾਡੇ {follower_num} ਪੈਰੋਕਾਰ ਹਨ। ਚੰਗਾ ਕੰਮ ਕਰਦੇ ਰਹੋ\\n"
+thankyou_message = "ਇਸ ਪ੍ਰੋਜੈਕਟ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ ਧੰਨਵਾਦ"
+
+[locale.punjabi.regular]
+welcome_message = ":dancer: [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700] [purple]ਵਿੱਚ ਸੁਆਗਤ ਹੈ[/purple] "
+fetched_followers_message = "[green]✔ [underline]gGithub ਅਨੁਯਾਈਆਂ ਨੂੰ ਪ੍ਰਾਪਤ ਕੀਤਾ"
+last_week_unfollowers = "[purple]✔ [underline]ਪਿਛਲੇ ਹਫ਼ਤੇ ਤੋਂ ਅਨਫਾਲੋਅਰਜ਼"
+no_unfollows_message = "[green]:raised_hands: [underline]ਕੋਈ ਅਨਫਾਲੋ ਨਹੀਂ!"
+end_message = ":fire: ਤੁਹਾਡੇ ਕੋਲ {followers non} followers ਹਨ। ਚੰਗਾ ਕੰਮ ਕਰਦੇ ਰਹੋ\\n"
+thankyou_message = ":pray: ਇਸ ਪ੍ਰੋਜੈਕਟ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ ਧੰਨਵਾਦ"
+
+[locale.punjabi.panels]
+welcome_message = ":dancer:  [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700] [purple]ਵਿੱਚ ਸੁਆਗਤ ਹੈ[/purple]"
+fetched_followers_message = "[green]✔ [underline]gGithub ਅਨੁਯਾਈਆਂ ਨੂੰ ਪ੍ਰਾਪਤ ਕੀਤਾ"
+last_week_unfollowers = "[purple]✔ [underline]ਪਿਛਲੇ ਹਫ਼ਤੇ ਤੋਂ ਅਨਫਾਲੋਅਰਜ਼"
+no_unfollows_message = "[green]:raised_hands: [underline]ਕੋਈ ਅਨਫਾਲੋ ਨਹੀਂ!"
+end_message = ":fire: ਤੁਹਾਡੇ ਕੋਲ {followers non} followers ਹਨ। ਚੰਗਾ ਕੰਮ ਕਰਦੇ ਰਹੋ\\n"
+thankyou_message = ":pray: ਇਸ ਪ੍ਰੋਜੈਕਟ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ ਧੰਨਵਾਦ"
+
+[locale.punjabi.bubbles]
+welcome_message_a = "[white on purple]ਸਵਾਗਤ ਹੈ[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]the Python implementation[/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]by Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]Github ਅਨੁਯਾਈਆਂ ਨੂੰ ਪ੍ਰਾਪਤ ਕੀਤਾ[/white on cyan]"
+last_week_unfollowers = "[purple]✔ [underline]ਪਿਛਲੇ ਹਫ਼ਤੇ ਤੋਂ ਅਨਫਾਲੋਅਰਜ਼"
+no_unfollows_message = "[white on green4]ਕੋਈ ਅਨਫਾਲੋ ਨਹੀਂ![/white on green4]"
+end_message_a = "[white on purple]ਤੁਹਾਡੇ {follower_num} ਅਨੁਸਰਣਕਾਰ ਹਨ.[/white on purple]"
+end_message_b = "[white on magenta]ਚੰਗਾ ਕੰਮ ਜਾਰੀ ਰਖੋ![/white on magenta]"
+thankyou_message = "[white on blue]ਇਸ ਪ੍ਰੋਜੈਕਟ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ ਧੰਨਵਾਦ[/white on blue]"
 
 """
 
