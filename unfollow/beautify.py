@@ -1,14 +1,17 @@
+# Imports
 from rich import box
 from rich.console import Console
 from rich.style import Style
 from rich.table import Table
 
+# Setting Variables
 console = Console()
 blue = Style(color="blue")
 red = Style(color="red", bold=True)
 bright_red = Style(color="bright_red")
 
 
+# Functions
 def get_inverse(bg_col, txt, txt_after=""):
     circle_style = f"[{bg_col}]"
     circle_close = f"{circle_style[:1]}/{circle_style[1:]}"
@@ -17,6 +20,7 @@ def get_inverse(bg_col, txt, txt_after=""):
 
 def beautify_unfollows(info, special=False, cached=False):
     if cached:
+        # Style of titles
         title_style = "purple"
         title_justify = "left"
         title = "Cached Unfollowers"
