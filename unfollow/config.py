@@ -523,7 +523,7 @@ thankyou_message = ":pray: यो प्रोजेक्ट प्रयोग
 [locale.nepali.panels]
 welcome_message = ":dancer: [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700] मा [purple]तपाईंलाई हार्दिक स्वागत छ[/purple]।"
 fetched_followers_message = "[green]✔ [underline]Github फलोअरहरू प्राप्त गरियो।"
-last_week_unfollowers = "[purple]✔ [underline]पछिल्लो हप्ताबाट अनफलोअरहरू।"
+last_week_unfollowers = "[purple]✔ [underline]पछिल्लो हप्ताका अनफलोअरहरू।"
 no_unfollows_message = "[white on #308012] कुनै अनफलो छैनन्! [/white on #308012]                                "
 end_message = ":fire: तपाईंसँग {follower_num}वटा फलोअरहरू छन्। बधाई छ, राम्रो काम गरिरहनुहोस्।\\n"
 thankyou_message = ":pray: यो प्रोजेक्ट प्रयोग गर्दिनुभएकोम धन्यवाद!"
