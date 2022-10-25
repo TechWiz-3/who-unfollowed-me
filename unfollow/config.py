@@ -506,39 +506,39 @@ thankyou_message = "[white on blue]প্রজেক্টা ব্যবহ�
 [locale.nepali]
 
 [locale.nepali.simple]
-welcome_message = "who-unfollowed-me Python implementation by Zac the Wise मा तपाईंलाई स्वागत छ|"
-fetched_followers_message = "Github फलोअरहरू प्राप्त गरियो"
-no_unfollows_message = "कुनै अनफलो छैन!"
-end_message = "तपाईंसँग {follower_num} फलोअरहरू छन्| राम्रो काम गरिरहनुहोस्\\n"
-thankyou_message = "यो प्रोजेक्ट प्रयोग गर्नुभएकोमा धन्यवाद"
+welcome_message = "who-unfollowed-me Python implementation by Zac the Wise मा तपाईंलाई हार्दिक स्वागत छ।"
+fetched_followers_message = "Github फलोअरहरू प्राप्त गरियो।"
+no_unfollows_message = "कुनै अनफलो छैनन्!"
+end_message = "तपाईंसँग {follower_num}वटा फलोअरहरू छन्। बधाई छ, राम्रो काम गरिरहनुहोस्।\\n"
+thankyou_message = "यो प्रोजेक्ट प्रयोग गर्दिनुभएकोमा धन्यवाद!"
 
 [locale.nepali.regular]
-welcome_message = ":dancer: [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700] मा [purple]तपाईंलाई स्वागत छ[/purple]|"
-fetched_followers_message = "[green]✔ [underline]Github फलोअरहरू प्राप्त गरियो"
-last_week_unfollowers = "[purple]✔ [underline]पछिल्लो हप्ताबाट अनफलोअरहरू"
-no_unfollows_message = "[green]:raised_hands: [underline]कुनै अनफलो छैन!"
-end_message = ":fire: तपाईंसँग {follower_num} फलोअरहरू छन्| राम्रो काम गरिरहनुहोस्\\n"
-thankyou_message = ":pray: यो प्रोजेक्ट प्रयोग गर्नुभएकोमा धन्यवाद|"
+welcome_message = ":dancer: [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700] मा [purple]तपाईंलाई हार्दिक स्वागत छ[/purple]।"
+fetched_followers_message = "[green]✔ [underline]Github फलोअरहरू प्राप्त गरियो।"
+last_week_unfollowers = "[purple]✔ [underline]पछिल्लो हप्ताका अनफलोअरहरू।"
+no_unfollows_message = "[green]:raised_hands: [underline]कुनै अनफलो छैनन्!"
+end_message = ":fire: तपाईंसँग {follower_num}वटा फलोअरहरू छन्। राम्रो काम गरिरहनुहोस्\\n"
+thankyou_message = ":pray: यो प्रोजेक्ट प्रयोग गर्दिनुभएकोम धन्यवाद!"
 
 [locale.nepali.panels]
-welcome_message = ":dancer: [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700] मा [purple]तपाईंलाई स्वागत छ[/purple]|"
-fetched_followers_message = "[green]✔ [underline]Github फलोअरहरू प्राप्त गरियो"
-last_week_unfollowers = "[purple]✔ [underline]पछिल्लो हप्ताबाट अनफलोअरहरू"
-no_unfollows_message = "[white on #308012] कुनै अनफलो छैन! [/white on #308012]                                "
-end_message = ":fire: तपाईंसँग {follower_num} फलोअरहरू छन्| राम्रो काम गरिरहनुहोस्\\n"
-thankyou_message = ":pray: यो प्रोजेक्ट प्रयोग गर्नुभएकोमा धन्यवाद|"
+welcome_message = ":dancer: [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700] मा [purple]तपाईंलाई हार्दिक स्वागत छ[/purple]।"
+fetched_followers_message = "[green]✔ [underline]Github फलोअरहरू प्राप्त गरियो।"
+last_week_unfollowers = "[purple]✔ [underline]पछिल्लो हप्ताका अनफलोअरहरू।"
+no_unfollows_message = "[white on #308012] कुनै अनफलो छैनन्! [/white on #308012]                                "
+end_message = ":fire: तपाईंसँग {follower_num}वटा फलोअरहरू छन्। बधाई छ, राम्रो काम गरिरहनुहोस्।\\n"
+thankyou_message = ":pray: यो प्रोजेक्ट प्रयोग गर्दिनुभएकोम धन्यवाद!"
 
 [locale.nepali.bubbles]
-welcome_message_a = "[white on purple]स्वागत छ[/white on purple]"
+welcome_message_a = "[white on purple]हार्दिक स्वागत छ[/white on purple]"
 welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
 welcome_message_c = "[white on blue]the Python implementation[/white on blue]"
 welcome_message_d = "[white on dark_goldenrod]by Zac the Wise[/white on dark_goldenrod]"
-fetched_followers_message = "[white on cyan]Github फलोअरहरू प्राप्त गरियो[/white on cyan]"
-last_week_unfollowers = "[purple]✔ [underline]पछिल्लो हप्ताबाट अनफलोअरहरू"
-no_unfollows_message = "[white on green4]कुनै अनफलो छैन![/white on green4]"
-end_message_a = "[white on purple]तपाईंसँग {follower_num} फलोअरहरू छन्|[/white on purple]"
-end_message_b = "[white on magenta]राम्रो काम गरिरहनुहोस्![/white on magenta]"
-thankyou_message = "[white on blue]यो प्रोजेक्ट प्रयोग गर्नुभएकोमा धन्यवाद|[/white on blue]"
+fetched_followers_message = "[white on cyan]Github फलोअरहरू प्राप्त गरियो।[/white on cyan]"
+last_week_unfollowers = "[purple]✔ [underline]पछिल्लो हप्ताबाट अनफलोअरहरू।"
+no_unfollows_message = "[white on green4]कुनै अनफलो छैनन्![/white on green4]"
+end_message_a = "[white on purple]तपाईंसँग {follower_num}वटा फलोअरहरू छन्।[/white on purple]"
+end_message_b = "[white on magenta]बधाई छ, राम्रो काम गरिरहनुहोस्![/white on magenta]"
+thankyou_message = "[white on blue]यो प्रोजेक्ट प्रयोग गर्दिनुभएकोम धन्यवाद![/white on blue]"
 
 [locale.punjabi]
 
