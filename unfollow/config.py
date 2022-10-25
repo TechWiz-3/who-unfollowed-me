@@ -301,19 +301,25 @@ end_message_a = "[white on purple]Kamu punya {follower_num} pengikut.[/white on 
 end_message_b = "[white on magenta]Kerja bagus![/white on magenta]"
 thankyou_message = "[white on blue]Terima kasih telah menggunakan proyek ini[/white on blue]"
 
+[locale.tamil.simple]
+welcome_message = "நல்வரவு யார் என்னை பின் தொடரவில்லை பைதான் செயல்படுத்தல் by Zac the Wise"
+fetched_followers_message = "மதிப்பிற்குரிய கிட்ஹப் தொண்டர்கள்"
+no_unfollows_message = "பின்தொடராதவர்கள்!"
+end_message = "உங்களுக்கு {follower_num} தொண்டர்கள் இருக்காங்க. நற்பணியை தக்கவைத்துக்கொள்ளவும்\\n"
+thankyou_message = "இந்தத் திட்டத்தைப் பயன்படுத்தியதற்கு நன்றி"
 
 [locale.tamil.regular]
 welcome_message = ":dancer: [purple]நல்வரவு[/purple] [red]யார் என்னை பின் தொடரவில்லை[/red][blue] பைதான் செயல்படுத்தல் [/blue] by [#FFD700]Zac the Wise[#FFD700]"
-fetched_followers_message = "[green]✔ [underline]கிதுப் பின்தொடர்பவர்களைப் பெற்றனர்"
-no_unfollows_message = "[green]:raised_hands: [underline]பின்தொடரவில்லை!"
-end_message = ":fire: உங்களிடம் உள்ள {follower_num} பின்பற்றுபவர்கள். நற்பணியை தக்கவைத்துக்கொள்ளவும்\\n"
+fetched_followers_message = "[green]✔ [underline]மதிப்பிற்குரிய கிட்ஹப் தொண்டர்கள்"
+no_unfollows_message = "[green]:raised_hands: [underline]பின்தொடராதவர்கள்!"
+end_message = ":fire: உங்களுக்கு {follower_num} தொண்டர்கள் இருக்காங்க. நற்பணியை தக்கவைத்துக்கொள்ளவும்\\n"
 thankyou_message = ":pray: இந்தத் திட்டத்தைப் பயன்படுத்தியதற்கு நன்றி"
 
 [locale.tamil.panels]
 welcome_message = ":dancer: [purple]நல்வரவு[/purple] [red]யார் என்னை பின் தொடரவில்லை[/red][blue] பைதான் செயல்படுத்தல்[/blue] by [#FFD700]Zac the Wise[#FFD700]"
-fetched_followers_message = "[green]✔ [underline]கிதுப் பின்தொடர்பவர்களைப் பெற்றனர்"
-no_unfollows_message = "[white on #308012] பின்தொடரவில்லை! [/white on #308012]                                "
-end_message = ":fire: உங்களிடம் உள்ள {follower_num} பின்பற்றுபவர்கள். நற்பணியை தக்கவைத்துக்கொள்ளவும்\\n"
+fetched_followers_message = "[green]✔ [underline]மதிப்பிற்குரிய கிட்ஹப் தொண்டர்கள்"
+no_unfollows_message = "[white on #308012] பின்தொடராதவர்கள்! [/white on #308012]                                "
+end_message = ":fire: உங்களுக்க {follower_num} தொண்டர்கள் இருக்காங்க. நற்பணியை தக்கவைத்துக்கொள்ளவும்\\n"
 thankyou_message = ":pray: இந்தத் திட்டத்தைப் பயன்படுத்தியதற்கு நன்றி"
 
 [locale.tamil.bubbles]
@@ -321,9 +327,9 @@ welcome_message_a = "[white on purple]நல்வரவு[/white on purple]"
 welcome_message_b = "[white on red]யார் என்னை பின் தொடரவில்லை[/white on red]"
 welcome_message_c = "[white on blue]பைதான் செயல்படுத்தல்[/white on blue]"
 welcome_message_d = "[white on dark_goldenrod]by Zac the Wise[/white on dark_goldenrod]"
-fetched_followers_message = "[white on cyan]கிதுப் பின்தொடர்பவர்களைப் பெற்றனர்[/white on cyan]"
-no_unfollows_message = "[white on green4]பின்தொடரவில்லை![/white on green4]"
-end_message_a = "[white on purple]உங்களிடம் உள்ள {follower_num} followers.[/white on purple]"
+fetched_followers_message = "[white on cyan]மதிப்பிற்குரிய கிட்ஹப் தொண்டர்கள்[/white on cyan]"
+no_unfollows_message = "[white on green4]பின்தொடராதவர்கள்![/white on green4]"
+end_message_a = "[white on purple]உங்களுக்க {follower_num} தொண்டர்கள் இருக்காங்க.[/white on purple]"
 end_message_b = "[white on magenta]நற்பணியை தக்கவைத்துக்கொள்ளவும்![/white on magenta]"
 thankyou_message = "[white on blue]இந்தத் திட்டத்தைப் பயன்படுத்தியதற்கு நன்றி[/white on blue]"
 
