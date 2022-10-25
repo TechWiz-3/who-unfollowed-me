@@ -61,7 +61,7 @@ def get_user() -> tuple:
         get_followers(user, write_file=True, overwrite=True)
         return ("first", user)
 
-
+#Verify if path exist
 def write_followers(payload):
     if os.path.exists(f"{UNFOLLOW_PATH}/followers.json"):
         pass
