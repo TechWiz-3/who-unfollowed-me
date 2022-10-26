@@ -583,6 +583,43 @@ end_message_a = "[white on purple]ਤੁਹਾਡੇ {follower_num} ਅਨੁਸ
 end_message_b = "[white on magenta]ਚੰਗਾ ਕੰਮ ਜਾਰੀ ਰਖੋ![/white on magenta]"
 thankyou_message = "[white on blue]ਇਸ ਪ੍ਰੋਜੈਕਟ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ ਧੰਨਵਾਦ[/white on blue]"
 
+[locale.assamese]
+
+[locale.assamese.simple]
+welcome_message = "Zac the Wise দ্বাৰা who-unfollowed-me python প্ৰণয়নলৈ আপোনাক স্বাগতম"
+fetched_followers_message = "GitHub এ ফেচ করা হইছে"
+no_unfollows_message = "কোনো আনফ'ল' নহয়!"
+end_message = "আপোনাৰ {follower_num} অনুগামী আছে। আগুৱাই থাকক\\n"
+thankyou_message = "এই প্রজেক্ট ব্যৱহাৰ কৰাৰ বাবে ধন্যবাদ"
+
+[locale.assamese.regular]
+welcome_message = ":dancer: [purple]স্বাগতম[/purple] [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]GitHub এ ফেচ করা হইছে "
+last_week_unfollowers = "[purple]✔ [underline]যোৱা সপ্তাহৰ পৰা আনফ’ল’ৱাৰ"
+no_unfollows_message = "[green]:raised_hands: [underline]কোনো আনফ’ল নাই!"
+end_message = ":fire: আপোনাৰ {follower_name} ফ’ল’ৱাৰ আছে। আগুৱাই থাকক\\n"
+thankyou_message = ":pray: এই প্রজেক্ট ব্যৱহাৰ কৰাৰ বাবে ধন্যবাদ"
+
+[locale.assamese.panels]
+welcome_message = ":dancer: [purple]স্বাগতম[/purple] [red]who-unfollowed-me[/red][blue] Python implementation[/blue] by [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]GitHub এ ফেচ করা হইছে"
+last_week_unfollowers = "[purple]✔ [underline]যোৱা সপ্তাহৰ পৰা আনফ’ল’ৱাৰ"
+no_unfollows_message = "[white on #308012] কোনো আনফ’ল নাই! [/white on #308012]                                "
+end_message = ":fire: আপোনাৰ {follower_name} ফ’ল’ৱাৰ আছে। আগুৱাই থাকক\\n"
+thankyou_message = ":pray: এই প্রজেক্ট ব্যৱহাৰ কৰাৰ বাবে ধন্যবাদ"
+
+[locale.assamese.bubbles]
+welcome_message_a = "[white on purple]স্বাগতম[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]the Python implementation[/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]by Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]GitHub এ ফেচ করা হইছে[/white on cyan]"
+last_week_unfollowers = "[purple]✔ [underline]যোৱা সপ্তাহৰ পৰা আনফ’ল’ৱাৰ"
+no_unfollows_message = "[white on green4]কোনো আনফ’ল নাই![/white on green4]"
+end_message_a = "[white on purple]আপোনাৰ {follower_name} ফ’ল’ৱাৰ আছে।[/white on purple]"
+end_message_b = "[white on magenta]আগুৱাই থাকক![/white on magenta]"
+thankyou_message = "[white on blue]এই প্রজেক্ট ব্যৱহাৰ কৰাৰ বাবে ধন্যবাদ[/white on blue]"
+
 """
 
 # Future proof by allowing different messages for different versions
