@@ -1,6 +1,6 @@
 # Who Unfollowed Me
 
-## Python Implementation
+## :snake: Python Implementation
 
 <img src="https://github.com/TechWiz-3/who-unfollowed-me/blob/main/media/regular.png?raw=true" width="700px"></img>  
 
@@ -8,12 +8,12 @@
 
 **Breaking Change for development in [#34](https://github.com/TechWiz-3/who-unfollowed-me/pull/34)** - please delete the `~/.unfollow/unfollow.toml` file before running `unfollow` again!
 
-### About
+### :mirror: About
 
 Python CLI tool that shows you who has unfollowed you on GitHub.  
 Heavily inspired by [msaaddev/who-unfollowed-me](https://github.com/msaaddev/who-unfollowed-me)  
 
-### Installation
+### :wrench: Installation
 
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/unfollow?style=flat-square&color=blue)
 
@@ -21,7 +21,7 @@ Heavily inspired by [msaaddev/who-unfollowed-me](https://github.com/msaaddev/who
 pip install unfollow
 ```
 
-### Usage
+### :receipt:	Usage
 
 The first time you run the tool, you will be asked to enter your GitHub username. Subsequent runs will show any unfollowers, with names and links.  
 
@@ -32,7 +32,7 @@ I used this project to learn a lot about [rich](https://github.com/Textualize/ri
 `unfollow bubbles` - all text inside beautiful bubbles - requires a nerd font  
 `unfollow simple` - no colors or emojis, just plain text and a table - coming soon  
 
-### Inspiration
+### :slightly_smiling_face:	Inspiration
 
 As mentioned, [msaaddev/who-unfollowed-me](https://github.com/msaaddev/who-unfollowed-me) was the reason I created this project and has been a great reference. While I love the project, three things stood out to me that I wanted to improve in my own implementation:
 
@@ -40,17 +40,17 @@ As mentioned, [msaaddev/who-unfollowed-me](https://github.com/msaaddev/who-unfol
 2. Output looks good but a huge amount is self promotion rather than actual relevant info. (Please don't get me wrong, everyone can self promote as much as they like, I'm just talking about what I wanted to improve)
 3. If the tool is run without internet connection, the file that stores the username is erased
 
-### Gallery
+###  :framed_picture:	 Gallery
 
 #### Bubbles (w/nerd font)
 
 <img src="https://github.com/TechWiz-3/who-unfollowed-me/blob/main/media/bubbles.png?raw=true" ></img>
 
-#### Panels
+#### :point_down: Panels
 
 <img src="https://github.com/TechWiz-3/who-unfollowed-me/blob/main/media/panels.png?raw=true" ></img>
 
-### Development
+### :computer: Development 
 
 1. Clone the repo and cd into it:
 ```
@@ -67,3 +67,16 @@ cd who-unfollowed-me
 ### 🎉 Commit labels
 
 If you're interested in the commit labels used in this repo, check out my [git-commit-emoji](https://github.com/TechWiz-3/git-commit-emojis) project
+
+---
+
+### :trophy: Thanks to all the contributions :hearts:	
+
+<a href="https://github.com/TechWiz-3/who-unfollowed-me/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=TechWiz-3/who-unfollowed-me" />
+</a>
+
+
+Made with [contrib.rocks](https://contrib.rocks).
+
+##### Keep contributing! Happy Coding! :v:	
