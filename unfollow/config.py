@@ -583,6 +583,7 @@ end_message_a = "[white on purple]ਤੁਹਾਡੇ {follower_num} ਅਨੁਸ
 end_message_b = "[white on magenta]ਚੰਗਾ ਕੰਮ ਜਾਰੀ ਰਖੋ![/white on magenta]"
 thankyou_message = "[white on blue]ਇਸ ਪ੍ਰੋਜੈਕਟ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ ਧੰਨਵਾਦ[/white on blue]"
 
+
 [locale.assamese]
 
 [locale.assamese.simple]
@@ -619,6 +620,35 @@ no_unfollows_message = "[white on green4]কোনো আনফ’ল নাই!
 end_message_a = "[white on purple]আপোনাৰ {follower_name} ফ’ল’ৱাৰ আছে।[/white on purple]"
 end_message_b = "[white on magenta]আগুৱাই থাকক![/white on magenta]"
 thankyou_message = "[white on blue]এই প্রজেক্ট ব্যৱহাৰ কৰাৰ বাবে ধন্যবাদ[/white on blue]"
+
+[locale.ukrainian]
+[locale.ukrainian.regular]
+welcome_message = ":dancer: [purple]Ласкаво просимо до[/purple] [red]who-unfollowed-me[/red][blue] імплементовану на Python [/blue] користувачем [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Отримані гітхаб підписники"
+last_week_unfollowers = "[purple]✔ [underline]Відписалися з минулого тижня"
+no_unfollows_message = "[green]:raised_hands: [underline]Ніхто не відписався!"
+end_message = ":fire: У вас {follower_num} підписник(a/ів). Продовжуйте так і надалі!\\n"
+thankyou_message = ":pray: Дякуємо, що скористалися цим проектом"
+
+[locale.ukrainian.panels]
+welcome_message = ":dancer: [purple]Ласкаво просимо до [/purple] [red]who-unfollowed-me[/red][blue] імплементовану на Python [/blue] користувачем [#FFD700]Zac the Wise[#FFD700]"
+fetched_followers_message = "[green]✔ [underline]Отримані гітхаб підписники"
+last_week_unfollowers = "[purple]✔ [underline]Відписалися з минулого тижня"
+no_unfollows_message = "[white on #308012] Ніхто не відписався! [/white on #308012]                                "
+end_message = ":fire: У вас {follower_num} підписник(a/ів). Продовжуйте так і надалі!\\n"
+thankyou_message = ":pray: Дякуємо, що скористалися цим проектом"
+
+[locale.ukrainian.bubbles]
+welcome_message_a = "[white on purple]Ласкао просимо до[/white on purple]"
+welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
+welcome_message_c = "[white on blue]імплементовану на Python[/white on blue]"
+welcome_message_d = "[white on dark_goldenrod]користувачем Zac the Wise[/white on dark_goldenrod]"
+fetched_followers_message = "[white on cyan]Отримані гітхаб підписники[/white on cyan]"
+last_week_unfollowers = "[purple]✔ [underline]Відписалися з минулого тижня"
+no_unfollows_message = "[white on green4]Ніхто не відписався![/white on green4]"
+end_message_a = "[white on purple]У вас {follower_num} підписник(a/ів).[/white on purple]"
+end_message_b = "[white on magenta]Продовжуйте так і надалі![/white on magenta]"
+thankyou_message = "[white on blue]Дякуємо, що скористалися цим проектом[/white on blue]"
 
 """
 
