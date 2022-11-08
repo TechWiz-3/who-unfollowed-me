@@ -4,10 +4,6 @@
 
 <img src="https://github.com/TechWiz-3/who-unfollowed-me/blob/main/media/regular.png?raw=true" width="700px"></img>  
 
-**Check Issues for HacktoberFest**  
-
-**Breaking Change for development in [#34](https://github.com/TechWiz-3/who-unfollowed-me/pull/34)** - please delete the `~/.unfollow/unfollow.toml` file before running `unfollow` again!
-
 ### About
 
 Python CLI tool that shows you who has unfollowed you on GitHub.  
@@ -30,7 +26,7 @@ I used this project to learn a lot about [rich](https://github.com/Textualize/ri
 `unfollow` - colored text and some panels  
 `unfollow panels` - colored text inside panels  
 `unfollow bubbles` - all text inside beautiful bubbles - requires a nerd font  
-`unfollow simple` - no colors or emojis, just plain text and a table - coming soon  
+`unfollow simple` - no colors or emojis, just plain text and a table  
 
 ### Inspiration
 
