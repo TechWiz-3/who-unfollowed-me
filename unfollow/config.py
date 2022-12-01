@@ -392,7 +392,7 @@ last_week_unfollowers = "[purple]✔ [underline]છેલા અઠવાડિ�
 no_unfollows_message = "[white on #308012] કોઈ અનફોલો નથી! [/white on #308012]                                "
 end_message = ":fire: તમારી પાસે {follower_num} ફોલોવર્સ. સારું કામ ચાલુ રાખો \\n"
 thankyou_message = ":pray: આ પ્રોજેક્ટ નો ઉપયોગ કરવા બદલ આભાર."
-[locale.english.bubbles]
+[locale.gujarati.bubbles]
 welcome_message_a = "[white on purple]સ્વાગત છે.[/white on purple]"
 welcome_message_b = "[white on red]who-unfollowed-me[/white on red]"
 welcome_message_c = "[white on blue]the Python અમલીકરણ[/white on blue]"
