@@ -19,7 +19,7 @@ pip install unfollow
 
 ### Usage
 
-The first time you run the tool, you will be asked to enter your GitHub username. Subsequent runs will show any unfollowers, with names and links.  
+You will need to enter your username when you will the program for the first time. Subsequent runs will show any unfollowers, with names and links.  
 
 I used this project to learn a lot about [rich](https://github.com/Textualize/rich), thus I created numerous themes which you can use.
 
@@ -30,11 +30,11 @@ I used this project to learn a lot about [rich](https://github.com/Textualize/ri
 
 ### Inspiration
 
-As mentioned, [msaaddev/who-unfollowed-me](https://github.com/msaaddev/who-unfollowed-me) was the reason I created this project and has been a great reference. While I love the project, three things stood out to me that I wanted to improve in my own implementation:
+As mentioned, [msaaddev/who-unfollowed-me](https://github.com/msaaddev/who-unfollowed-me) was the reason I created this project and it has been a great reference. While I love the project, three things stood out to me that I wanted to improve in my own implementation:
 
 1. The data files for the tool are not hidden and are stored in your current directory rather than the home directory
-2. Output looks good but a huge amount is self promotion rather than actual relevant info. (Please don't get me wrong, everyone can self promote as much as they like, I'm just talking about what I wanted to improve)
-3. If the tool is run without internet connection, the file that stores the username is erased
+2. The Output looks good but, a huge amount is self promotion rather than actual relevant info. (Please don't get me wrong, everyone can self promote as much as they like, I'm just talking about what I wanted to improve)
+3. If the tool is run without an internet connection, the file that stores the username is erased
 
 ### Gallery
 
